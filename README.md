@@ -1,2 +1,2 @@
 # AussiePolitics
-My first big data project.
+Getting information to people.
