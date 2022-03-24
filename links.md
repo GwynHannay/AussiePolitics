@@ -2,10 +2,14 @@
 
 https://github.com/teambob/parlpod - Parliament Broadcasts
 
-https://glam-workbench.net - GLAM Workbench
+https://github.com/GLAM-Workbench - GLAM Workbench
 
 https://github.com/sarasrking/hhbackup - Heritage Hacking
 
 https://github.com/pallih/scraperwiki-scraper-vault - Code for public scrapers from 2013
 
 https://github.com/Jarrod95/HansardReader - Hansard reader
+
+http://data.openaustralia.org.au - Parliament data
+
+http://timsherratt.org/digital-heritage-handbook/docs/historic-hansard/ - Historic Hansard doco
