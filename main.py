@@ -1,7 +1,8 @@
-import utils.hansard_reader as hans
+import utils.scrape as scrape
 
 def main():
-    hans.read_senate()
+    candidates = scrape.get_candidates()
+    scrape.process_candidates(candidates)
 
 
 if __name__ == "__main__":
