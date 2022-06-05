@@ -134,3 +134,4 @@ dmypy.json
 # Development
 *.xml
 *.db
+*.docx
