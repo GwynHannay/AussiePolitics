@@ -13,3 +13,9 @@ https://github.com/Jarrod95/HansardReader - Hansard reader
 http://data.openaustralia.org.au - Parliament data
 
 http://timsherratt.org/digital-heritage-handbook/docs/historic-hansard/ - Historic Hansard doco
+
+# Data Links
+
+https://transparency.aec.gov.au/Download/AllElectionsData
+
+https://transparency.aec.gov.au/Download/AllAnnualData
