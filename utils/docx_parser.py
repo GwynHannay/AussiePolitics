@@ -13,61 +13,59 @@ def open_document(filename: str):
     return docx.Document(filename)
 
 
-def get_document_text(document) -> list:
-    """Grabs and returns every paragraph in a docx document in a list.
+def get_header(document) -> list:
+    """Grabs and returns a header object from each section of a docx object in a list.
 
     Args:
         document (|Document| object): docx object.
+
+    Returns:
+        list: Header object from each section within the docx object as a list item.
+    """    
+    headers = []
+    for section in document.sections:
+        headers.append(section.header)
+    
+    return headers
+
+
+def get_footer(document) -> list:
+    """Grabs and returns a footer object from each section of a docx object in a list.
+
+    Args:
+        document (|Document| object): docx object.
+
+    Returns:
+        list: Footer object from each section within the docx object as a list item.
+    """   
+    footers = []
+    for section in document.sections:
+        footers.append(section.footer)
+    
+    return footers
+
+
+def get_document_text(docx_object) -> list:
+    """Grabs and returns every paragraph in a docx document in a list.
+
+    Args:
+        document (|Document| OR _Header OR _Footer object): docx object.
 
     Returns:
         list: Text of each paragraph from the docx object as a list item.
     """
-    document_text = []
-    for paragraph in document.paragraphs:
-        document_text.append(paragraph.text)
+    text = []
+    for paragraph in docx_object.paragraphs:
+        text.append(paragraph.text)
 
-    return document_text
-
-
-def get_header_text(document) -> list:
-    """Grabs and returns the text of each section header from a docx object.
-
-    Args:
-        document (|Document| object): docx object.
-
-    Returns:
-        list: Text from the header of each section in the docx object as a list item.
-    """
-    header_text = []
-    for section in document.sections:
-        for paragraph in section.header.paragraphs:
-            header_text.append(paragraph.text)
-
-    return header_text
-
-
-def get_footer_text(document) -> list:
-    """Grabs and returns the text of each section footer from a docx object.
-
-    Args:
-        document (|Document| object): docx object.
-
-    Returns:
-        list: Text from the footer of each section in the docx object as a list item.
-    """
-    footer_text = []
-    for section in document.sections:
-        for paragraph in section.footer.paragraphs:
-            footer_text.append(paragraph.text)
-
-    return footer_text
+    return text
 
 
 def get_table_text(document) -> list:
     """Grabs and returns the text from each cell of each table from a docx object.
 
     Args:
-        document (|Document| object): docx object.
+        document (|Document| OR _Header OR _Footer object): docx object.
 
     Returns:
         list: Text from each cell of each row of each table in the docx object as a list inside a list inside a list.
@@ -89,7 +87,7 @@ def get_inline_shapes(document) -> list:
     """Grabs and returns the type of each inline shape in a docx object.
 
     Args:
-        document (|Document| object): docx object.
+        document (|Document| OR _Header OR _Footer object): docx object.
 
     Returns:
         list: Each type of inline shape found in a docx object as a list item.
