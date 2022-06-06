@@ -1,9 +1,15 @@
 import utils.docx_parser as docx
 import utils.data_cleaner as dc
+import utils.legislation_crawler as crawler
 import difflib
 import sys
 
+
 def main():
+    crawler.get_constitution()
+
+
+def build_diff():
     orig_doc = docx.open_document('hansard/The Constitution - as made version.docx')
     changed_doc = docx.open_document('hansard/C2021Q00024XN01.docx')
     orig_text = docx.get_document_text(orig_doc)
