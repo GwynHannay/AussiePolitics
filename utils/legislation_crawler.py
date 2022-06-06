@@ -44,6 +44,25 @@ def get_constitution():
 def get_series(series_id):
     landing_url = build_scrape_url(federal_register_url, ''.join(['Series/', series_id]))
     soup = get_soup(landing_url)
+
+    metadata = []
     table_contents = soup.find_all('table', class_='rgMasterTable')
-    table_headers = table_contents[0].thead.find_all('th', class_='rgHeader')
-    print(table_headers)
+    
+    headings = []
+    for header in table_contents[0].thead.find_all('th', class_='rgHeader'):
+        headings.append(header.text)
+    
+    for row in table_contents[0].tbody.findChildren('tr', recursive=False):
+        document = {}
+        i = 0
+        for columns in row.findChildren('td', recursive=False):
+            if columns.find('table'):
+                title = columns.table.find('a').text
+                status = columns.table.find('span', id=re.compile('lblTitleStatus')).text
+                document[headings[i]] = ''.join([title, ' [', status, ']'])
+            else:
+                document[headings[i]] = columns.text.strip()
+            i = i + 1
+        metadata.append(document)
+    
+    print(metadata)
