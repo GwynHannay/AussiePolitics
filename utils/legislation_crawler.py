@@ -19,10 +19,19 @@ register_sections = [
 ]
 
 
+def build_scrape_url(base_url, index_url):
+    return urljoin(base_url, index_url)
+
+
+def get_soup(url):
+    response = urlopen(url)
+    soup = BeautifulSoup(response, "html.parser")
+    return soup
+
+
 def get_constitution():
     scrape_url = build_scrape_url(federal_register_url, register_sections[0])
-    response = urlopen(scrape_url)
-    soup = BeautifulSoup(response, "html.parser")
+    soup = get_soup(scrape_url)
     series_details = soup.find_all('input', value='View Series')
     series_id = ''
 
@@ -32,5 +41,9 @@ def get_constitution():
     return series_id
 
 
-def build_scrape_url(base_url, index_url):
-    return urljoin(base_url, index_url)
+def get_series(series_id):
+    landing_url = build_scrape_url(federal_register_url, ''.join(['Series/', series_id]))
+    soup = get_soup(landing_url)
+    table_contents = soup.find_all('table', class_='rgMasterTable')
+    table_headers = table_contents[0].thead.find_all('th', class_='rgHeader')
+    print(table_headers)

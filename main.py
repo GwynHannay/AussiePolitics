@@ -6,7 +6,8 @@ import sys
 
 
 def main():
-    crawler.get_constitution()
+    constitution_id = crawler.get_constitution()
+    crawler.get_series(constitution_id)
 
 
 def build_diff():
