@@ -7,20 +7,28 @@ from urllib.request import urlopen
 federal_register_url = 'https://www.legislation.gov.au'
 
 register_sections = [
-    'Browse/ByTitle/Constitution/InForce'
-    # 'Browse/ByTitle/Acts',
-    # 'Browse/ByTitle/LegislativeInstruments',
-    # 'Browse/ByTitle/NotifiableInstruments',
-    # 'Browse/ByTitle/Gazettes',
-    # 'Browse/ByTitle/Bills',
-    # 'Browse/ByRegDate/AdministrativeArrangementsOrders',
-    # 'Browse/ByTitle/NorfolkIslandLegislation',
-    # 'Browse/ByTitle/PrerogativeInstruments'
+    'ByTitle/Constitution/InForce'
+    # 'ByTitle/Acts',
+    # 'ByTitle/LegislativeInstruments',
+    # 'ByTitle/NotifiableInstruments',
+    # 'ByTitle/Gazettes',
+    # 'ByTitle/Bills',
+    # 'ByRegDate/AdministrativeArrangementsOrders',
+    # 'ByTitle/NorfolkIslandLegislation',
+    # 'ByTitle/PrerogativeInstruments'
 ]
 
 
-def build_scrape_url(base_url, index_url):
-    return urljoin(base_url, index_url)
+def build_scrape_url(base_url, url_part, type=None):
+    match type:
+        case None:
+            return urljoin(base_url, url_part)
+        case 'index':
+            return urljoin(base_url, ''.join(['Browse/', url_part]))
+        case 'series':
+            return urljoin(base_url, ''.join(['Series/', url_part]))
+        case 'download':
+            return urljoin(base_url, ''.join(['Details/', url_part, '/Download']))
 
 
 def get_soup(url):
@@ -30,7 +38,7 @@ def get_soup(url):
 
 
 def get_constitution():
-    scrape_url = build_scrape_url(federal_register_url, register_sections[0])
+    scrape_url = build_scrape_url(federal_register_url, register_sections[0], type='index')
     soup = get_soup(scrape_url)
     series_details = soup.find_all('input', value='View Series')
     series_id = ''
@@ -42,10 +50,11 @@ def get_constitution():
 
 
 def get_series(series_id):
-    landing_url = build_scrape_url(federal_register_url, ''.join(['Series/', series_id]))
+    landing_url = build_scrape_url(federal_register_url, series_id, type='series')
     soup = get_soup(landing_url)
 
     metadata = []
+    title = ''
     table_contents = soup.find_all('table', class_='rgMasterTable')
     
     headings = []
@@ -65,4 +74,15 @@ def get_series(series_id):
             i = i + 1
         metadata.append(document)
     
+    document = {}
+    i = 0
+    for header in headings:
+        if i == 0:
+            document[header] = ''.join([title, ' [Principal]'])
+        elif header == 'RegisterId':
+            document[header] = series_id
+        else:
+            document[header] = ''
+        i = i + 1
+    metadata.append(document)
     print(metadata)
