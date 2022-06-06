@@ -85,4 +85,12 @@ def get_series(series_id):
             document[header] = ''
         i = i + 1
     metadata.append(document)
-    print(metadata)
+
+    return metadata
+
+
+def download_document(document_id):
+    download_page_url = build_scrape_url(federal_register_url, document_id, type='download')
+    soup = get_soup(download_page_url)
+    docx_download = soup.find('a', id=re.compile('hlPrimaryDoc'))
+    return docx_download['href']

@@ -7,7 +7,8 @@ import sys
 
 def main():
     constitution_id = crawler.get_constitution()
-    crawler.get_series(constitution_id)
+    constitution_metadata = crawler.get_series(constitution_id)
+    crawler.download_document(constitution_metadata[0]['RegisterId'])
 
 
 def build_diff():
