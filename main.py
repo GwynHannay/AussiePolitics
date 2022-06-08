@@ -14,8 +14,7 @@ def main():
     for document in constitution_metadata:
         metadata = crawler.get_download_details(document)
         updated_metadata.append(metadata)
-        with open(''.join([document['RegisterId'], '.json']), 'w') as f:
-            json.dump(metadata, f, ensure_ascii=False)
+    crawler.download_file(updated_metadata[0])
 
 
 def build_diff():

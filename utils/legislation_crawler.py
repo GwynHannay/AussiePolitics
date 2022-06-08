@@ -1,9 +1,9 @@
 import re
-from turtle import title
+import os
 import utils.data_cleaner as dc
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-from urllib.request import urlopen
+from urllib.request import urlopen, urlretrieve
 
 
 federal_register_url = 'https://www.legislation.gov.au'
@@ -131,3 +131,19 @@ def get_download_details(document_metadata):
         document_metadata['Download Link'] = download_link['href']
     
     return document_metadata
+
+
+def download_file(document_metadata):
+    download_link = document_metadata['Download Link']
+    cache_filename = '.cache_constitution'
+    _, headers = urlretrieve(download_link, cache_filename)
+    content_disposition = headers.get('Content-Disposition')
+    filename = re.findall(r'filename=([A-Za-z0-9]*\.docx)', content_disposition)
+    content_type = headers.get('Content-Type')
+    
+    if filename and content_type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+        with open(cache_filename, 'rb') as cached:
+            file_content = cached.read()
+            with open(filename[0], 'wb') as saved_file:
+                saved_file.write(file_content)
+        os.remove(cache_filename)
