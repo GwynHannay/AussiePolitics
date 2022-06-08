@@ -12,9 +12,9 @@ def main():
     constitution_metadata = crawler.get_series(constitution_id)
     updated_metadata = []
     for document in constitution_metadata:
-        metadata = crawler.get_download_details(document)
-        updated_metadata.append(metadata)
-    crawler.download_file(updated_metadata[0])
+        download_page_metadata = crawler.get_download_details(document)
+        completed_metadata = crawler.download_file(download_page_metadata)
+        updated_metadata.append(completed_metadata)
 
 
 def build_diff():

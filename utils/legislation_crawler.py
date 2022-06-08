@@ -1,9 +1,12 @@
 import re
+import json
 import os
 import utils.data_cleaner as dc
 from bs4 import BeautifulSoup
+from datetime import datetime
 from urllib.parse import urljoin
 from urllib.request import urlopen, urlretrieve
+from zoneinfo import ZoneInfo
 
 
 federal_register_url = 'https://www.legislation.gov.au'
@@ -133,7 +136,7 @@ def get_download_details(document_metadata):
     return document_metadata
 
 
-def download_file(document_metadata):
+def download_file(document_metadata, filepath='docs'):
     download_link = document_metadata['Download Link']
     cache_filename = '.cache_constitution'
     _, headers = urlretrieve(download_link, cache_filename)
@@ -142,8 +145,15 @@ def download_file(document_metadata):
     content_type = headers.get('Content-Type')
     
     if filename and content_type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+        new_filename = filename[0]
         with open(cache_filename, 'rb') as cached:
             file_content = cached.read()
-            with open(filename[0], 'wb') as saved_file:
+            with open(os.path.join(filepath, new_filename), 'wb') as saved_file:
                 saved_file.write(file_content)
         os.remove(cache_filename)
+
+        document_metadata['Filename'] = new_filename
+        document_metadata['Last Download Date'] = datetime.now(tz=ZoneInfo("Australia/Perth")).strftime('%Y-%m-%dT%H:%M:%S%z')
+        
+        with open(os.path.join(filepath, ''.join([str(document_metadata['RegisterId']), '.json'])), 'w') as metadata_file:
+            json.dump(document_metadata, metadata_file, ensure_ascii=False, indent=4)
