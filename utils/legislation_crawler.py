@@ -1,4 +1,5 @@
 import re
+import utils.data_cleaner as dc
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from urllib.request import urlopen
@@ -89,8 +90,26 @@ def get_series(series_id):
     return metadata
 
 
-def download_document(document_id):
-    download_page_url = build_scrape_url(federal_register_url, document_id, type='download')
+def get_download_details(document_metadata):
+    download_page_url = build_scrape_url(federal_register_url, document_metadata['RegisterId'], type='download')
     soup = get_soup(download_page_url)
-    docx_download = soup.find('a', id=re.compile('hlPrimaryDoc'))
-    return docx_download['href']
+
+    document_metadata['Title Status'] = soup.find('span', id=re.compile('lblTitleStatus')).text
+    document_metadata['Details'] = soup.find('span', id=re.compile('lblDetail')).text
+    document_metadata['Description'] = soup.find('span', id=re.compile('lblBD')).text
+    document_metadata['Admin Department'] = dc.remove_whitespace(soup.find('span', id=re.compile('lblAdminDept')).text)
+    comments = soup.find('tr', id=re.compile('trComments'))
+    if comments:
+        document_metadata['Comments'] = dc.remove_whitespace(comments.text)
+    registered = soup.find('input', id=re.compile('hdnPublished'))
+    if registered:
+        document_metadata['Registered Datetime'] = registered['value']
+    start_date = soup.find('span', id=re.compile('lblStartDate$'))
+    if start_date:
+        document_metadata['Start Date'] = start_date.text
+    end_date = soup.find('span', id=re.compile('lblEndDate$'))
+    if end_date:
+        document_metadata['End Date'] = end_date.text
+    document_metadata['Download Link'] = soup.find('a', id=re.compile('hlPrimaryDoc'))['href']
+    
+    return document_metadata

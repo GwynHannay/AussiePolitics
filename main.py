@@ -3,12 +3,19 @@ import utils.data_cleaner as dc
 import utils.legislation_crawler as crawler
 import difflib
 import sys
+import os
+import json
 
 
 def main():
     constitution_id = crawler.get_constitution()
     constitution_metadata = crawler.get_series(constitution_id)
-    crawler.download_document(constitution_metadata[0]['RegisterId'])
+    updated_metadata = []
+    for document in constitution_metadata:
+        metadata = crawler.get_download_details(document)
+        updated_metadata.append(metadata)
+        with open(''.join([document['RegisterId'], '.json']), 'w') as f:
+            json.dump(metadata, f, ensure_ascii=False)
 
 
 def build_diff():
