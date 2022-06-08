@@ -1,4 +1,5 @@
 import re
+from turtle import title
 import utils.data_cleaner as dc
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
@@ -94,22 +95,39 @@ def get_download_details(document_metadata):
     download_page_url = build_scrape_url(federal_register_url, document_metadata['RegisterId'], type='download')
     soup = get_soup(download_page_url)
 
-    document_metadata['Title Status'] = soup.find('span', id=re.compile('lblTitleStatus')).text
-    document_metadata['Details'] = soup.find('span', id=re.compile('lblDetail')).text
-    document_metadata['Description'] = soup.find('span', id=re.compile('lblBD')).text
-    document_metadata['Admin Department'] = dc.remove_whitespace(soup.find('span', id=re.compile('lblAdminDept')).text)
+    title_status = soup.find('span', id=re.compile('lblTitleStatus'))
+    if title_status:
+        document_metadata['Title Status'] = title_status.text
+    
+    details = soup.find('span', id=re.compile('lblDetail'))
+    if details:
+        document_metadata['Details'] = details.text
+    
+    description = soup.find('span', id=re.compile('lblBD'))
+    if description:
+        document_metadata['Description'] = description.text
+    admin_department = soup.find('span', id=re.compile('lblAdminDept'))
+    if admin_department:
+        document_metadata['Admin Department'] = dc.remove_whitespace(admin_department.text)
+    
     comments = soup.find('tr', id=re.compile('trComments'))
     if comments:
         document_metadata['Comments'] = dc.remove_whitespace(comments.text)
+    
     registered = soup.find('input', id=re.compile('hdnPublished'))
     if registered:
         document_metadata['Registered Datetime'] = registered['value']
+    
     start_date = soup.find('span', id=re.compile('lblStartDate$'))
     if start_date:
         document_metadata['Start Date'] = start_date.text
+    
     end_date = soup.find('span', id=re.compile('lblEndDate$'))
     if end_date:
         document_metadata['End Date'] = end_date.text
-    document_metadata['Download Link'] = soup.find('a', id=re.compile('hlPrimaryDoc'))['href']
+    
+    download_link = soup.find('a', id=re.compile('hlPrimaryDoc'))
+    if download_link:
+        document_metadata['Download Link'] = download_link['href']
     
     return document_metadata
