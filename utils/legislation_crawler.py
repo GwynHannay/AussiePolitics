@@ -86,6 +86,8 @@ def get_series(series_id):
             document[header] = ''.join([title, ' [Principal]'])
         elif header == 'RegisterId':
             document[header] = series_id
+        elif header == 'Comp No.':
+            document[header] = '0'
         else:
             document[header] = ''
         i = i + 1
@@ -146,14 +148,16 @@ def download_file(document_metadata, filepath='docs'):
     
     if filename and content_type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
         new_filename = filename[0]
-        with open(cache_filename, 'rb') as cached:
-            file_content = cached.read()
-            with open(os.path.join(filepath, new_filename), 'wb') as saved_file:
-                saved_file.write(file_content)
+        # with open(cache_filename, 'rb') as cached:
+        #     file_content = cached.read()
+        #     with open(os.path.join(filepath, new_filename), 'wb') as saved_file:
+        #         saved_file.write(file_content)
         os.remove(cache_filename)
 
         document_metadata['Filename'] = new_filename
         document_metadata['Last Download Date'] = datetime.now(tz=ZoneInfo("Australia/Perth")).strftime('%Y-%m-%dT%H:%M:%S%z')
         
-        with open(os.path.join(filepath, ''.join([str(document_metadata['RegisterId']), '.json'])), 'w') as metadata_file:
-            json.dump(document_metadata, metadata_file, ensure_ascii=False, indent=4)
+        # with open(os.path.join(filepath, ''.join([str(document_metadata['RegisterId']), '.json'])), 'w') as metadata_file:
+        #     json.dump(document_metadata, metadata_file, ensure_ascii=False, indent=4)
+    
+    return document_metadata
