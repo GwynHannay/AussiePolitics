@@ -80,17 +80,17 @@ def get_series(series_id):
         metadata.append(document)
     
     document = {}
-    i = 0
     for header in headings:
-        if i == 0:
+        if header == 'Title':
             document[header] = ''.join([title, ' [Principal]'])
         elif header == 'RegisterId':
             document[header] = series_id
         elif header == 'Comp No.':
             document[header] = '0'
+        elif header == 'Start Date':
+            document[header] = '09 Jul 1900'
         else:
             document[header] = ''
-        i = i + 1
     metadata.append(document)
 
     return metadata
@@ -135,6 +135,13 @@ def get_download_details(document_metadata):
     if download_link:
         document_metadata['Download Link'] = download_link['href']
     
+    date_fields = ['Registered', 'Start Date', 'End Date']
+    for field in date_fields:
+        if str(document_metadata[field]).strip(' '):
+            formatted_date = dc.standardise_date(document_metadata[field])
+            document_metadata[field] = formatted_date
+    
+    print(document_metadata)
     return document_metadata
 
 
@@ -157,7 +164,7 @@ def download_file(document_metadata, filepath='docs'):
         document_metadata['Filename'] = new_filename
         document_metadata['Last Download Date'] = datetime.now(tz=ZoneInfo("Australia/Perth")).strftime('%Y-%m-%dT%H:%M:%S%z')
         
-        # with open(os.path.join(filepath, ''.join([str(document_metadata['RegisterId']), '.json'])), 'w') as metadata_file:
-        #     json.dump(document_metadata, metadata_file, ensure_ascii=False, indent=4)
+        with open(os.path.join(filepath, ''.join([str(document_metadata['RegisterId']), '.json'])), 'w') as metadata_file:
+            json.dump(document_metadata, metadata_file, ensure_ascii=False, indent=4)
     
     return document_metadata
