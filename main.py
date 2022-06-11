@@ -1,8 +1,10 @@
+import time
 import utils.legislation_crawler as crawler
 import utils.diff_builder as diff
 
 
 document_filepath = 'docs'
+crawl_delay = 5
 
 def main():
     constitution_id = crawler.get_constitution()
@@ -12,18 +14,19 @@ def main():
 
     for document in constitution_metadata:
         download_page_metadata = crawler.get_download_details(document)
-    #     completed_metadata = crawler.download_file(download_page_metadata, document_filepath)
-    #     updated_metadata.append(completed_metadata)
-    #     document_order[document['Comp No.']] = completed_metadata
+        completed_metadata = crawler.download_file(download_page_metadata, document_filepath)
+        updated_metadata.append(completed_metadata)
+        document_order[document['Comp No.']] = completed_metadata
+        time.sleep(crawl_delay)
 
-    # previous_document = ''
-    # for document in sorted(document_order):
-    #     if document == '0':
-    #         previous_document = document
-    #         continue
+    previous_document = ''
+    for document in sorted(document_order):
+        if document == '0':
+            previous_document = document
+            continue
 
-    #     diff.generate_diff_page(document_order[previous_document], document_order[document], document_filepath)
-    #     previous_document = document
+        diff.generate_diff_page(document_order[previous_document], document_order[document], document_filepath)
+        previous_document = document
 
 
 if __name__ == "__main__":

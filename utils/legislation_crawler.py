@@ -103,25 +103,38 @@ def get_download_details(document_metadata):
     title_status = soup.find('span', id=re.compile('lblTitleStatus'))
     if title_status:
         document_metadata['Title Status'] = title_status.text
+    else:
+        document_metadata['Title Status'] = ''
     
     details = soup.find('span', id=re.compile('lblDetail'))
     if details:
         document_metadata['Details'] = details.text
+    else:
+        document_metadata['Details'] = ''
     
     description = soup.find('span', id=re.compile('lblBD'))
     if description:
         document_metadata['Description'] = description.text
+    else:
+        document_metadata['Description'] = ''
+
     admin_department = soup.find('span', id=re.compile('lblAdminDept'))
     if admin_department:
         document_metadata['Admin Department'] = dc.remove_whitespace(admin_department.text)
+    else:
+        document_metadata['Admin Department'] = ''
     
     comments = soup.find('tr', id=re.compile('trComments'))
     if comments:
         document_metadata['Comments'] = dc.remove_whitespace(comments.text)
+    else:
+        document_metadata['Comments'] = ''
     
     registered = soup.find('input', id=re.compile('hdnPublished'))
     if registered:
         document_metadata['Registered Datetime'] = registered['value']
+    else:
+        document_metadata['Registered Datetime'] = ''
     
     start_date = soup.find('span', id=re.compile('lblStartDate$'))
     if start_date:
@@ -134,6 +147,8 @@ def get_download_details(document_metadata):
     download_link = soup.find('a', id=re.compile('hlPrimaryDoc'))
     if download_link:
         document_metadata['Download Link'] = download_link['href']
+    else:
+        document_metadata['Download Link'] = ''
     
     date_fields = ['Registered', 'Start Date', 'End Date']
     for field in date_fields:
@@ -141,7 +156,6 @@ def get_download_details(document_metadata):
             formatted_date = dc.standardise_date(document_metadata[field])
             document_metadata[field] = formatted_date
     
-    print(document_metadata)
     return document_metadata
 
 
@@ -155,14 +169,14 @@ def download_file(document_metadata, filepath='docs'):
     
     if filename and content_type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
         new_filename = filename[0]
-        # with open(cache_filename, 'rb') as cached:
-        #     file_content = cached.read()
-        #     with open(os.path.join(filepath, new_filename), 'wb') as saved_file:
-        #         saved_file.write(file_content)
+        with open(cache_filename, 'rb') as cached:
+            file_content = cached.read()
+            with open(os.path.join(filepath, new_filename), 'wb') as saved_file:
+                saved_file.write(file_content)
         os.remove(cache_filename)
 
         document_metadata['Filename'] = new_filename
-        document_metadata['Last Download Date'] = datetime.now(tz=ZoneInfo("Australia/Perth")).strftime('%Y-%m-%dT%H:%M:%S%z')
+        document_metadata['Last Download Date'] = datetime.now(tz=ZoneInfo("Australia/Perth")).strftime('%d %b %Y %H:%M AWST')
         
         with open(os.path.join(filepath, ''.join([str(document_metadata['RegisterId']), '.json'])), 'w') as metadata_file:
             json.dump(document_metadata, metadata_file, ensure_ascii=False, indent=4)
