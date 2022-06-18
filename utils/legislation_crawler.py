@@ -11,9 +11,9 @@ from zoneinfo import ZoneInfo
 
 federal_register_url = 'https://www.legislation.gov.au'
 
-register_sections = [
-    'ByTitle/Constitution/InForce'
-    # 'ByTitle/Acts',
+register_sections = {
+    'Constitution' : 'ByTitle/Constitution/InForce',
+    'Acts' : 'ByTitle/Acts/InForce/0/0/Principal',
     # 'ByTitle/LegislativeInstruments',
     # 'ByTitle/NotifiableInstruments',
     # 'ByTitle/Gazettes',
@@ -21,7 +21,10 @@ register_sections = [
     # 'ByRegDate/AdministrativeArrangementsOrders',
     # 'ByTitle/NorfolkIslandLegislation',
     # 'ByTitle/PrerogativeInstruments'
-]
+}
+
+def get_url(document_type):
+    return register_sections[document_type]
 
 
 def build_scrape_url(base_url, url_part, type=None):
@@ -43,7 +46,7 @@ def get_soup(url):
 
 
 def get_constitution():
-    scrape_url = build_scrape_url(federal_register_url, register_sections[0], type='index')
+    scrape_url = build_scrape_url(federal_register_url, get_url('Constitution'), type='index')
     soup = get_soup(scrape_url)
     series_details = soup.find_all('input', value='View Series')
     series_id = ''
