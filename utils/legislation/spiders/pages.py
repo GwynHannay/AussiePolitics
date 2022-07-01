@@ -1,8 +1,16 @@
 import scrapy
+from scrapy.http import Request
 
 class PagesSpider(scrapy.Spider):
     name = "pages"
-    start_urls = ['https://www.legislation.gov.au/Series/C2004A03898']
+    #start_urls = ['https://www.legislation.gov.au/Series/C2004A03898']
+
+    def __init__(self, **kw):
+        super(PagesSpider, self).__init__(**kw)
+        self.url = kw.get('url') or kw.get('domain') or 'dummy'
+    
+    def start_requests(self):
+        return [Request(self.url, callback=self.parse)]
     
     def parse(self, response, **cb_kwargs):
         href = response.css('.rgPagerCell').xpath('.//a')
@@ -38,7 +46,7 @@ class PagesSpider(scrapy.Spider):
 
         if event_target:
             yield scrapy.FormRequest(
-                'https://www.legislation.gov.au/Series/C2004A03898',
+                self.url,
                 formdata={
                     '__EVENTTARGET': event_target,
                     '__EVENTARGUMENT': event_argument,

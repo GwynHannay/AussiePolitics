@@ -7,6 +7,8 @@ from datetime import datetime
 from urllib.parse import urljoin
 from urllib.request import urlopen, urlretrieve
 from zoneinfo import ZoneInfo
+from scrapy.crawler import CrawlerProcess
+from scrapy.utils.project import get_project_settings
 
 
 federal_register_url = 'https://www.legislation.gov.au'
@@ -22,6 +24,12 @@ register_sections = {
     # 'ByTitle/NorfolkIslandLegislation',
     # 'ByTitle/PrerogativeInstruments'
 }
+
+def run_scrapy(url):
+    process = CrawlerProcess(get_project_settings())
+    process.crawl('pages', url=url)
+    process.start()
+
 
 def get_url(document_type):
     return register_sections[document_type]
