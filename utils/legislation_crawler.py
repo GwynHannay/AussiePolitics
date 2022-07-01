@@ -11,6 +11,27 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 
 
+def main(sections: list):
+    full_config = load_config()
+    crawl_config = read_config(full_config, sections)
+    print(crawl_config)
+
+
+def load_config():
+    with open('config/legislation.json') as f:
+        configs = json.loads(f.read())
+        return configs
+
+
+def read_config(config: dict, sections: list):
+    relevant_config = {}
+    relevant_config['common'] = config['common']
+    for section in sections:
+        relevant_config[section] = config[section]
+    
+    return relevant_config
+
+
 federal_register_url = 'https://www.legislation.gov.au'
 
 register_sections = {

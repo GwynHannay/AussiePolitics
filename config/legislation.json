@@ -1,0 +1,25 @@
+{
+    "common": {
+        "base_url": "https://www.legislation.gov.au",
+        "url_parts": {
+            "index": {
+                "prefix": "Browse"
+            },
+            "series": {
+                "prefix": "Series"
+            },
+            "download": {
+                "prefix": "Details",
+                "suffix": "Download"
+            }
+        }
+    },
+    "constitution": {
+        "landing_url": "ByTitle/Constitution/InForce"
+    },
+    "acts": {
+        "in_force": {
+            "landing_url": "ByTitle/Acts/InForce/0/0/Principal"
+        }
+    }
+}
