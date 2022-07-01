@@ -1,9 +1,8 @@
 import scrapy
 
-class ActsSpider(scrapy.Spider):
-    name = "acts"
+class PagesSpider(scrapy.Spider):
+    name = "pages"
     start_urls = ['https://www.legislation.gov.au/Series/C2004A03898']
-    #download_delay = 0.5
     
     def parse(self, response, **cb_kwargs):
         href = response.css('.rgPagerCell').xpath('.//a')
