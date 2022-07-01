@@ -26,6 +26,7 @@ register_sections = {
 }
 
 def run_scrapy(url):
+    os.environ.setdefault('SCRAPY_SETTINGS_MODULE', 'utils.legislation.settings')
     process = CrawlerProcess(get_project_settings())
     process.crawl('pages', url=url)
     process.start()
