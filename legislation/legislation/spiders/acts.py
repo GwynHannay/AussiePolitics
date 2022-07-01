@@ -3,30 +3,27 @@ import scrapy
 class ActsSpider(scrapy.Spider):
     name = "acts"
     start_urls = ['https://www.legislation.gov.au/Series/C2004A03898']
-    download_delay = 0.5
+    #download_delay = 0.5
     
     def parse(self, response, **cb_kwargs):
-        print(response.css('title'))
         href = response.css('.rgPagerCell').xpath('.//a')
         if cb_kwargs.get('visited'):
             kwargs = cb_kwargs
         else:
             kwargs = {'visited': []}
         event_target = None
-        print(kwargs)
 
         for link in href:
             js_function = link.xpath('./@href').get()
             if not js_function:
                 break
-            
+
             if js_function not in kwargs['visited']:
                 if link.xpath('./@class'):
                     kwargs['visited'].append(js_function)
                     continue
                 else:
                     event_target = js_function.replace("javascript:__doPostBack('", "").replace("','')", "")
-                    print(event_target)
                     kwargs['visited'].append(js_function)
                     break
 
@@ -54,7 +51,3 @@ class ActsSpider(scrapy.Spider):
                 callback=self.parse,
                 cb_kwargs=kwargs
             )
-    
-    def page_me(self, response):
-        print(response.css('title'))
-        print(response.css('.rgPagerCell').xpath('.//a').getall())
