@@ -9,8 +9,8 @@
 
 BOT_NAME = 'legislation'
 
-SPIDER_MODULES = ['legislation.spiders']
-NEWSPIDER_MODULE = 'legislation.spiders'
+SPIDER_MODULES = ['utils.legislation.spiders']
+NEWSPIDER_MODULE = 'utils.legislation.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
