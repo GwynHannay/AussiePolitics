@@ -1,4 +1,6 @@
+from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+from urllib.request import urlopen
 
 
 def build_url(base: str, part: str, prefix=None, suffix=None):
@@ -13,3 +15,21 @@ def build_url(base: str, part: str, prefix=None, suffix=None):
     
     complete_url = urljoin(base, built_part)
     return complete_url
+
+
+def get_soup(url: str):
+    response = urlopen(url)
+    soup = BeautifulSoup(response, "html.parser")
+    return soup
+
+
+def get_soup_elements(soup, elements: dict):
+    results = []
+    attributes = []
+    if elements.get('class'):
+        results = soup.find_all(elements['type'], class_=elements['class'])
+    
+    for result in results:
+        attributes.append(result[elements['attribute']])
+    
+    return attributes

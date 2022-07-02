@@ -1,18 +1,17 @@
 {
     "common": {
         "base_url": "https://www.legislation.gov.au",
-        "url_parts": {
-            "index": {
-                "prefix": "Browse"
-            },
-            "series": {
-                "prefix": "Series"
-            },
-            "download": {
-                "prefix": "Details",
-                "suffix": "Download"
-            }
-        }
+        "index_url": {
+            "prefix": "Browse"
+        },
+        "series_url": {
+            "prefix": "Series"
+        },
+        "download_url": {
+            "prefix": "Details",
+            "suffix": "Download"
+        },
+        "title_link_class": "TitleLetter"
     },
     "constitution": {
         "landing_url": "ByTitle/Constitution/InForce"
