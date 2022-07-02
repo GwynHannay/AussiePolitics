@@ -2,6 +2,7 @@ import re
 import json
 import os
 import utils.data_cleaner as dc
+from utils import series
 from bs4 import BeautifulSoup
 from datetime import datetime
 from urllib.parse import urljoin
@@ -13,8 +14,14 @@ from scrapy.utils.project import get_project_settings
 
 def main(sections: list):
     full_config = load_config()
-    crawl_config = read_config(full_config, sections)
-    print(crawl_config)
+    common_config = get_common_config(full_config)
+    
+    for section in sections:
+        if section == 'constitution':
+            crawl_config = full_config[section]
+        else:
+            crawl_config = full_config[section]['in_force']
+        crawl_section(section, common_config, crawl_config)
 
 
 def load_config():
@@ -25,11 +32,18 @@ def load_config():
 
 def read_config(config: dict, sections: list):
     relevant_config = {}
-    relevant_config['common'] = config['common']
     for section in sections:
         relevant_config[section] = config[section]
     
     return relevant_config
+
+
+def get_common_config(config: dict):
+    return config['common']
+
+
+def crawl_section(section: str, common_config: dict, crawl_config: dict):
+    series.main(section, common_config, crawl_config)
 
 
 federal_register_url = 'https://www.legislation.gov.au'
