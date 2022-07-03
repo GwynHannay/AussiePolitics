@@ -53,7 +53,9 @@ class PagesSpider(scrapy.Spider):
 
         rows = response.css('.rgMasterTable').xpath('./tbody/tr')
         for row in rows:
-            print(row.xpath('./td/table//@href').get())
+            yield {
+                'link': row.xpath('./td/table//@href').get()
+            }
 
         if event_target:
             yield scrapy.FormRequest(

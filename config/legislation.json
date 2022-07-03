@@ -11,7 +11,8 @@
             "prefix": "Details",
             "suffix": "Download"
         },
-        "title_link_class": "TitleLetter"
+        "title_link_class": "TitleLetter",
+        "series_input_value": "View Series"
     },
     "constitution": {
         "landing_url": "ByTitle/Constitution/InForce"

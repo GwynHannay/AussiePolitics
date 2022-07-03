@@ -21,6 +21,7 @@ def main(sections: list):
             crawl_config = full_config[section]
         else:
             crawl_config = full_config[section]['in_force']
+        
         crawl_section(section, common_config, crawl_config)
 
 

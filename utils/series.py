@@ -22,3 +22,11 @@ def get_indexes(common_config: dict, crawl_config: dict):
         index_urls.append(common.build_url(landing_page_link, link))
     
     return index_urls
+
+
+def get_series(common_config: dict, crawl_config: dict):
+    series_elements = {
+        'type': 'input',
+        'value': common_config['series_input_value'],
+        'attribute': None
+    }
