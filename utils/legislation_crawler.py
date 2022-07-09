@@ -10,6 +10,17 @@ from urllib.request import urlopen, urlretrieve
 from zoneinfo import ZoneInfo
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
+from itemadapter import ItemAdapter
+
+
+class LegislationPipeline:
+    def __init__(self):
+        pass
+
+    def process_item(self, item, spider):
+        print('Pipeline Here')
+        print(ItemAdapter(item).asdict())
+        print('End of Pipeline')
 
 
 def main(sections: list):

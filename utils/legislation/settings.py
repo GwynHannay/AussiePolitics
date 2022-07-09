@@ -62,9 +62,10 @@ DOWNLOAD_DELAY = 3
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'legislation.pipelines.LegislationPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   #'legislation.pipelines.LegislationPipeline': 300,
+   'utils.legislation_crawler.LegislationPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
