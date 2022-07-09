@@ -54,7 +54,8 @@ class PagesSpider(scrapy.Spider):
         rows = response.css('.rgMasterTable').xpath('./tbody/tr')
         for row in rows:
             yield {
-                'link': row.xpath('./td/table//@href').get()
+                'canonical_link': self.url,
+                'series_link': row.xpath('./td/table//@href').get()
             }
 
         if event_target:

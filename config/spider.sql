@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS spider_result (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    canonical_link VARCHAR(255) NOT NULL,
+    series_link VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
