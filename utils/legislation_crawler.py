@@ -2,25 +2,12 @@ import re
 import json
 import os
 import utils.data_cleaner as dc
-from utils import series
+from utils import series, scrapy_helper, soup_helper
 from bs4 import BeautifulSoup
 from datetime import datetime
 from urllib.parse import urljoin
 from urllib.request import urlopen, urlretrieve
 from zoneinfo import ZoneInfo
-from scrapy.crawler import CrawlerProcess
-from scrapy.utils.project import get_project_settings
-from itemadapter import ItemAdapter
-
-
-class LegislationPipeline:
-    def __init__(self):
-        pass
-
-    def process_item(self, item, spider):
-        print('Pipeline Here')
-        print(ItemAdapter(item).asdict())
-        print('End of Pipeline')
 
 
 def main(sections: list):
@@ -56,7 +43,7 @@ def get_common_config(config: dict):
 
 def crawl_section(section: str, common_config: dict, crawl_config: dict):
     urls = series.main(section, common_config, crawl_config)
-    run_scrapy(urls)
+    scrapy_helper.run_scrapy(urls)
 
 
 federal_register_url = 'https://www.legislation.gov.au'
@@ -72,12 +59,6 @@ register_sections = {
     # 'ByTitle/NorfolkIslandLegislation',
     # 'ByTitle/PrerogativeInstruments'
 }
-
-def run_scrapy(urls):
-    os.environ.setdefault('SCRAPY_SETTINGS_MODULE', 'utils.legislation.settings')
-    process = CrawlerProcess(get_project_settings())
-    process.crawl('pages', urls=urls)
-    process.start()
 
 
 def get_url(document_type):
@@ -101,17 +82,6 @@ def get_soup(url):
     soup = BeautifulSoup(response, "html.parser")
     return soup
 
-
-def get_constitution():
-    scrape_url = build_scrape_url(federal_register_url, get_url('Constitution'), type='index')
-    soup = get_soup(scrape_url)
-    series_details = soup.find_all('input', value='View Series')
-    series_id = ''
-
-    for button in series_details:
-        series_id = re.findall(r'/Series/([A-Za-z0-9]*)"', str(button))[0]
-    
-    return series_id
 
 
 def get_series(series_id):
