@@ -21,5 +21,26 @@
         "in_force": {
             "landing_url": "ByTitle/Acts/InForce/0/0/Principal"
         }
+    },
+    "legislative_instruments": {
+        "landing_url": "ByTitle/LegislativeInstruments"
+    },
+    "notifiable_instruments": {
+        "landing_url": "ByTitle/NotifiableInstruments"
+    },
+    "gazettes": {
+        "landing_url": "ByTitle/Gazettes"
+    },
+    "bills": {
+        "landing_url": "ByTitle/Bills"
+    },
+    "administrative_arrangements_orders": {
+        "landing_url": "ByRegDate/AdministrativeArrangementsOrders"
+    },
+    "norfolk_island_legislation": {
+        "landing_url": "ByTitle/NorfolkIslandLegislation"
+    },
+    "prerogative_instruments": {
+        "landing_url": "ByTitle/PrerogativeInstruments"
     }
 }

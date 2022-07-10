@@ -1,6 +1,6 @@
 import time
 import utils.legislation_crawler as crawler
-import utils.diff_builder as diff
+import utils.file_handler as diff
 
 
 document_filepath = 'docs'
