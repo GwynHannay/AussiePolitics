@@ -4,7 +4,10 @@ from utils import common
 def main(section: str, common_config: dict, crawl_config: dict):
     if not section == 'constitution':
         index_urls = get_indexes(common_config, crawl_config)
-        print(index_urls)
+    else:
+        index_urls = []
+    
+    return index_urls
 
 
 def get_indexes(common_config: dict, crawl_config: dict):

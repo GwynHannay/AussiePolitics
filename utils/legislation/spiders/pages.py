@@ -12,12 +12,15 @@ class PagesSpider(scrapy.Spider):
             Exception: If no URL was passed.
         """        
         super(PagesSpider, self).__init__(**kw)
-        self.url = kw.get('url') or kw.get('domain') or 'dummy'
-        if self.url == 'dummy':
+        self.start_urls = kw.get('urls') or 'dummy'
+        if self.start_urls == 'dummy':
             raise Exception('No URL was passed to the pages spider, only: {}'.format(kw))
+        elif not isinstance(self.start_urls, list):
+            raise Exception('URLs should be in a list object, we received: {}'.format(kw))
 
-    def start_requests(self):   
-        return [Request(self.url, callback=self.parse)]
+    def start_requests(self):
+        for url in self.start_urls:
+            yield Request(url, callback=self.parse)
 
     def parse(self, response, **cb_kwargs):
         href = response.css('.rgPagerCell').xpath('.//a')
@@ -51,16 +54,14 @@ class PagesSpider(scrapy.Spider):
         view_state_encrypted = response.css(
             '#__VIEWSTATEENCRYPTED::attr(value)').extract()
 
-        rows = response.css('.rgMasterTable').xpath('./tbody/tr')
-        for row in rows:
-            yield {
-                'canonical_link': self.url,
-                'series_link': row.xpath('./td/table//@href').get()
-            }
+        yield {
+            'link': response.url,
+            'rows': response.css('.rgMasterTable').xpath('./tbody/tr')
+        }
 
         if event_target:
             yield scrapy.FormRequest(
-                self.url,
+                response.url,
                 formdata={
                     '__EVENTTARGET': event_target,
                     '__EVENTARGUMENT': event_argument,

@@ -55,7 +55,8 @@ def get_common_config(config: dict):
 
 
 def crawl_section(section: str, common_config: dict, crawl_config: dict):
-    series.main(section, common_config, crawl_config)
+    urls = series.main(section, common_config, crawl_config)
+    run_scrapy(urls)
 
 
 federal_register_url = 'https://www.legislation.gov.au'
@@ -72,10 +73,10 @@ register_sections = {
     # 'ByTitle/PrerogativeInstruments'
 }
 
-def run_scrapy(url):
+def run_scrapy(urls):
     os.environ.setdefault('SCRAPY_SETTINGS_MODULE', 'utils.legislation.settings')
     process = CrawlerProcess(get_project_settings())
-    process.crawl('pages', url=url)
+    process.crawl('pages', urls=urls)
     process.start()
 
 

@@ -9,5 +9,5 @@ import scrapy
 class LegislationItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    canonical_link = scrapy.Field()
-    series_link = scrapy.Field()
+    link = scrapy.Field()
+    rows = scrapy.Field()
