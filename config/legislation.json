@@ -1,7 +1,56 @@
 {
     "base_url": "https://www.legislation.gov.au",
-    "index_url": {
-        "prefix": "Browse"
+    "index_urls": {
+        "prefix": "Browse",
+        "constitution": "ByTitle/Constitution/InForce",
+        "acts": {
+            "prefix": "ByTitle/Acts",
+            "in_force": "InForce/0/0/Principal",
+            "in_force_amending": "InForce/0/0/Amending",
+            "no_longer_in_force": "NoLongerInForce/0/0/Principal",
+            "no_longer_in_force_amending": "NoLongerInForce/0/0/Amending",
+            "as_made": "Asmade/0/0/Principal",
+            "as_made_amending": "Asmade/0/0/Amending"
+        },
+        "legislative_instruments": {
+            "prefix": "ByTitle/LegislativeInstruments",
+            "in_force": "InForce/0/0/Principal",
+            "in_force_amending": "InForce/0/0/Amending",
+            "no_longer_in_force": "NoLongerInForce/0/0/Principal",
+            "no_longer_in_force_amending": "NoLongerInForce/0/0/Amending",
+            "as_made": "Asmade/0/0/Principal",
+            "as_made_amending": "Asmade/0/0/Amending",
+            "open_to_disallowance": "OpentoDisallowance",
+            "disallowed": "Disallowed"
+        },
+        "notifiable_instruments": {
+            "prefix": "ByTitle/NotifiableInstruments",
+            "in_force": "InForce/0/0/Principal",
+            "in_force_amending": "InForce/0/0/Amending",
+            "no_longer_in_force": "NoLongerInForce/0/0/Principal",
+            "no_longer_in_force_amending": "NoLongerInForce/0/0/Amending",
+            "as_made": "Asmade/0/0/Principal",
+            "as_made_amending": "Asmade/0/0/Amending"
+        },
+        "gazettes": "ByTitle/Gazettes/InForce",
+        "bills": "ByTitle/Bills/Asmade",
+        "administrative_arrangements_orders": {
+            "prefix": "ByRegDate/AdministrativeArrangementsOrders",
+            "in_force": "InForce",
+            "no_longer_in_force": "NoLongerInForce",
+            "as_made": "Asmade"
+        },
+        "norfolk_island_legislation": {
+            "prefix": "ByTitle/NorfolkIslandLegislation",
+            "in_force": "InForce",
+            "no_longer_in_force": "NoLongerInForce"
+        },
+        "prerogative_instruments": {
+            "prefix": "ByTitle/PrerogativeInstruments",
+            "in_force": "InForce",
+            "no_longer_in_force": "NoLongerInForce",
+            "as_made": "Asmade"
+        }
     },
     "series_url": {
         "prefix": "Series"
@@ -10,42 +59,8 @@
         "prefix": "Details",
         "suffix": "Download"
     },
-    "in_force": {
-        "url_prefix": "InForce",
-        "principal_suffix": "0/0/Principal",
-        "amending_suffix": "0/0/Amending"
-    },
-    "no_longer_in_force": {
-        "url_prefix": "NoLongerInForce",
-        "principal_suffix": "0/0/Principal",
-        "amending_suffix": "0/0/Amending"
-    },
-    "as_made": {
-        "url_prefix": "Asmade",
-        "principal_suffix": "0/0/Principal",
-        "amending_suffix": "0/0/Amending"
-    },
-    "open_to_disallowance": {
-        "url_prefix": "OpentoDisallowance"
-    },
-    "disallowed": {
-        "url_prefix": "Disallowed"
-    },
-    "section_urls": {
-        "constitution": "ByTitle/Constitution/InForce",
-        "acts": "ByTitle/Acts",
-        "legislative_instruments": "ByTitle/LegislativeInstruments",
-        "notifiable_instruments": "ByTitle/NotifiableInstruments",
-        "gazettes": "ByTitle/Gazettes",
-        "bills": "ByTitle/Bills",
-        "administrative_arrangements_orders": "ByRegDate/AdministrativeArrangementsOrders",
-        "norfolk_island_legislation": "ByTitle/NorfolkIslandLegislation",
-        "prerogative_instruments": "ByTitle/PrerogativeInstruments"
-    },
-    "section_types": {
-        "acts": ["in_force", "no_longer_in_force", "as_made"],
-        "legislative_instruments": ["in_force", "no_longer_in_force", "as_made", "open_to_disallowance", "disallowed"],
-        "notifiable_instruments": ["in_force", "no_longer_in_force", "as_made"]
+    "other_content": {
+        "historic_gazettes": "Content/HistoricGazettes"
     },
     "common": {
         "title_link_class": "TitleLetter",
