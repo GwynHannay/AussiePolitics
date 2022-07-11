@@ -1,46 +1,54 @@
 {
+    "base_url": "https://www.legislation.gov.au",
+    "index_url": {
+        "prefix": "Browse"
+    },
+    "series_url": {
+        "prefix": "Series"
+    },
+    "download_url": {
+        "prefix": "Details",
+        "suffix": "Download"
+    },
+    "in_force": {
+        "url_prefix": "InForce",
+        "principal_suffix": "0/0/Principal",
+        "amending_suffix": "0/0/Amending"
+    },
+    "no_longer_in_force": {
+        "url_prefix": "NoLongerInForce",
+        "principal_suffix": "0/0/Principal",
+        "amending_suffix": "0/0/Amending"
+    },
+    "as_made": {
+        "url_prefix": "Asmade",
+        "principal_suffix": "0/0/Principal",
+        "amending_suffix": "0/0/Amending"
+    },
+    "open_to_disallowance": {
+        "url_prefix": "OpentoDisallowance"
+    },
+    "disallowed": {
+        "url_prefix": "Disallowed"
+    },
+    "section_urls": {
+        "constitution": "ByTitle/Constitution/InForce",
+        "acts": "ByTitle/Acts",
+        "legislative_instruments": "ByTitle/LegislativeInstruments",
+        "notifiable_instruments": "ByTitle/NotifiableInstruments",
+        "gazettes": "ByTitle/Gazettes",
+        "bills": "ByTitle/Bills",
+        "administrative_arrangements_orders": "ByRegDate/AdministrativeArrangementsOrders",
+        "norfolk_island_legislation": "ByTitle/NorfolkIslandLegislation",
+        "prerogative_instruments": "ByTitle/PrerogativeInstruments"
+    },
+    "section_types": {
+        "acts": ["in_force", "no_longer_in_force", "as_made"],
+        "legislative_instruments": ["in_force", "no_longer_in_force", "as_made", "open_to_disallowance", "disallowed"],
+        "notifiable_instruments": ["in_force", "no_longer_in_force", "as_made"]
+    },
     "common": {
-        "base_url": "https://www.legislation.gov.au",
-        "index_url": {
-            "prefix": "Browse"
-        },
-        "series_url": {
-            "prefix": "Series"
-        },
-        "download_url": {
-            "prefix": "Details",
-            "suffix": "Download"
-        },
         "title_link_class": "TitleLetter",
         "series_input_value": "View Series"
-    },
-    "constitution": {
-        "landing_url": "ByTitle/Constitution/InForce"
-    },
-    "acts": {
-        "in_force": {
-            "landing_url": "ByTitle/Acts/InForce/0/0/Principal"
-        }
-    },
-    "legislative_instruments": {
-        "landing_url": "ByTitle/LegislativeInstruments"
-    },
-    "notifiable_instruments": {
-        "landing_url": "ByTitle/NotifiableInstruments"
-    },
-    "gazettes": {
-        "landing_url": "ByTitle/Gazettes"
-    },
-    "bills": {
-        "landing_url": "ByTitle/Bills"
-    },
-    "administrative_arrangements_orders": {
-        "landing_url": "ByRegDate/AdministrativeArrangementsOrders"
-    },
-    "norfolk_island_legislation": {
-        "landing_url": "ByTitle/NorfolkIslandLegislation"
-    },
-    "prerogative_instruments": {
-        "landing_url": "ByTitle/PrerogativeInstruments"
     }
 }
