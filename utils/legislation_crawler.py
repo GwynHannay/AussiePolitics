@@ -2,17 +2,17 @@ import json
 from utils import series, scrapy_helper
 
 
+page_types = ['index', 'series', 'download']
+
+
 def main(sections: list):
     full_config = load_config()
-    common_config = get_common_config(full_config)
+    crawl_config = get_common_config(full_config)
     
     for section in sections:
-        if section == 'constitution':
-            crawl_config = full_config[section]
-        else:
-            crawl_config = full_config[section]['in_force']
-        
-        crawl_section(section, common_config, crawl_config)
+        piece = section.split('.')[0]
+        crawl_config['section'] = full_config['index_urls'][piece]
+        crawl_section(section, crawl_config)
 
 
 def load_config():
@@ -30,9 +30,19 @@ def read_config(config: dict, sections: list):
 
 
 def get_common_config(config: dict):
-    return config['common']
+    common_config = {
+        'base_url': config['base_url'],
+        'index_url': {
+            'prefix': config['index_urls']['prefix']
+        },
+        'series_url': config['series_url'],
+        'download_url': config['download_url']
+    }
+    return common_config
 
 
-def crawl_section(section: str, common_config: dict, crawl_config: dict):
-    urls = series.main(section, common_config, crawl_config)
-    scrapy_helper.run_scrapy(urls)
+def crawl_section(section: str, crawl_config: dict):
+    index_urls = series.get_indexes(section, crawl_config)
+
+    if index_urls:
+        scrapy_helper.run_scrapy(urls=index_urls, page_type='index')

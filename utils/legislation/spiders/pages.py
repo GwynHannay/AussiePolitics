@@ -17,17 +17,22 @@ class PagesSpider(scrapy.Spider):
             raise Exception('No URL was passed to the pages spider, only: {}'.format(kw))
         elif not isinstance(self.start_urls, list):
             raise Exception('URLs should be in a list object, we received: {}'.format(kw))
+        
+        self.page_type = kw.get('page_type')
 
     def start_requests(self):
         for url in self.start_urls:
-            yield Request(url, callback=self.parse)
+            yield Request(url, callback=self.parse, cb_kwargs={'page_type': self.page_type})
 
     def parse(self, response, **cb_kwargs):
         href = response.css('.rgPagerCell').xpath('.//a')
         if cb_kwargs.get('visited'):
             kwargs = cb_kwargs
         else:
-            kwargs = {'visited': []}
+            kwargs = {
+                'visited': [],
+                'page_type': cb_kwargs['page_type']
+            }
         event_target = None
 
         for link in href:
@@ -56,7 +61,8 @@ class PagesSpider(scrapy.Spider):
 
         yield {
             'link': response.url,
-            'rows': response.css('.rgMasterTable').xpath('./tbody/tr')
+            'rows': response.css('.rgMasterTable').xpath('./tbody/tr'),
+            'metadata': kwargs['page_type']
         }
 
         if event_target:

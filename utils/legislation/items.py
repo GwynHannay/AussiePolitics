@@ -11,3 +11,4 @@ class LegislationItem(scrapy.Item):
     # name = scrapy.Field()
     link = scrapy.Field()
     rows = scrapy.Field()
+    metadata = scrapy.Field()

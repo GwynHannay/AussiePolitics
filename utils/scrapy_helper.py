@@ -13,8 +13,8 @@ class LegislationPipeline:
         print('End of Pipeline')
 
 
-def run_scrapy(urls):
+def run_scrapy(urls, page_type):
     os.environ.setdefault('SCRAPY_SETTINGS_MODULE', 'utils.legislation.settings')
     process = CrawlerProcess(get_project_settings())
-    process.crawl('pages', urls=urls)
+    process.crawl('pages', urls=urls, page_type=page_type)
     process.start()

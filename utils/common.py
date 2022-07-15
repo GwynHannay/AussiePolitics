@@ -33,12 +33,19 @@ def build_url(base: str, part: str, prefix=None, suffix=None):
     return complete_url
 
 
-def build_url_from_config(common_config: dict, crawl_config: dict, type: str):
-    base_url = common_config['base_url']
-    part = crawl_config['landing_url']
+def build_url_from_config(config: dict, type: str, subsection=None):
+    base_url = config['base_url']
+    section = config['section']
     type_entry = ''.join([type, '_url'])
-    prefix = common_config[type_entry].get('prefix')
-    suffix = common_config[type_entry].get('suffix')
+
+    if subsection:
+        part = section['prefix']
+        suffix = section[subsection]
+    else:
+        part = section
+        suffix = config[type_entry].get('suffix')
+
+    prefix = config[type_entry].get('prefix')
 
     complete_url = build_url(base_url, part, prefix, suffix)
     return complete_url

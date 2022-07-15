@@ -7,7 +7,7 @@ document_filepath = 'docs'
 crawl_delay = 5
 
 def main():
-    crawler.main(['acts'])
+    crawler.main(['constitution', 'acts.in_force'])
     #crawler.run_scrapy('https://www.legislation.gov.au/Series/C2004A01401')
     # constitution_id = crawler.get_constitution()
     # constitution_metadata = crawler.get_series(constitution_id)

@@ -1,21 +1,26 @@
 from utils import common, soup_helper
 
 
-def main(section: str, common_config: dict, crawl_config: dict):
-    if not section == 'constitution':
-        index_urls = get_indexes(common_config, crawl_config)
-    else:
-        index_urls = []
+# def main(section: str, crawl_config: dict):
+#     if not section == 'constitution':
+#         index_urls = get_indexes(crawl_config)
+#     else:
+#         index_urls = []
     
-    return index_urls
+#     return index_urls
 
 
-def get_indexes(common_config: dict, crawl_config: dict):
-    landing_page_link = common.build_url_from_config(common_config, crawl_config, type='index')
+def get_indexes(section: str, crawl_config: dict):
+    sections = section.split('.')
+    if len(sections) > 1:
+        landing_page_link = common.build_url_from_config(crawl_config, type='index', subsection=sections[1])
+    else:
+        landing_page_link = common.build_url_from_config(crawl_config, type='index')
+
     landing_page_contents = soup_helper.get_soup(landing_page_link)
     landing_elements = {
         'type': 'a',
-        'class': common_config['title_link_class'],
+        'class': 'TitleLetter',
         'attribute': 'href'
     }
 
