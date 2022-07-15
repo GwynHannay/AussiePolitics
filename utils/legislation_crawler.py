@@ -46,3 +46,5 @@ def crawl_section(section: str, crawl_config: dict):
 
     if index_urls:
         scrapy_helper.run_scrapy(urls=index_urls, page_type='index')
+    
+    print('Finished: {}'.format(section))

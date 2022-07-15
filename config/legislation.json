@@ -61,9 +61,5 @@
     },
     "other_content": {
         "historic_gazettes": "Content/HistoricGazettes"
-    },
-    "common": {
-        "title_link_class": "TitleLetter",
-        "series_input_value": "View Series"
     }
 }
