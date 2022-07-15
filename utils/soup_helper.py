@@ -4,9 +4,14 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 
 
-def get_soup(url: str):
+def get_soup_from_url(url: str):
     response = urlopen(url)
     soup = BeautifulSoup(response, "html.parser")
+    return soup
+
+
+def get_soup_from_text(text: str):
+    soup = BeautifulSoup(text, "html.parser")
     return soup
 
 
