@@ -2,9 +2,6 @@ import json
 from utils import series, scrapy_helper, common
 
 
-page_types = ['index', 'series', 'download']
-
-
 def main(sections: list):
     full_config = load_config()
     crawl_config = get_common_config(full_config)
@@ -45,7 +42,7 @@ def crawl_section(section: str, crawl_config: dict):
     index_urls = series.get_indexes(section, crawl_config)
 
     if index_urls:
-        scrapy_helper.run_scrapy(urls=[index_urls[2]], page_type='index')
+        scrapy_helper.run_scrapy(urls=index_urls, page_type='index')
     else:
         index_url = common.build_url_from_config(config=crawl_config, type='index')
         scrapy_helper.run_scrapy(urls=[index_url], page_type='index')

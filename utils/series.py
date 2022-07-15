@@ -9,13 +9,8 @@ def get_indexes(section: str, crawl_config: dict):
         landing_page_link = common.build_url_from_config(crawl_config, type='index')
 
     landing_page_contents = soup_helper.get_soup_from_url(landing_page_link)
-    landing_elements = {
-        'type': 'a',
-        'class': 'TitleLetter',
-        'attribute': 'href'
-    }
 
-    raw_links = soup_helper.get_soup_elements(landing_page_contents, landing_elements)
+    raw_links = soup_helper.get_index_title_link(landing_page_contents)
     index_urls = []
     for link in raw_links:
         index_urls.append(common.build_url(landing_page_link, link))
@@ -38,9 +33,5 @@ def process_index(item: dict):
     print(series)
 
 
-def get_series(common_config: dict, crawl_config: dict):
-    series_elements = {
-        'type': 'input',
-        'value': common_config['series_input_value'],
-        'attribute': None
-    }
+def get_series(crawl_config: dict):
+    pass

@@ -15,17 +15,12 @@ def get_soup_from_text(text: str):
     return soup
 
 
-def get_soup_elements(soup, elements: dict):
-    results = []
+def get_index_title_link(soup):
+    results = soup.find_all('a', class_='TitleLetter')
     attributes = []
     
-    if elements.get('class'):
-        results = soup.find_all(elements['type'], class_=elements['class'])
-    elif elements.get('value'):
-        results = soup.find_all(elements['type'], value=elements['value'])
-    
     for result in results:
-        attributes.append(result[elements['attribute']])
+        attributes.append(result['href'])
     
     return attributes
 
