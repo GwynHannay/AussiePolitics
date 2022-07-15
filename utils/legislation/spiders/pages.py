@@ -59,10 +59,19 @@ class PagesSpider(scrapy.Spider):
         view_state_encrypted = response.css(
             '#__VIEWSTATEENCRYPTED::attr(value)').extract()
 
+        page_type = kwargs['page_type']
+        if page_type == 'index':
+            rows = response.css('.rgMasterTable').xpath('./tbody/tr')
+            metadata = None
+        else:
+            rows = None
+            metadata = None
+
         yield {
             'link': response.url,
-            'rows': response.css('.rgMasterTable').xpath('./tbody/tr'),
-            'metadata': kwargs['page_type']
+            'rows': rows,
+            'metadata': metadata,
+            'page_type': page_type
         }
 
         if event_target:
