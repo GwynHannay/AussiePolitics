@@ -1,4 +1,5 @@
 import os
+import sys
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from itemadapter import ItemAdapter
@@ -21,6 +22,8 @@ class LegislationPipeline:
 
 def run_scrapy(urls, page_type):
     os.environ.setdefault('SCRAPY_SETTINGS_MODULE', 'utils.legislation.settings')
+    if "twisted.internet.reactor" in sys.modules:
+        del sys.modules["twisted.internet.reactor"]
     process = CrawlerProcess(get_project_settings())
     process.crawl('pages', urls=urls, page_type=page_type)
     process.start()
