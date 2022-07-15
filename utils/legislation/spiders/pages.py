@@ -1,5 +1,6 @@
 import scrapy
 from scrapy.http import Request
+from utils import common
 
 
 class PagesSpider(scrapy.Spider):
@@ -20,19 +21,15 @@ class PagesSpider(scrapy.Spider):
         
         self.page_type = kw.get('page_type')
 
+
     def start_requests(self):
         for url in self.start_urls:
-            yield Request(url, callback=self.parse, cb_kwargs={'page_type': self.page_type})
+            yield Request(url, callback=self.parse, cb_kwargs={'page_type': self.page_type, 'visited': []})
+
 
     def parse(self, response, **cb_kwargs):
         href = response.css('.rgPagerCell').xpath('.//a')
-        if cb_kwargs.get('visited'):
-            kwargs = cb_kwargs
-        else:
-            kwargs = {
-                'visited': [],
-                'page_type': cb_kwargs['page_type']
-            }
+        kwargs = cb_kwargs
         event_target = None
 
         for link in href:

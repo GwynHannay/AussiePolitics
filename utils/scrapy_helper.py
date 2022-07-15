@@ -2,6 +2,7 @@ import os
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from itemadapter import ItemAdapter
+from utils import tinydb_helper
 
 class LegislationPipeline:
     def __init__(self):
@@ -9,7 +10,12 @@ class LegislationPipeline:
 
     def process_item(self, item, spider):
         print('Pipeline Here')
-        print(ItemAdapter(item).asdict())
+        items = ItemAdapter(item).asdict()
+        record = {
+            'link': items['link'],
+            'page_type': items['page_type']
+        }
+        tinydb_helper.insert_record(record)
         print('End of Pipeline')
 
 
