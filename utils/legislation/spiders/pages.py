@@ -20,11 +20,12 @@ class PagesSpider(scrapy.Spider):
             raise Exception('URLs should be in a list object, we received: {}'.format(kw))
         
         self.page_type = kw.get('page_type')
+        self.section = kw.get('section')
 
 
     def start_requests(self):
         for url in self.start_urls:
-            yield Request(url, callback=self.parse, cb_kwargs={'page_type': self.page_type, 'visited': []})
+            yield Request(url, callback=self.parse, cb_kwargs={'section': self.section, 'page_type': self.page_type, 'visited': []})
 
 
     def parse(self, response, **cb_kwargs):
@@ -66,6 +67,7 @@ class PagesSpider(scrapy.Spider):
 
         yield {
             'link': response.url,
+            'section': kwargs['section'],
             'rows': rows,
             'metadata': metadata,
             'page_type': page_type

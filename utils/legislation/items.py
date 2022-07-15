@@ -10,6 +10,7 @@ class LegislationItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     link = scrapy.Field()
+    section = scrapy.Field()
     rows = scrapy.Field()
     metadata = scrapy.Field()
     page_type = scrapy.Field()

@@ -1,4 +1,4 @@
-from utils import common, soup_helper
+from utils import common, soup_helper, tinydb_helper
 
 
 def get_indexes(section: str, crawl_config: dict):
@@ -30,7 +30,14 @@ def process_index(item: dict):
         soup = soup_helper.get_soup_from_text(rows.get())
         series.append(soup_helper.get_series_id(soup))
     
-    print(series)
+    record = {
+        'section': item['section'],
+        'stage': item['page_type']
+    }
+
+    for series_id in series:
+        record['series_id'] = series_id
+        tinydb_helper.insert_record(record)
 
 
 def get_series(crawl_config: dict):

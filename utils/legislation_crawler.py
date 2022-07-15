@@ -42,9 +42,9 @@ def crawl_section(section: str, crawl_config: dict):
     index_urls = series.get_indexes(section, crawl_config)
 
     if index_urls:
-        scrapy_helper.run_scrapy(urls=index_urls, page_type='index')
+        scrapy_helper.run_scrapy(urls=index_urls, page_type='index', section=section)
     else:
         index_url = common.build_url_from_config(config=crawl_config, type='index')
-        scrapy_helper.run_scrapy(urls=[index_url], page_type='index')
+        scrapy_helper.run_scrapy(urls=[index_url], page_type='index', section=section)
     
     print('Finished: {}'.format(section))

@@ -15,10 +15,10 @@ class LegislationPipeline:
             series.process_index(adaptor)
 
 
-def run_scrapy(urls, page_type):
+def run_scrapy(urls, page_type, section):
     os.environ.setdefault('SCRAPY_SETTINGS_MODULE', 'utils.legislation.settings')
     if "twisted.internet.reactor" in sys.modules:
         del sys.modules["twisted.internet.reactor"]
     process = CrawlerProcess(get_project_settings())
-    process.crawl('pages', urls=urls, page_type=page_type)
+    process.crawl('pages', urls=urls, page_type=page_type, section=section)
     process.start()
