@@ -61,6 +61,9 @@ class PagesSpider(scrapy.Spider):
         if page_type == 'index':
             rows = response.css('.rgMasterTable').xpath('./tbody/tr')
             metadata = None
+        elif page_type == 'series':
+            rows = response.css('.rgMasterTable').xpath('./tbody/tr')
+            metadata = response.xpath("//table[@id='MainContent_SeriesPane_tableStatus']")
         else:
             rows = None
             metadata = None
