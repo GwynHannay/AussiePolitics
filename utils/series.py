@@ -40,5 +40,13 @@ def process_index(item: dict):
         tinydb_helper.insert_record(record)
 
 
-def get_series(crawl_config: dict):
-    pass
+def get_series(section: str, crawl_config: dict):
+    docs = tinydb_helper.fetch_index_records(section)
+    series_urls = []
+    
+    for document in docs:
+        url = common.build_url(crawl_config['base_url'], part=document['series_id'], prefix=crawl_config['series_url']['prefix'])
+        series_urls.append(url)
+    
+    return series_urls
+        
