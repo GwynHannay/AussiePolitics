@@ -1,6 +1,5 @@
 import scrapy
 from scrapy.http import Request
-from utils import common
 
 
 class PagesSpider(scrapy.Spider):

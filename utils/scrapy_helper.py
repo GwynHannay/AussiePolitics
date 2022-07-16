@@ -17,7 +17,7 @@ class LegislationPipeline:
             series.process_series(adaptor)
 
 
-def run_scrapy(urls, page_type, section):
+def run_scrapy(urls: list, page_type: str, section: str):
     os.environ.setdefault('SCRAPY_SETTINGS_MODULE', 'utils.legislation.settings')
     if "twisted.internet.reactor" in sys.modules:
         del sys.modules["twisted.internet.reactor"]

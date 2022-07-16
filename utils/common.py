@@ -4,12 +4,12 @@ from dateutil.parser import parse
 
 
 
-def remove_whitespace(text):
+def remove_whitespace(text: str) -> str:
     clean_text = " ".join(text.split())
     return clean_text
 
 
-def standardise_date(date_field):
+def standardise_date(date_field: str) -> str:
     parsed_date = parse(date_field)
     formatted_date = ''
 
@@ -19,7 +19,7 @@ def standardise_date(date_field):
     return formatted_date
 
 
-def build_url(base: str, part: str, prefix=None, suffix=None):
+def build_url(base: str, part: str, prefix=None, suffix=None) -> str:
     if prefix and suffix:
         built_part = ''.join([prefix, '/', part, '/', suffix])
     elif prefix and not suffix:
@@ -33,7 +33,7 @@ def build_url(base: str, part: str, prefix=None, suffix=None):
     return complete_url
 
 
-def build_url_from_config(config: dict, type: str, subsection=None):
+def build_url_from_config(config: dict, type: str, subsection=None) -> str:
     base_url = config['base_url']
     section = config['section']
     type_entry = ''.join([type, '_url'])
@@ -49,3 +49,20 @@ def build_url_from_config(config: dict, type: str, subsection=None):
 
     complete_url = build_url(base_url, part, prefix, suffix)
     return complete_url
+
+
+def get_metadata_template() -> list:
+    template = [
+        {
+            'name': 'notation',
+            'element': 'span',
+            'id': 'MainContent_SeriesPane_lblSeriesNotations'
+        },
+        {
+            'name': 'admin_departments',
+            'element': 'span',
+            'id': 'MainContent_SeriesPane_lblAdminDepts'
+        }
+    ]
+
+    return template

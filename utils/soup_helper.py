@@ -4,18 +4,18 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 
 
-def get_soup_from_url(url: str):
+def get_soup_from_url(url: str) -> BeautifulSoup:
     response = urlopen(url)
     soup = BeautifulSoup(response, "html.parser")
     return soup
 
 
-def get_soup_from_text(text: str):
+def get_soup_from_text(text: str) -> BeautifulSoup:
     soup = BeautifulSoup(text, "html.parser")
     return soup
 
 
-def get_index_title_link(soup):
+def get_index_title_link(soup: BeautifulSoup) -> list:
     results = soup.find_all('a', class_='TitleLetter')
     attributes = []
     
@@ -25,7 +25,7 @@ def get_index_title_link(soup):
     return attributes
 
 
-def get_series_id(soup):
+def get_series_id(soup: BeautifulSoup) -> str:
     series_details = soup.find_all('input', value='View Series')
     series_id = ''
 
@@ -35,7 +35,7 @@ def get_series_id(soup):
     return series_id
 
 
-def get_text_using_id(soup, element, id):
+def get_text_using_id(soup: BeautifulSoup, element: str, id: str) -> str | None:
     item = soup.find(element, id=id)
     if item:
         return item.text
@@ -43,7 +43,7 @@ def get_text_using_id(soup, element, id):
         return None
 
 
-def get_series_metadata(soup, series_id):
+def get_series_metadata(soup: BeautifulSoup, series_id):
     metadata = []
     title = ''
     table_contents = soup.find_all('table', class_='rgMasterTable')
@@ -82,7 +82,7 @@ def get_series_metadata(soup, series_id):
     return metadata
 
 
-def get_document_metadata(soup, document_metadata):
+def get_document_metadata(soup: BeautifulSoup, document_metadata):
     title_status = soup.find('span', id=re.compile('lblTitleStatus'))
     if title_status:
         document_metadata['Title Status'] = title_status.text
