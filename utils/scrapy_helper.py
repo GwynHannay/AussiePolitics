@@ -13,6 +13,8 @@ class LegislationPipeline:
         adaptor = ItemAdapter(item).asdict()
         if adaptor['page_type'] == 'index':
             series.process_index(adaptor)
+        elif adaptor['page_type'] == 'series':
+            series.process_series(adaptor)
 
 
 def run_scrapy(urls, page_type, section):

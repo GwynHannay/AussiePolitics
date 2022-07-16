@@ -50,3 +50,6 @@ def get_series(section: str, crawl_config: dict):
     
     return series_urls
         
+
+def process_series(item: dict):
+    print(item)
