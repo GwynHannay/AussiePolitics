@@ -52,4 +52,20 @@ def get_series(section: str, crawl_config: dict):
         
 
 def process_series(item: dict):
-    print(item)
+    record = {
+        'section': item['section'],
+        'stage': item['page_type'],
+        'series_id': str(item['link']).rpartition('/')[-1],
+        'documents': []
+    }
+    
+    metadata_soup = soup_helper.get_soup_from_text(item['metadata'].get())
+
+    notation = soup_helper.get_text_using_id(metadata_soup, 'span', 'MainContent_SeriesPane_lblSeriesNotations')
+    if notation:
+        record['notation'] = common.remove_whitespace(notation)
+    admin_departments = soup_helper.get_text_using_id(metadata_soup, 'span', 'MainContent_SeriesPane_lblAdminDepts')
+    if admin_departments:
+        record['admin_departments'] = common.remove_whitespace(admin_departments)
+    
+    print(record)

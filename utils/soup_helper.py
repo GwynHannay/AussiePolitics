@@ -35,6 +35,14 @@ def get_series_id(soup):
     return series_id
 
 
+def get_text_using_id(soup, element, id):
+    item = soup.find(element, id=id)
+    if item:
+        return item.text
+    else:
+        return None
+
+
 def get_series_metadata(soup, series_id):
     metadata = []
     title = ''
