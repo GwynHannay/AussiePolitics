@@ -55,17 +55,32 @@ def process_series(item: dict):
     record = {
         'section': item['section'],
         'stage': item['page_type'],
-        'series_id': str(item['link']).rpartition('/')[-1],
-        'documents': []
+        'series_id': str(item['link']).rpartition('/')[-1]
     }
     
     metadata_soup = soup_helper.get_soup_from_text(item['metadata'].get())
+    metadata_template = get_metadata_template()
 
-    notation = soup_helper.get_text_using_id(metadata_soup, 'span', 'MainContent_SeriesPane_lblSeriesNotations')
-    if notation:
-        record['notation'] = common.remove_whitespace(notation)
-    admin_departments = soup_helper.get_text_using_id(metadata_soup, 'span', 'MainContent_SeriesPane_lblAdminDepts')
-    if admin_departments:
-        record['admin_departments'] = common.remove_whitespace(admin_departments)
+    for field in metadata_template:
+        field_text = soup_helper.get_text_using_id(metadata_soup, field['element'], field['id'])
+        if field_text:
+            record[field['name']] = common.remove_whitespace(field_text)
     
     print(record)
+
+
+def get_metadata_template():
+    template = [
+        {
+            'name': 'notation',
+            'element': 'span',
+            'id': 'MainContent_SeriesPane_lblSeriesNotations'
+        },
+        {
+            'name': 'admin_departments',
+            'element': 'span',
+            'id': 'MainContent_SeriesPane_lblAdminDepts'
+        }
+    ]
+
+    return template
