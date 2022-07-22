@@ -1,4 +1,4 @@
-from utils import common, soup_helper, tinydb_helper
+from utils import common, metadata_collector, soup_helper, tinydb_helper
 
 
 def get_indexes(section: str, crawl_config: dict) -> list:
@@ -91,13 +91,18 @@ def process_series(item: dict):
         'series_id': str(item['link']).rpartition('/')[-1]
     }
 
-    metadata_soup = soup_helper.get_soup_from_text(item['metadata'].get())
-    metadata_template = common.get_metadata_template()
+    series_metadata = metadata_collector.main(item['metadata'].get(), 'series_pane')
 
-    for field in metadata_template:
-        field_text = soup_helper.get_text_using_id(
-            metadata_soup, field['element'], field['id'])
-        if field_text:
-            record[field['name']] = common.remove_whitespace(field_text)
+    for field in series_metadata:
+        record[field] = series_metadata[field]
 
-    print(record)
+    rows = item['rows']
+    documents = []
+
+    if isinstance(rows, list):
+        for row in rows:
+            documents.append(metadata_collector.main(row.get(), 'series_table'))
+    else:
+        documents.append(metadata_collector.main(rows.get(), 'series_table'))
+    
+    print(documents)

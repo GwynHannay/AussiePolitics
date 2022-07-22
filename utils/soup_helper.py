@@ -42,6 +42,25 @@ def get_index_title_link(soup: BeautifulSoup) -> list:
     return attributes
 
 
+def get_link_by_class(soup: BeautifulSoup, class_name: str) -> list:
+    results = soup.find_all('a', class_=class_name)
+    attributes = []
+
+    for result in results:
+        attributes.append(result['href'])
+
+    return attributes
+
+
+def get_first_link(soup: BeautifulSoup) -> str | None:
+    link = soup.find('a')
+
+    if link:
+        return link['href']
+    else:
+        return None
+
+
 def get_series_id(soup: BeautifulSoup) -> str:
     """Receives a BeautifulSoup object and gets the series ID from the 'View Series'
     button in the HTML.
@@ -61,7 +80,15 @@ def get_series_id(soup: BeautifulSoup) -> str:
     return series_id
 
 
-def get_text_using_id(soup: BeautifulSoup, element: str, id: str) -> str | None:
+def get_element_text(soup: BeautifulSoup, element: str) -> str | None:
+    item = soup.find(element)
+    if item:
+        return item.text
+    else:
+        return None
+
+
+def get_text_using_exact_id(soup: BeautifulSoup, element: str, id: str) -> str | None:
     """Generic function that receives a BeautifulSoup object, an element type, and the
     element's ID, then returns either the text of that element, or None if it was not
     found.
@@ -80,6 +107,32 @@ def get_text_using_id(soup: BeautifulSoup, element: str, id: str) -> str | None:
         return item.text
     else:
         return None
+
+
+def get_text_using_regex_id(soup: BeautifulSoup, element: str, id: str) -> str | None:
+    item = soup.find(element, id=re.compile(id))
+    if item:
+        return item.text
+    else:
+        return None
+
+
+def iterate_over_series_columns(soup: BeautifulSoup, column_names: list):
+    document = {}
+    i = 0
+    if soup.tr:
+        for column in soup.tr.findChildren('td', recursive=False):
+            if column.find('table'):
+                continue
+
+            document[column_names[i]] = column.text.strip()
+            
+            if column_names[i] == column_names[-1]:
+                break
+            
+            i = i + 1
+    
+    return document
 
 
 def get_series_metadata(soup: BeautifulSoup, series_id):

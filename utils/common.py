@@ -77,21 +77,3 @@ def build_url_from_config(config: dict, type: str, subsection=None) -> str:
 
     complete_url = build_url(base_url, part, prefix, suffix)
     return complete_url
-
-
-# TODO: Rename to 'series metadata' or make generic depending on which metadata
-def get_metadata_template() -> list:
-    template = [
-        {
-            'name': 'notation',
-            'element': 'span',
-            'id': 'MainContent_SeriesPane_lblSeriesNotations'
-        },
-        {
-            'name': 'admin_departments',
-            'element': 'span',
-            'id': 'MainContent_SeriesPane_lblAdminDepts'
-        }
-    ]
-
-    return template
