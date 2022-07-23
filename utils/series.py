@@ -85,16 +85,22 @@ def get_series(section: str, crawl_config: dict) -> list:
 
 
 def process_series(item: dict):
-    record = {
-        'section': item['section'],
-        'stage': item['page_type'],
-        'series_id': str(item['link']).rpartition('/')[-1]
-    }
+    series_id = str(item['link']).rpartition('/')[-1]
+    series_status = tinydb_helper.check_series_status(series_id)[0]
 
-    series_metadata = metadata_collector.main(item['metadata'].get(), 'series_pane')
+    if series_status.get('stage') == 'index':
+        record = {
+            'section': item['section'],
+            'stage': item['page_type'],
+            'series_id': series_id
+        }
 
-    for field in series_metadata:
-        record[field] = series_metadata[field]
+        series_metadata = metadata_collector.main(item['metadata'].get(), 'series_pane')
+
+        for field in series_metadata:
+            record[field] = series_metadata[field]
+        
+        tinydb_helper.update_record(record)
 
     rows = item['rows']
     documents = []
@@ -105,4 +111,4 @@ def process_series(item: dict):
     else:
         documents.append(metadata_collector.main(rows.get(), 'series_table'))
     
-    print(documents)
+    tinydb_helper.add_to_record(documents, series_id)

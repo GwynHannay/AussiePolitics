@@ -62,7 +62,7 @@ def get_common_config(config: dict) -> dict:
 
 
 def crawl_section(section: str, crawl_config: dict):
-    index_urls = series.get_indexes(section, crawl_config)
+    # index_urls = series.get_indexes(section, crawl_config)
 
     # if index_urls:
     #     scrapy_helper.run_scrapy(urls=index_urls, page_type='index', section=section)
@@ -70,9 +70,5 @@ def crawl_section(section: str, crawl_config: dict):
     #     index_url = common.build_url_from_config(config=crawl_config, type='index')
     #     scrapy_helper.run_scrapy(urls=[index_url], page_type='index', section=section)
 
-    if index_urls:
-        pass
-    else:
-        series_urls = series.get_series(section, crawl_config)
-        scrapy_helper.run_scrapy(
-            urls=series_urls, page_type='series', section=section)
+    #series_urls = series.get_series(section, crawl_config)
+    scrapy_helper.run_scrapy(urls=['https://www.legislation.gov.au/Series/C2004A00490'], page_type='series', section=section)

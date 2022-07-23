@@ -52,32 +52,13 @@ def get_link_by_class(soup: BeautifulSoup, class_name: str) -> list:
     return attributes
 
 
-def get_first_link(soup: BeautifulSoup) -> str | None:
-    link = soup.find('a')
+def get_link_using_regex_id(soup: BeautifulSoup, id: str) -> str | None:
+    link = soup.find('a', id=re.compile(id))
 
     if link:
         return link['href']
     else:
         return None
-
-
-def get_series_id(soup: BeautifulSoup) -> str:
-    """Receives a BeautifulSoup object and gets the series ID from the 'View Series'
-    button in the HTML.
-
-    Args:
-        soup (BeautifulSoup): Parsed HTML that should contain a Series ID button.
-
-    Returns:
-        str: Series ID.
-    """
-    series_details = soup.find_all('input', value='View Series')
-    series_id = ''
-
-    for button in series_details:
-        series_id = re.findall(r'/Series/([A-Za-z0-9]*)"', str(button))[0]
-
-    return series_id
 
 
 def get_element_text(soup: BeautifulSoup, element: str) -> str | None:
@@ -115,6 +96,25 @@ def get_text_using_regex_id(soup: BeautifulSoup, element: str, id: str) -> str |
         return item.text
     else:
         return None
+
+
+def get_series_id(soup: BeautifulSoup) -> str:
+    """Receives a BeautifulSoup object and gets the series ID from the 'View Series'
+    button in the HTML.
+
+    Args:
+        soup (BeautifulSoup): Parsed HTML that should contain a Series ID button.
+
+    Returns:
+        str: Series ID.
+    """
+    series_details = soup.find_all('input', value='View Series')
+    series_id = ''
+
+    for button in series_details:
+        series_id = re.findall(r'/Series/([A-Za-z0-9]*)"', str(button))[0]
+
+    return series_id
 
 
 def iterate_over_series_columns(soup: BeautifulSoup, column_names: list):
