@@ -86,9 +86,9 @@ def get_series(section: str, crawl_config: dict) -> list:
 
 def process_series(item: dict):
     series_id = str(item['link']).rpartition('/')[-1]
-    series_status = tinydb_helper.check_series_status(series_id)[0]
+    series_record = tinydb_helper.fetch_series_record(series_id)[0]
 
-    if series_status.get('stage') == 'index':
+    if series_record.get('stage') == 'index':
         record = {
             'section': item['section'],
             'stage': item['page_type'],
@@ -103,12 +103,39 @@ def process_series(item: dict):
         tinydb_helper.update_record(record)
 
     rows = item['rows']
-    documents = []
+    if series_record.get('documents'):
+        documents = series_record['documents']
+    else:
+        documents = []
 
     if isinstance(rows, list):
         for row in rows:
-            documents.append(metadata_collector.main(row.get(), 'series_table'))
+            new_document = metadata_collector.main(row.get(), 'series_table')
+            documents = check_existing_documents(documents, new_document)
     else:
-        documents.append(metadata_collector.main(rows.get(), 'series_table'))
+        new_document = metadata_collector.main(rows.get(), 'series_table')
+        documents = check_existing_documents(documents, new_document)
     
-    tinydb_helper.add_to_record(documents, series_id)
+    tinydb_helper.update_list(documents, series_id)
+
+
+def check_existing_documents(documents_list: list, new_document: dict) -> list:
+    i = 0
+    x = len(documents_list)
+
+    if x == 0:
+        documents_list.append(new_document)
+        return documents_list
+    else:
+        for old_document in documents_list:
+            if old_document['register_id'] == new_document['register_id']:
+                documents_list.remove(old_document)
+                documents_list.insert(i, new_document)
+                break
+            elif x == (i + 1):
+                documents_list.insert(0, new_document)
+                break
+            else:
+                i = i + 1
+
+        return documents_list
