@@ -36,6 +36,11 @@ def get_template(metadata_type: str) -> list:
 def get_series_pane_metadata_template() -> list:
     template = [
         {
+            'name': 'title',
+            'element': 'h2',
+            'class': 'wraptext'
+        },
+        {
             'name': 'notation',
             'element': 'span',
             'id': 'MainContent_SeriesPane_lblSeriesNotations'
@@ -123,6 +128,8 @@ def fill_out_template(item: str, template: list) -> dict:
             field_text = soup_helper.get_text_using_exact_id(soup, field['element'], field['id'])
         elif field.get('id_like'):
             field_text = soup_helper.get_text_using_regex_id(soup, field['element'], field['id_like'])
+        elif field.get('class'):
+            field_text = soup_helper.get_text_by_class(soup, field['element'], field['class'])
         else:
             field_text = soup_helper.get_element_text(soup, field['element'])
 

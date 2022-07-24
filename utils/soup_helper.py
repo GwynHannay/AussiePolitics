@@ -52,6 +52,14 @@ def get_link_by_class(soup: BeautifulSoup, class_name: str) -> list:
     return attributes
 
 
+def get_text_by_class(soup: BeautifulSoup, element: str, class_name: str) -> str | None:
+    item = soup.find(element, class_=class_name)
+    if item:
+        return item.text
+    else:
+        return None
+
+
 def get_link_using_regex_id(soup: BeautifulSoup, id: str) -> str | None:
     link = soup.find('a', id=re.compile(id))
 
