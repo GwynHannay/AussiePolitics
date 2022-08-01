@@ -64,6 +64,36 @@ def get_series_pane_metadata_template() -> list:
             'name': 'commence_date_formatted',
             'element': 'span',
             'id': 'MainContent_SeriesPane_lblCommencesDate'
+        },
+        {
+            'name': 'repealed_label',
+            'element': 'span',
+            'id': 'MainContent_SeriesPane_lblRepealedFieldLabel'
+        },
+        {
+            'name': 'repealed_date_formatted',
+            'element': 'span',
+            'id': 'MainContent_SeriesPane_lblRepealed'
+        },
+        {
+            'name': 'repeal_reason',
+            'element': 'span',
+            'id': 'MainContent_SeriesPane_lblRepealingReason'
+        },
+        {
+            'name': 'ceased_label',
+            'element': 'span',
+            'id': 'MainContent_SeriesPane_lblCeasedFieldLabel'
+        },
+        {
+            'name': 'ceased_datetime_formatted',
+            'element': 'span',
+            'id': 'MainContent_SeriesPane_lblCeased'
+        },
+        {
+            'name': 'ceasing_reason',
+            'element': 'span',
+            'id': 'MainContent_SeriesPane_lblCeasingReason'
         }
     ]
 

@@ -122,6 +122,9 @@ def process_series(item: dict):
 def check_existing_documents(documents_list: list, new_document: dict) -> list:
     i = 0
     x = len(documents_list)
+    current_datetime = ''.join([common.get_current_datetime(), ' AWST'])
+    new_document['first_seen'] = current_datetime
+    new_document['last_seen'] = current_datetime
 
     if x == 0:
         documents_list.append(new_document)
@@ -129,6 +132,7 @@ def check_existing_documents(documents_list: list, new_document: dict) -> list:
     else:
         for old_document in documents_list:
             if old_document['register_id'] == new_document['register_id']:
+                new_document['first_seen'] = old_document['first_seen']
                 documents_list.remove(old_document)
                 documents_list.insert(i, new_document)
                 break
@@ -139,3 +143,7 @@ def check_existing_documents(documents_list: list, new_document: dict) -> list:
                 i = i + 1
 
         return documents_list
+
+
+def add_principal_to_series():
+    pass

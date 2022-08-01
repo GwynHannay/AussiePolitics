@@ -1,6 +1,11 @@
+import pytz
 from urllib.parse import urljoin
 from datetime import datetime
 from dateutil.parser import parse
+
+
+def get_current_datetime() -> str:
+    return datetime.strftime(datetime.now(pytz.timezone("Australia/Perth")), '%Y-%m-%d %H:%M:%S')
 
 
 def remove_whitespace(text: str) -> str:
