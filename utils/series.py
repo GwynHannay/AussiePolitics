@@ -78,7 +78,9 @@ def get_series(section: str, crawl_config: dict) -> list:
 
     for document in docs:
         url = common.build_url(
-            crawl_config['base_url'], part=document['series_id'], prefix=crawl_config['series_url']['prefix'])
+            crawl_config['base_url'],
+            part=document['series_id'],
+            prefix=crawl_config['series_url']['prefix'])
         series_urls.append(url)
 
     return series_urls
@@ -95,11 +97,12 @@ def process_series(item: dict):
             'series_id': series_id
         }
 
-        series_metadata = metadata_collector.main(item['metadata'].get(), 'series_pane')
+        series_metadata = metadata_collector.main(
+            item['metadata'].get(), 'series_pane')
 
         for field in series_metadata:
             record[field] = series_metadata[field]
-        
+
         tinydb_helper.update_record(record)
 
     rows = item['rows']
@@ -115,7 +118,7 @@ def process_series(item: dict):
     else:
         new_document = metadata_collector.main(rows.get(), 'series_table')
         documents = check_existing_documents(documents, new_document)
-    
+
     tinydb_helper.update_list(documents, series_id)
 
 
@@ -152,3 +155,32 @@ def add_principal_to_series(section: str):
         principal = metadata_collector.build_principal(doc)
         documents = check_existing_documents(doc['documents'], principal)
         tinydb_helper.update_list(documents, doc['series_id'])
+
+
+def get_details(section: str, crawl_config: dict) -> list:
+    series = tinydb_helper.fetch_series_records(section)
+    details_urls = []
+
+    for single in series:
+        for document in single['documents']:
+            url = common.build_url(
+                crawl_config['base_url'],
+                part=document['register_id'],
+                prefix=crawl_config['download_url']['prefix'],
+                suffix=crawl_config['download_url']['suffix'])
+            details_urls.append(url)
+
+    return details_urls
+
+
+def process_details(item: dict):
+    register_id = str(item['link']).split('/')[-2]
+    series_record = tinydb_helper.fetch_series_record_by_document_id(register_id)[0]
+    document = {}
+
+    for doc in series_record['documents']:
+        if doc['register_id'] == register_id:
+            document = doc
+            break
+    
+    print(document)

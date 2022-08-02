@@ -72,4 +72,7 @@ def crawl_section(section: str, crawl_config: dict):
 
     # series_urls = series.get_series(section, crawl_config)
     # scrapy_helper.run_scrapy(urls=series_urls, page_type='series', section=section)
-    series.add_principal_to_series(section)
+    # series.add_principal_to_series(section)
+
+    details_urls = series.get_details(section, crawl_config)
+    scrapy_helper.run_scrapy(urls=[details_urls[2]], page_type='details', section=section)

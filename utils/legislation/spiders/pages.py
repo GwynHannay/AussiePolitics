@@ -63,6 +63,9 @@ class PagesSpider(scrapy.Spider):
         elif page_type == 'series':
             rows = response.css('.rgMasterTable').xpath('./tbody/tr')
             metadata = response.xpath("//div[@id='MainContent_leftDetailMeta']")
+        elif page_type == 'details':
+            rows = response.xpath("//div[contains(@id, 'MainContent_AttachmentsRepeater')]//div[contains(@id, 'displayFile')]")
+            metadata = response.xpath("//div[@id='MainContent_leftDetailMeta']")
         else:
             rows = None
             metadata = None

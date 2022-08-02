@@ -1,7 +1,9 @@
-from tinydb import TinyDB, where
+from tinydb import TinyDB, Query, where
 from tinydb.operations import add, set
 
 db = TinyDB('docs/db.json')
+Series = Query()
+Docs = Query()
 
 def insert_record(record: dict):
     db.insert(record)
@@ -29,3 +31,7 @@ def fetch_series_records(section: str) -> list:
 
 def fetch_series_record_by_id(series_id: str) -> list:
     return db.search(where('series_id') == series_id) # type: ignore
+
+
+def fetch_series_record_by_document_id(register_id: str):
+    return db.search(Series['documents'].any(Docs['register_id'] == register_id)) # type: ignore

@@ -1,4 +1,5 @@
 import os
+from sqlite3 import adapt
 import sys
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
@@ -16,6 +17,8 @@ class LegislationPipeline:
             series.process_index(adaptor)
         elif adaptor['page_type'] == 'series':
             series.process_series(adaptor)
+        elif adaptor['page_type'] == 'details':
+            series.process_details(adaptor)
 
 
 def run_scrapy(urls: list, page_type: str, section: str):

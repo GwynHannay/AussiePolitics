@@ -143,45 +143,6 @@ def iterate_over_series_columns(soup: BeautifulSoup, column_names: list):
     return document
 
 
-def get_series_metadata(soup: BeautifulSoup, series_id):
-    metadata = []
-    title = ''
-    table_contents = soup.find_all('table', class_='rgMasterTable')
-
-    headings = []
-    for header in table_contents[0].thead.find_all('th', class_='rgHeader'):
-        headings.append(header.text)
-
-    for row in table_contents[0].tbody.findChildren('tr', recursive=False):
-        document = {}
-        i = 0
-        for columns in row.findChildren('td', recursive=False):
-            if columns.find('table'):
-                title = columns.table.find('a').text
-                status = columns.table.find(
-                    'span', id=re.compile('lblTitleStatus')).text
-                document[headings[i]] = ''.join([title, ' [', status, ']'])
-            else:
-                document[headings[i]] = columns.text.strip()
-            i = i + 1
-        metadata.append(document)
-
-    document = {}
-    for header in headings:
-        if header == 'Title':
-            document[header] = ''.join([title, ' [Principal]'])
-        elif header == 'RegisterId':
-            document[header] = series_id
-        elif header == 'Comp No.':
-            document[header] = '0'
-        elif header == 'Start Date':
-            document[header] = '09 Jul 1900'  # TODO: Update this
-        else:
-            document[header] = ''
-    metadata.append(document)
-
-    return metadata
-
 
 def get_document_metadata(soup: BeautifulSoup, document_metadata):
     title_status = soup.find('span', id=re.compile('lblTitleStatus'))
