@@ -70,5 +70,6 @@ def crawl_section(section: str, crawl_config: dict):
     #     index_url = common.build_url_from_config(config=crawl_config, type='index')
     #     scrapy_helper.run_scrapy(urls=[index_url], page_type='index', section=section)
 
-    series_urls = series.get_series(section, crawl_config)
-    scrapy_helper.run_scrapy(urls=series_urls, page_type='series', section=section)
+    # series_urls = series.get_series(section, crawl_config)
+    # scrapy_helper.run_scrapy(urls=series_urls, page_type='series', section=section)
+    series.add_principal_to_series(section)

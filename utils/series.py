@@ -86,7 +86,7 @@ def get_series(section: str, crawl_config: dict) -> list:
 
 def process_series(item: dict):
     series_id = str(item['link']).rpartition('/')[-1]
-    series_record = tinydb_helper.fetch_series_record(series_id)[0]
+    series_record = tinydb_helper.fetch_series_record_by_id(series_id)[0]
 
     if series_record.get('stage') == 'index':
         record = {
@@ -145,5 +145,10 @@ def check_existing_documents(documents_list: list, new_document: dict) -> list:
         return documents_list
 
 
-def add_principal_to_series():
-    pass
+def add_principal_to_series(section: str):
+    docs = tinydb_helper.fetch_series_records(section)
+
+    for doc in docs:
+        principal = metadata_collector.build_principal(doc)
+        documents = check_existing_documents(doc['documents'], principal)
+        tinydb_helper.update_list(documents, doc['series_id'])

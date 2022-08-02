@@ -182,3 +182,41 @@ def order_columns(original_record: dict, column_order: list) -> dict:
             ordered_record[column] = ''
 
     return ordered_record
+
+
+def build_principal(document: dict) -> dict:
+    columns = get_series_column_order()
+    principal = {}
+
+    compilations = document['documents']
+
+    if len(compilations) > 1:
+        sorted_compilations = sorted(compilations, key=lambda i: (i['comp_no'], common.transform_string_to_date(i['start_date']), i['register_id']))
+        first_document = sorted_compilations[0]
+    elif len(compilations) == 1:
+        first_document = compilations[0]
+    else:
+        first_document = {}
+
+    for col in columns:
+        match col:
+            case 'register_id':
+                principal[col] = document['series_id']
+            case 'document_status':
+                principal[col] = 'Principal'
+            case 'comp_no':
+                principal[col] = '0'
+            case 'start_date':
+                if document['section'] == 'constitution':
+                    principal[col] = '09 Jul 1900'
+                else:
+                    principal[col] = document['commence_date_formatted']
+            case 'end_date':
+                if first_document.get('start_date'):
+                    principal[col] = common.get_previous_date_string(first_document['start_date'])
+                else:
+                    principal[col] = ''
+            case _:
+                principal[col] = ''
+
+    return principal

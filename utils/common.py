@@ -1,6 +1,6 @@
 import pytz
 from urllib.parse import urljoin
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from dateutil.parser import parse
 
 
@@ -37,6 +37,17 @@ def standardise_date(date_field: str) -> str:
         formatted_date = datetime.strftime(parsed_date, '%d %b %Y')
 
     return formatted_date
+
+
+def transform_string_to_date(date_string: str) -> date:
+    return datetime.strptime(date_string, '%d %b %Y')
+
+
+def get_previous_date_string(date_string: str) -> str:
+    converted_to_datetime = transform_string_to_date(date_string)
+    previous_date = converted_to_datetime - timedelta(days=1)
+    new_date_string = previous_date.strftime('%d %b %Y')
+    return new_date_string
 
 
 def build_url(base: str, part: str, prefix=None, suffix=None) -> str:
