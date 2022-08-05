@@ -29,6 +29,8 @@ def get_template(metadata_type: str) -> list:
         return get_series_pane_metadata_template()
     elif metadata_type == 'series_table':
         return get_series_table_metadata_template()
+    elif metadata_type == 'details':
+        return get_details_pane_metadata_template()
     else:
         return []
 
@@ -116,6 +118,53 @@ def get_series_table_metadata_template() -> list:
             'name': 'incorporated_amendments_linked',
             'element': 'a',
             'id_like': 'hlIncorpTo'
+        }
+    ]
+
+    return template
+
+
+def get_details_pane_metadata_template() -> list:
+    template = [
+        {
+            'name': 'description',
+            'element': 'span',
+            'id': 'MainContent_ucLegItemPane_lblBD'
+        },
+        {
+            'name': 'details',
+            'element': 'span',
+            'id': 'MainContent_ucLegItemPane_lblDetail'
+        },
+        {
+            'name': 'number_year',
+            'element': 'span',
+            'id': 'MainContent_ucLegItemPane_lblNumberYear'
+        },
+        {
+            'name': 'admin_departments',
+            'element': 'span',
+            'id': 'MainContent_ucLegItemPane_lblAdminDepts'
+        },
+        {
+            'name': 'comments',
+            'element': 'span',
+            'id': 'MainContent_ucLegItemPane_lblComments'
+        },
+        {
+            'name': 'published',
+            'element': 'span',
+            'id': 'MainContent_ucLegItemPane_lblPublished'
+        },
+        {
+            'name': 'detail_start_date',
+            'element': 'span',
+            'id': 'MainContent_ucLegItemPane_lblStartDate'
+        },
+        {
+            'name': 'detail_end_date',
+            'element': 'span',
+            'id': 'MainContent_ucLegItemPane_lblEndDate'
         }
     ]
 

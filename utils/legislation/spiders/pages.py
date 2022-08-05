@@ -65,7 +65,7 @@ class PagesSpider(scrapy.Spider):
             metadata = response.xpath("//div[@id='MainContent_leftDetailMeta']")
         elif page_type == 'details':
             rows = response.xpath("//div[contains(@id, 'MainContent_AttachmentsRepeater')]//div[contains(@id, 'displayFile')]")
-            metadata = response.xpath("//div[@id='MainContent_leftDetailMeta']")
+            metadata = response.xpath("//div[@id='MainContent_ucLegItemPane_divLeftDetails']")
         else:
             rows = None
             metadata = None

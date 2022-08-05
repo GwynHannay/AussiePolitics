@@ -183,4 +183,5 @@ def process_details(item: dict):
             document = doc
             break
     
-    print(document)
+    document_metadata = metadata_collector.main(item['metadata'].get(), 'details')
+    print(document_metadata)
