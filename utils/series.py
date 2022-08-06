@@ -184,4 +184,10 @@ def process_details(item: dict):
             break
     
     document_metadata = metadata_collector.main(item['metadata'].get(), 'details')
-    print(document_metadata)
+    document_details = document | document_metadata
+
+    download_link = metadata_collector.get_document_download_link(item['rows'].get())
+    document_details['download_link'] = download_link
+    
+    documents = check_existing_documents(series_record['documents'], document_details)
+    tinydb_helper.update_list(documents, series_record['series_id'])

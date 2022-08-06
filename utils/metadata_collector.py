@@ -198,6 +198,13 @@ def get_series_column_order() -> list:
     return columns_in_order
 
 
+def get_document_download_link(item: str) -> str | None:
+    soup = soup_helper.get_soup_from_text(item)
+    link = soup_helper.get_link_using_regex_id(soup, id='hlPrimaryDoc')
+    
+    return link
+
+
 def fill_out_template(item: str, template: list) -> dict:
     soup = soup_helper.get_soup_from_text(item)
     record = {}
