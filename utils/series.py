@@ -191,3 +191,9 @@ def process_details(item: dict):
     
     documents = check_existing_documents(series_record['documents'], document_details)
     tinydb_helper.update_list(documents, series_record['series_id'])
+
+    change_record = {
+        'series_id': series_record['series_id'],
+        'stage': 'details'
+    }
+    tinydb_helper.update_record(change_record)

@@ -35,3 +35,7 @@ def fetch_series_record_by_id(series_id: str) -> list:
 
 def fetch_series_record_by_document_id(register_id: str):
     return db.search(Series['documents'].any(Docs['register_id'] == register_id)) # type: ignore
+
+
+def fetch_details_records(section: str) -> list:
+    return db.search((where('stage') == 'details') & (where('section') == section))  # type: ignore
