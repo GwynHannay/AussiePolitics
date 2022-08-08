@@ -9,7 +9,7 @@ def main(sections: list):
     for section in sections:
         piece = section.split('.')[0]
         crawl_config['section'] = full_config['index_urls'][piece]
-        # crawl_section(section, crawl_config)
+        crawl_section(section, crawl_config)
         download_files(section)
 
 
@@ -63,20 +63,20 @@ def get_common_config(config: dict) -> dict:
 
 
 def crawl_section(section: str, crawl_config: dict):
-    index_urls = series.get_indexes(section, crawl_config)
+    # index_urls = series.get_indexes(section, crawl_config)
 
-    if index_urls:
-        scrapy_helper.run_scrapy(urls=index_urls, page_type='index', section=section)
-    else:
-        index_url = common.build_url_from_config(config=crawl_config, type='index')
-        scrapy_helper.run_scrapy(urls=[index_url], page_type='index', section=section)
+    # if index_urls:
+    #     scrapy_helper.run_scrapy(urls=index_urls, page_type='index', section=section)
+    # else:
+    #     index_url = common.build_url_from_config(config=crawl_config, type='index')
+    #     scrapy_helper.run_scrapy(urls=[index_url], page_type='index', section=section)
 
-    series_urls = series.get_series(section, crawl_config)
-    scrapy_helper.run_scrapy(urls=series_urls, page_type='series', section=section)
-    series.add_principal_to_series(section)
+    # series_urls = series.get_series(section, crawl_config)
+    # scrapy_helper.run_scrapy(urls=series_urls, page_type='series', section=section)
+    # series.add_principal_to_series(section)
 
     details_urls = series.get_details(section, crawl_config)
-    scrapy_helper.run_scrapy(urls=[details_urls[2]], page_type='details', section=section)
+    scrapy_helper.run_scrapy(urls=details_urls, page_type='details', section=section)
 
 
 def download_files(section: str):
