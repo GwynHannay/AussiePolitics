@@ -1,11 +1,17 @@
+import logging
 import pytz
 from urllib.parse import urljoin
 from datetime import date, datetime, timedelta
 from dateutil.parser import parse
 
 
+logger = logging.getLogger(__name__)
+
 def get_current_datetime() -> str:
-    return datetime.strftime(datetime.now(pytz.timezone("Australia/Perth")), '%Y-%m-%d %H:%M:%S')
+    logger.debug('get_current_datetime()')
+    current_datetime = datetime.strftime(datetime.now(pytz.timezone("Australia/Perth")), '%Y-%m-%d %H:%M:%S')
+    logger.debug('Returning current datetime: %s', current_datetime)
+    return current_datetime
 
 
 def remove_whitespace(text: str) -> str:

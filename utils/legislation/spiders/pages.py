@@ -1,6 +1,9 @@
 import scrapy
+import logging
 from scrapy.http import Request
 
+
+logger = logging.getLogger(__name__)
 
 class PagesSpider(scrapy.Spider):
     name = "pages"
@@ -10,7 +13,7 @@ class PagesSpider(scrapy.Spider):
 
         Raises:
             Exception: If no URL was passed.
-        """        
+        """   
         super(PagesSpider, self).__init__(**kw)
         self.start_urls = kw.get('urls') or 'dummy'
         if self.start_urls == 'dummy':
@@ -31,6 +34,7 @@ class PagesSpider(scrapy.Spider):
         href = response.css('.rgPagerCell').xpath('.//a')
         kwargs = cb_kwargs
         event_target = None
+        logger.info('This URL is: %s', response.url)
 
         for link in href:
             js_function = link.xpath('./@href').get()

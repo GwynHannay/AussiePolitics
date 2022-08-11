@@ -1,11 +1,17 @@
+import logging
 import os
-from sqlite3 import adapt
 import sys
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from itemadapter import ItemAdapter
 from utils import series
 
+
+logging.basicConfig(
+    filename='log.txt',
+    format='[%(asctime)s] - %(levelname)s in %(name)s, %(funcName)s(): %(message)s',
+    level=logging.DEBUG
+)
 
 class LegislationPipeline:
     def __init__(self):

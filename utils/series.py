@@ -1,4 +1,18 @@
+from asyncio.log import logger
 from utils import common, metadata_collector, soup_helper, tinydb_helper
+
+
+def get_urls(page_type: str, section: str, crawl_config: dict) -> list:
+    match page_type:
+        case 'index':
+            return get_indexes(section, crawl_config)
+        case 'series':
+            return get_series(section, crawl_config)
+        case 'details':
+            return get_details(section, crawl_config)
+        case _:
+            logger.error('Not a valid page type: %s', page_type)
+            return []
 
 
 def get_indexes(section: str, crawl_config: dict) -> list:

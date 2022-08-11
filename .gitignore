@@ -134,6 +134,7 @@ dmypy.json
 # Development
 *.xml
 *.db
+new_docs/*
 
 # Secrets
 */secrets.json

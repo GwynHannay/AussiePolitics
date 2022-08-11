@@ -1,13 +1,15 @@
-import time
-import utils.legislation_crawler as crawler
-import utils.old_file_handler as diff
+import logging
+from utils import legislation_crawler
 
 
+logger = logging.getLogger('main')
 document_filepath = 'docs'
 crawl_delay = 5
 
 def main():
-    crawler.main(['acts.in_force'])
+    sections = ['constitution', 'acts.in_force']
+    logger.debug('Sending sections: %s', sections)
+    legislation_crawler.main(sections)
     #crawler.run_scrapy('https://www.legislation.gov.au/Series/C2004A01401')
     # constitution_id = crawler.get_constitution()
     # constitution_metadata = crawler.get_series(constitution_id)
