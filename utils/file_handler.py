@@ -1,6 +1,10 @@
+import logging
 import re
 import os
 from urllib.request import urlretrieve
+
+
+logger = logging.getLogger(__name__)
 
 
 def download_file(url: str) -> dict:

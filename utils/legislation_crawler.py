@@ -81,8 +81,10 @@ def get_common_config(config: dict) -> dict:
             'index_url': {
                 'prefix': config['index_urls']['prefix']
             },
-            'series_url': config['series_url'],
-            'download_url': config['download_url']
+            'section_urls': {
+                'series': config['series_url'],
+                'details': config['download_url']
+            }
         }
 
         return common_config

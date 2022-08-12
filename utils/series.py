@@ -1,28 +1,36 @@
-from asyncio.log import logger
+import logging
 from utils import common, metadata_collector, soup_helper, tinydb_helper
 
 
+logger = logging.getLogger(__name__)
+
+
 def get_urls(page_type: str, section: str, crawl_config: dict) -> list:
-    match page_type:
-        case 'index':
-            return get_indexes(section, crawl_config)
-        case 'series':
-            return get_series(section, crawl_config)
-        case 'details':
-            return get_details(section, crawl_config)
-        case _:
-            logger.error('Not a valid page type: %s', page_type)
-            return []
+    """Directs the creation of scraping URLs based on page type and section.
+
+    Args:
+        page_type (str): Web page types, e.g. index, series, details.
+        section (str): Part of the legislation website we're scraping, e.g. Acts In Force,
+            Constitution.
+        crawl_config (dict): Config items relevant to our scraping.
+
+    Returns:
+        list: _description_
+    """    
+    if page_type == 'index':
+        return get_index_urls(section, crawl_config)
+    else:
+        return get_metadata_urls(page_type, section, crawl_config)
 
 
-def get_indexes(section: str, crawl_config: dict) -> list:
+def get_index_urls(section: str, crawl_config: dict) -> list:
     """Scrapes the landing page for this section of the legislation website, and if there
     is an alphabetised index, will build complete URLs from each letter so we can scrape
     the list of documents.
 
     Args:
         section (str): Part of the legislation website we're scraping, e.g. Acts In Force,
-            Constitution.
+            Constitution. May contain a subsection, indicated by a period, e.g. acts.in_force
         crawl_config (dict): Config items relevant to our scraping.
 
     Returns:
@@ -30,9 +38,11 @@ def get_indexes(section: str, crawl_config: dict) -> list:
     """
     sections = section.split('.')
     if len(sections) > 1:
+        logger.debug('Building URL for the index pages of subsection in sections "%s"', sections)
         landing_page_link = common.build_url_from_config(
             crawl_config, type='index', subsection=sections[1])
     else:
+        logger.debug('Building URL for index pages of section "%s"', section)
         landing_page_link = common.build_url_from_config(
             crawl_config, type='index')
 
@@ -44,6 +54,63 @@ def get_indexes(section: str, crawl_config: dict) -> list:
         index_urls.append(common.build_url(landing_page_link, link))
 
     return index_urls
+
+
+def get_metadata_urls(page_type: str, section: str, crawl_config: dict) -> list:
+    records = tinydb_helper.fetch_records_by_stage(stage=page_type, section=section)
+    urls = []
+
+    for series in records:
+        if page_type == 'series':
+            url = common.build_url_from_config(crawl_config, page_type, provided_part=series['series_id'])
+            urls.append(url)
+        else:
+            for document in series['documents']:
+                url = common.build_url_from_config(crawl_config, page_type, provided_part=document['register_id'])
+                urls.append(url)
+    
+    return urls
+
+
+# def get_series(section: str, crawl_config: dict) -> list:
+#     """Retrieves all document series entries from TinyDB with the stage of
+#     'index' and builds a list of complete URLs for the series page to be scraped.
+
+#     Args:
+#         section (str): Part of the legislation website we're scraping, e.g. Acts In Force,
+#             Constitution.
+#         crawl_config (dict): Config items relevant to our scraping.
+
+#     Returns:
+#         list: Complete URLs to be scraped.
+#     """
+#     docs = tinydb_helper.fetch_index_records(section)
+#     series_urls = []
+
+#     for document in docs:
+#         url = common.build_url(
+#             crawl_config['base_url'],
+#             part=document['series_id'],
+#             prefix=crawl_config['series_url']['prefix'])
+#         series_urls.append(url)
+
+#     return series_urls
+
+
+# def get_details(section: str, crawl_config: dict) -> list:
+#     series = tinydb_helper.fetch_series_records(section)
+#     details_urls = []
+
+#     for single in series:
+#         for document in single['documents']:
+#             url = common.build_url(
+#                 crawl_config['base_url'],
+#                 part=document['register_id'],
+#                 prefix=crawl_config['download_url']['prefix'],
+#                 suffix=crawl_config['download_url']['suffix'])
+#             details_urls.append(url)
+
+#     return details_urls
 
 
 def process_index(item: dict):
@@ -67,37 +134,12 @@ def process_index(item: dict):
 
     record = {
         'section': item['section'],
-        'stage': item['page_type']
+        'stage': 'series'
     }
 
     for series_id in series:
         record['series_id'] = series_id
         tinydb_helper.insert_record(record)
-
-
-def get_series(section: str, crawl_config: dict) -> list:
-    """Retrieves all document series entries from TinyDB with the stage of
-    'index' and builds a list of complete URLs for the series page to be scraped.
-
-    Args:
-        section (str): Part of the legislation website we're scraping, e.g. Acts In Force,
-            Constitution.
-        crawl_config (dict): Config items relevant to our scraping.
-
-    Returns:
-        list: Complete URLs to be scraped.
-    """
-    docs = tinydb_helper.fetch_index_records(section)
-    series_urls = []
-
-    for document in docs:
-        url = common.build_url(
-            crawl_config['base_url'],
-            part=document['series_id'],
-            prefix=crawl_config['series_url']['prefix'])
-        series_urls.append(url)
-
-    return series_urls
 
 
 def process_series(item: dict):
@@ -107,7 +149,7 @@ def process_series(item: dict):
     if series_record.get('stage') == 'index':
         record = {
             'section': item['section'],
-            'stage': item['page_type'],
+            'stage': 'details',
             'series_id': series_id
         }
 
@@ -171,43 +213,31 @@ def add_principal_to_series(section: str):
         tinydb_helper.update_list(documents, doc['series_id'])
 
 
-def get_details(section: str, crawl_config: dict) -> list:
-    series = tinydb_helper.fetch_series_records(section)
-    details_urls = []
-
-    for single in series:
-        for document in single['documents']:
-            url = common.build_url(
-                crawl_config['base_url'],
-                part=document['register_id'],
-                prefix=crawl_config['download_url']['prefix'],
-                suffix=crawl_config['download_url']['suffix'])
-            details_urls.append(url)
-
-    return details_urls
-
-
 def process_details(item: dict):
     register_id = str(item['link']).split('/')[-2]
-    series_record = tinydb_helper.fetch_series_record_by_document_id(register_id)[0]
+    series_record = tinydb_helper.fetch_series_record_by_document_id(register_id)[
+        0]
     document = {}
 
     for doc in series_record['documents']:
         if doc['register_id'] == register_id:
             document = doc
             break
-    
-    document_metadata = metadata_collector.main(item['metadata'].get(), 'details')
+
+    document_metadata = metadata_collector.main(
+        item['metadata'].get(), 'details')
     document_details = document | document_metadata
 
-    download_link = metadata_collector.get_document_download_link(item['rows'].get())
+    download_link = metadata_collector.get_document_download_link(
+        item['rows'].get())
     document_details['download_link'] = download_link
-    
-    documents = check_existing_documents(series_record['documents'], document_details)
+
+    documents = check_existing_documents(
+        series_record['documents'], document_details)
     tinydb_helper.update_list(documents, series_record['series_id'])
 
     change_record = {
         'series_id': series_record['series_id'],
-        'stage': 'details'
+        'stage': 'download'
     }
     tinydb_helper.update_record(change_record)

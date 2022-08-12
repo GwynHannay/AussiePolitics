@@ -1,4 +1,8 @@
+import logging
 from utils import common, soup_helper
+
+
+logger = logging.getLogger(__name__)
 
 
 def main(item_text: str, metadata_type: str) -> dict:

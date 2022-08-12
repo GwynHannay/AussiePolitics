@@ -1,7 +1,11 @@
+import logging
 import re
 from utils import common
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
+
+
+logger = logging.getLogger(__name__)
 
 
 def get_soup_from_url(url: str) -> BeautifulSoup:

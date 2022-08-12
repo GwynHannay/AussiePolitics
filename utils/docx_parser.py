@@ -1,4 +1,8 @@
+import logging
 import docx
+
+
+logger = logging.getLogger(__name__)
 
 
 def open_document(filename: str):

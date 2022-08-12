@@ -7,9 +7,11 @@ from dateutil.parser import parse
 
 logger = logging.getLogger(__name__)
 
+
 def get_current_datetime() -> str:
     logger.debug('get_current_datetime()')
-    current_datetime = datetime.strftime(datetime.now(pytz.timezone("Australia/Perth")), '%Y-%m-%d %H:%M:%S')
+    current_datetime = datetime.strftime(datetime.now(
+        pytz.timezone("Australia/Perth")), '%Y-%m-%d %H:%M:%S')
     logger.debug('Returning current datetime: %s', current_datetime)
     return current_datetime
 
@@ -83,19 +85,26 @@ def build_url(base: str, part: str, prefix=None, suffix=None) -> str:
 
 
 # TODO: This may need to be more generic
-def build_url_from_config(config: dict, type: str, subsection=None) -> str:
+def build_url_from_config(config: dict, type: str, subsection=None, provided_part=None) -> str:
     base_url = config['base_url']
     section = config['section']
-    type_entry = ''.join([type, '_url'])
 
-    if subsection:
-        part = section['prefix']
-        suffix = section[subsection]
+    if type == 'index':
+        prefix = config['index_url']['prefix']
+        if subsection:
+            part = section['prefix']
+            suffix = section[subsection]
+        else:
+            part = section
+            suffix = None
     else:
-        part = section
-        suffix = config[type_entry].get('suffix')
-
-    prefix = config[type_entry].get('prefix')
+        if isinstance(provided_part, str):
+            part = provided_part
+        else:
+            logger.error('No URL was provided for type "%s", subsection "%s", with config: %s', type, subsection, config)
+            raise Exception
+        prefix = config['section_urls'][type]['prefix']
+        suffix = config['section_urls'][type].get('suffix')
 
     complete_url = build_url(base_url, part, prefix, suffix)
     return complete_url
