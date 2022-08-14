@@ -1,5 +1,6 @@
 import logging
-from utils import common, soup_helper
+import helpers.webparser
+import utils.common
 
 
 logger = logging.getLogger(__name__)
@@ -10,12 +11,12 @@ def main(item_text: str, metadata_type: str) -> dict:
     completed_template = fill_out_template(item_text, metadata_template)
     
     if metadata_type == 'series_table':
-        soup = soup_helper.get_soup_from_text(item_text)
-        columns = soup_helper.iterate_over_series_columns(soup, get_series_column_names())
+        soup = helpers.webparser.get_soup_from_text(item_text)
+        columns = helpers.webparser.iterate_over_series_columns(soup, get_series_column_names())
 
         if completed_template.get('incorporated_amendments_linked'):
             completed_template['incorporated_amendments'] = completed_template['incorporated_amendments_linked']
-            amendment_url = soup_helper.get_link_using_regex_id(soup, 'hlIncorpTo')
+            amendment_url = helpers.webparser.get_link_using_regex_id(soup, 'hlIncorpTo')
             if amendment_url:
                 completed_template['amendment_id'] = amendment_url.split('/')[-1]
 
@@ -203,28 +204,28 @@ def get_series_column_order() -> list:
 
 
 def get_document_download_link(item: str) -> str | None:
-    soup = soup_helper.get_soup_from_text(item)
-    link = soup_helper.get_link_using_regex_id(soup, id='hlPrimaryDoc')
+    soup = helpers.webparser.get_soup_from_text(item)
+    link = helpers.webparser.get_link_using_regex_id(soup, id='hlPrimaryDoc')
     
     return link
 
 
 def fill_out_template(item: str, template: list) -> dict:
-    soup = soup_helper.get_soup_from_text(item)
+    soup = helpers.webparser.get_soup_from_text(item)
     record = {}
 
     for field in template:
         if field.get('id'):
-            field_text = soup_helper.get_text_using_exact_id(soup, field['element'], field['id'])
+            field_text = helpers.webparser.get_text_using_exact_id(soup, field['element'], field['id'])
         elif field.get('id_like'):
-            field_text = soup_helper.get_text_using_regex_id(soup, field['element'], field['id_like'])
+            field_text = helpers.webparser.get_text_using_regex_id(soup, field['element'], field['id_like'])
         elif field.get('class'):
-            field_text = soup_helper.get_text_by_class(soup, field['element'], field['class'])
+            field_text = helpers.webparser.get_text_by_class(soup, field['element'], field['class'])
         else:
-            field_text = soup_helper.get_element_text(soup, field['element'])
+            field_text = helpers.webparser.get_element_text(soup, field['element'])
 
         if field_text:
-            record[field['name']] = common.remove_whitespace(field_text)
+            record[field['name']] = utils.common.remove_whitespace(field_text)
     
     return record
 
@@ -235,7 +236,7 @@ def order_columns(original_record: dict, column_order: list) -> dict:
     for column in column_order:
         if original_record.get(column):
             if str(column).endswith('_date'):
-                ordered_record[column] = common.standardise_date(original_record[column])
+                ordered_record[column] = utils.common.standardise_date(original_record[column])
             else:
                 ordered_record[column] = original_record[column]
         else:
@@ -251,7 +252,7 @@ def build_principal(document: dict) -> dict:
     compilations = document['documents']
 
     if len(compilations) > 1:
-        sorted_compilations = sorted(compilations, key=lambda i: (i['comp_no'], common.transform_string_to_date(i['start_date']), i['register_id']))
+        sorted_compilations = sorted(compilations, key=lambda i: (i['comp_no'], utils.common.transform_string_to_date(i['start_date']), i['register_id']))
         first_document = sorted_compilations[0]
     elif len(compilations) == 1:
         first_document = compilations[0]
@@ -273,7 +274,7 @@ def build_principal(document: dict) -> dict:
                     principal[col] = document['commence_date_formatted']
             case 'end_date':
                 if first_document.get('start_date'):
-                    principal[col] = common.get_previous_date_string(first_document['start_date'])
+                    principal[col] = utils.common.get_previous_date_string(first_document['start_date'])
                 else:
                     principal[col] = ''
             case _:

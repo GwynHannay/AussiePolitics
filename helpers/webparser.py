@@ -1,6 +1,5 @@
 import logging
 import re
-from utils import common
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 
@@ -145,65 +144,3 @@ def iterate_over_series_columns(soup: BeautifulSoup, column_names: list):
             i = i + 1
     
     return document
-
-
-
-def get_document_metadata(soup: BeautifulSoup, document_metadata):
-    title_status = soup.find('span', id=re.compile('lblTitleStatus'))
-    if title_status:
-        document_metadata['Title Status'] = title_status.text
-    else:
-        document_metadata['Title Status'] = ''
-
-    details = soup.find('span', id=re.compile('lblDetail'))
-    if details:
-        document_metadata['Details'] = details.text
-    else:
-        document_metadata['Details'] = ''
-
-    description = soup.find('span', id=re.compile('lblBD'))
-    if description:
-        document_metadata['Description'] = description.text
-    else:
-        document_metadata['Description'] = ''
-
-    admin_department = soup.find('span', id=re.compile('lblAdminDept'))
-    if admin_department:
-        document_metadata['Admin Department'] = common.remove_whitespace(
-            admin_department.text)
-    else:
-        document_metadata['Admin Department'] = ''
-
-    comments = soup.find('tr', id=re.compile('trComments'))
-    if comments:
-        document_metadata['Comments'] = common.remove_whitespace(comments.text)
-    else:
-        document_metadata['Comments'] = ''
-
-    registered = soup.find('input', id=re.compile('hdnPublished'))
-    if registered:
-        document_metadata['Registered Datetime'] = registered['value']
-    else:
-        document_metadata['Registered Datetime'] = ''
-
-    start_date = soup.find('span', id=re.compile('lblStartDate$'))
-    if start_date:
-        document_metadata['Start Date'] = start_date.text
-
-    end_date = soup.find('span', id=re.compile('lblEndDate$'))
-    if end_date:
-        document_metadata['End Date'] = end_date.text
-
-    download_link = soup.find('a', id=re.compile('hlPrimaryDoc'))
-    if download_link:
-        document_metadata['Download Link'] = download_link['href']
-    else:
-        document_metadata['Download Link'] = ''
-
-    date_fields = ['Registered', 'Start Date', 'End Date']
-    for field in date_fields:
-        if str(document_metadata[field]).strip(' '):
-            formatted_date = common.standardise_date(document_metadata[field])
-            document_metadata[field] = formatted_date
-
-    return document_metadata

@@ -1,10 +1,10 @@
 import logging
 import os
 import sys
+import src.series
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from itemadapter import ItemAdapter
-from utils import series
 
 
 logging.basicConfig(
@@ -20,11 +20,11 @@ class LegislationPipeline:
     def process_item(self, item, spider):
         adaptor = ItemAdapter(item).asdict()
         if adaptor['page_type'] == 'index':
-            series.process_index(adaptor)
+            src.series.process_index(adaptor)
         elif adaptor['page_type'] == 'series':
-            series.process_series(adaptor)
+            src.series.process_series(adaptor)
         elif adaptor['page_type'] == 'details':
-            series.process_details(adaptor)
+            src.series.process_details(adaptor)
 
 
 def run_scrapy(urls: list, page_type: str, section: str):

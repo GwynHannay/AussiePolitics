@@ -1,17 +1,16 @@
 import logging
-from handlers import config
-from utils import legislation_crawler
+import utils.config
+import src.legislation_crawler
 
 
 logger = logging.getLogger('main')
-document_filepath = 'docs'
-crawl_delay = 5
+
 
 def main():
-    config.init()
+    utils.config.init()
     sections = ['constitution', 'acts.in_force']
     logger.debug('Sending sections: %s', sections)
-    legislation_crawler.main(sections)
+    src.legislation_crawler.main(sections)
     #crawler.run_scrapy('https://www.legislation.gov.au/Series/C2004A01401')
     # constitution_id = crawler.get_constitution()
     # constitution_metadata = crawler.get_series(constitution_id)
