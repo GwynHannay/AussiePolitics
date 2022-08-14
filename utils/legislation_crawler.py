@@ -1,5 +1,6 @@
 import json
 import logging
+from handlers import config
 from utils import series, scrapy_helper, common, file_handler, tinydb_helper
 
 
@@ -7,20 +8,21 @@ logger = logging.getLogger(__name__)
 
 
 def main(sections: list):
-    full_config = load_config()
-    logger.debug('Retrieved full config: %s', full_config)
+    print(config.legislation_url_components)
+    # full_config = load_config()
+    # logger.debug('Retrieved full config: %s', full_config)
 
-    crawl_config = get_common_config(full_config)
-    logger.debug('Extracted common config: %s', crawl_config)
+    # crawl_config = get_common_config(full_config)
+    # logger.debug('Extracted common config: %s', crawl_config)
 
-    page_types = ['index', 'series', 'principal', 'details']
+    # page_types = ['index', 'series', 'principal', 'details']
 
-    for section in sections:
-        piece = section.split('.')[0]
-        crawl_config['section'] = full_config['index_urls'][piece]
-        logger.debug('Built crawl config for piece %s: %s',
-                     piece, crawl_config)
-        logger.debug('Crawling these page types: %s', page_types)
+    # for section in sections:
+    #     piece = section.split('.')[0]
+    #     crawl_config['section'] = full_config['index_urls'][piece]
+    #     logger.debug('Built crawl config for piece %s: %s',
+    #                  piece, crawl_config)
+    #     logger.debug('Crawling these page types: %s', page_types)
         # crawl_section(section, crawl_config, page_types)
         # download_files(section)
 

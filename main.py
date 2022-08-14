@@ -1,4 +1,5 @@
 import logging
+from handlers import config
 from utils import legislation_crawler
 
 
@@ -7,6 +8,7 @@ document_filepath = 'docs'
 crawl_delay = 5
 
 def main():
+    config.init()
     sections = ['constitution', 'acts.in_force']
     logger.debug('Sending sections: %s', sections)
     legislation_crawler.main(sections)

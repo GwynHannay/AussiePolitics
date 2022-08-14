@@ -106,9 +106,10 @@ def process_index(item: dict):
         item (dict): Items from Scrapy's Item Pipeline.
     """
     rows = item['rows']
-    series = []
 
+    series = []
     if isinstance(rows, list):
+        
         for row in rows:
             soup = soup_helper.get_soup_from_text(row.get())
             series.append(soup_helper.get_series_id(soup))
