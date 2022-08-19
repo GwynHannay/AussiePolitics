@@ -1,4 +1,3 @@
-import json
 import logging
 import helpers.crawler
 import helpers.db
@@ -11,74 +10,46 @@ import src.series
 logger = logging.getLogger(__name__)
 
 
-def main(sections: list):
-    full_config = load_config()
-    logger.debug('Retrieved full config: %s', full_config)
+def main():
+    website_sections = utils.config.sections_to_crawl
 
-    crawl_config = get_common_config(full_config)
-    logger.debug('Extracted common config: %s', crawl_config)
-
-    page_types = ['index', 'series', 'principal', 'details']
-
-    for section in sections:
-        piece = section.split('.')[0]
-        crawl_config['section'] = full_config['index_urls'][piece]
-        logger.debug('Built crawl config for piece %s: %s',
-                     piece, crawl_config)
-        logger.debug('Crawling these page types: %s', page_types)
-        crawl_section(section, crawl_config, page_types)
-        download_files(section)
+    for section in website_sections:
+        utils.config.set_current_section(section)
+        crawl_website_section()
+            # crawl_section(section, crawl_config, page_types)
+            # download_files(section)
 
 
-def load_config() -> dict:
-    """Opens the JSON file with our config and returns it as a dict.
+def crawl_website_section():
+    page_types = utils.config.page_types
 
-    Raises:
-        Exception: When failing to open the file specified.
-
-    Returns:
-        dict: Full contents of the JSON config.
-    """
-    config_file = 'config/legislation.json'
-    try:
-        with open(config_file) as f:
-            configs = json.loads(f.read())
-            return configs
-    except Exception as e:
-        logger.exception(
-            'Failed getting file "%s" with error: %s', config_file, e)
-        raise Exception
+    for page_type in page_types:
+        utils.config.set_current_page_type(page_type)
+        crawl_page_type()
 
 
-def get_common_config(config: dict) -> dict:
-    """Receives the full config and returns only the items applicable to all scraping.
+def crawl_page_type():
+    urls = get_urls()
+    # run crawler
+    # check for additional actions?
+    # download files
 
-    Args:
-        config (dict): Full config.
 
-    Raises:
-        Exception: When attempting to pull common items out of config.
+def get_urls() -> list:
+    page_type = utils.config.current_page_type
+    match page_type:
+        case 'index':
+            urls = src.series.get_index_urls()
+        case 'series':
+            urls = src.series.get_metadata_urls()
+        case 'details':
+            urls = src.series.get_metadata_urls()
+        case _:
+            logger.exception('No valid page type given: %s', page_type)
+            raise Exception
+    
+    return urls
 
-    Returns:
-        dict: Relevant config items only.
-    """
-    try:
-        common_config = {
-            'base_url': config['base_url'],
-            'index_url': {
-                'prefix': config['index_urls']['prefix']
-            },
-            'section_urls': {
-                'series': config['series_url'],
-                'details': config['download_url']
-            }
-        }
-
-        return common_config
-    except Exception as e:
-        logger.exception(
-            'Problem retrieving config out of %s with error: %s', config, e)
-        raise Exception
 
 
 def crawl_section(section: str, crawl_config: dict, page_types: list):

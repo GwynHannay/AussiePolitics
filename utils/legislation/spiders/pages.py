@@ -1,5 +1,6 @@
 import scrapy
 import logging
+import utils.config
 from scrapy.http import Request
 
 
@@ -20,14 +21,11 @@ class PagesSpider(scrapy.Spider):
             raise Exception('No URL was passed to the pages spider, only: {}'.format(kw))
         elif not isinstance(self.start_urls, list):
             raise Exception('URLs should be in a list object, we received: {}'.format(kw))
-        
-        self.page_type = kw.get('page_type')
-        self.section = kw.get('section')
 
 
     def start_requests(self):
         for url in self.start_urls:
-            yield Request(url, callback=self.parse, cb_kwargs={'section': self.section, 'page_type': self.page_type, 'visited': []})
+            yield Request(url, callback=self.parse, cb_kwargs={'visited': []})
 
 
     def parse(self, response, **cb_kwargs):
@@ -60,7 +58,7 @@ class PagesSpider(scrapy.Spider):
         view_state_encrypted = response.css(
             '#__VIEWSTATEENCRYPTED::attr(value)').extract()
 
-        page_type = kwargs['page_type']
+        page_type = utils.config.current_page_type
         if page_type == 'index':
             rows = response.css('.rgMasterTable').xpath('./tbody/tr')
             metadata = None
@@ -74,9 +72,10 @@ class PagesSpider(scrapy.Spider):
             rows = None
             metadata = None
 
+        section = utils.config.current_section
         yield {
             'link': response.url,
-            'section': kwargs['section'],
+            'section': section,
             'rows': rows,
             'metadata': metadata,
             'page_type': page_type

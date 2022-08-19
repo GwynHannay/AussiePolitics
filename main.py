@@ -8,19 +8,11 @@ logger = logging.getLogger('main')
 
 def main():
     utils.config.init()
-    sections = ['constitution', 'acts.in_force']
-    logger.debug('Sending sections: %s', sections)
-    src.legislation_crawler.main(sections)
-    #crawler.run_scrapy('https://www.legislation.gov.au/Series/C2004A01401')
-    # constitution_id = crawler.get_constitution()
-    # constitution_metadata = crawler.get_series(constitution_id)
-    # updated_metadata = []
-    # document_order = {}
+
+    logger.debug('Begin crawl')
+    src.legislation_crawler.main()
 
     # for document in constitution_metadata:
-    #     download_page_metadata = crawler.get_download_details(document)
-    #     completed_metadata = crawler.download_file(download_page_metadata, document_filepath)
-    #     updated_metadata.append(completed_metadata)
     #     document_order[document['Comp No.']] = completed_metadata
     #     time.sleep(crawl_delay)
 

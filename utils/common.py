@@ -1,5 +1,6 @@
 import logging
 import pytz
+import utils.config
 from urllib.parse import urljoin
 from datetime import date, datetime, timedelta
 from dateutil.parser import parse
@@ -58,53 +59,80 @@ def get_previous_date_string(date_string: str) -> str:
     return new_date_string
 
 
-def build_url(base: str, part: str, prefix=None, suffix=None) -> str:
-    """Receives different parts of a URL and generates a complete URL. This may include
-    prefixes or suffixes in addition to the main part we are trying to add onto the base URL.
+def build_url(url_parts: dict) -> str:
+    """Generates a complete URL from various components. This may include prefixes or suffixes in addition 
+    to the main part we are trying to add onto the base URL.
 
     Args:
-        base (str): Base URL, e.g. 'https://legislation.gov.au'
-        part (str): URL part to be joined, e.g. 'Browse/ByTitle/Acts', 'C2004Q00685'
-        prefix (str, optional): Prefix to be joined to the URL part, e.g. 'Series'. Defaults to None.
-        suffix (str, optional): Suffix to be joined to the URL part, e.g. 'Download'. Defaults to None.
+        url_parts (dict): URL components including base, the part to be added, with optional prefix and suffix,
+            e.g. base_url: https://legislation.gov.au, core_part: C2004Q00685, prefix: Series.
 
     Returns:
         str: Completed URL, e.g. 'https://legislation.gov.au/Series/C2004Q00685'
     """
+    base_url = url_parts.get('base_url')
+    core_part = url_parts.get('core_part')
+    prefix = url_parts.get('prefix')
+    suffix = url_parts.get('suffix')
+
+    if not base_url or not core_part:
+        logger.exception('Missing critical URL components, base "%s" and core "%s"', base_url, core_part)
+        raise Exception
+
     if prefix and suffix:
-        built_part = ''.join([prefix, '/', part, '/', suffix])
+        built_part = ''.join([prefix, '/', core_part, '/', suffix])
     elif prefix and not suffix:
-        built_part = ''.join([prefix, '/', part])
+        built_part = ''.join([prefix, '/', core_part])
     elif not prefix and suffix:
-        built_part = ''.join([part, '/', suffix])
+        built_part = ''.join([core_part, '/', suffix])
     else:
-        built_part = part
+        built_part = core_part
 
-    complete_url = urljoin(base, built_part)
+    complete_url = urljoin(base_url, built_part)
     return complete_url
 
 
-# TODO: This may need to be more generic
-def build_url_from_config(config: dict, type: str, subsection=None, provided_part=None) -> str:
-    base_url = config['base_url']
-    section = config['section']
 
-    if type == 'index':
-        prefix = config['index_url']['prefix']
-        if subsection:
-            part = section['prefix']
-            suffix = section[subsection]
-        else:
-            part = section
-            suffix = None
+def build_url_from_config(provided_part=None) -> str:
+    url_config = utils.config.legislation_url_components
+    page_type = utils.config.current_page_type
+    current_section = utils.config.current_section
+    
+    section_parts = get_section_components(current_section)
+    if len(section_parts) > 1:
+        section = section_parts[0]
+        subsection = section_parts[1]
     else:
-        if isinstance(provided_part, str):
-            part = provided_part
-        else:
-            logger.error('No URL was provided for type "%s", subsection "%s", with config: %s', type, subsection, config)
-            raise Exception
-        prefix = config['section_urls'][type]['prefix']
-        suffix = config['section_urls'][type].get('suffix')
+        section = None
+        subsection = None
 
-    complete_url = build_url(base_url, part, prefix, suffix)
+    if page_type == 'index' and section and subsection:
+        part = section['prefix']
+        prefix = url_config['index_url']['prefix']
+        suffix = section[subsection]
+    elif page_type == 'index':
+        part = current_section
+        prefix = url_config['index_url']['prefix']
+        suffix = None
+    elif isinstance(provided_part, str):
+        part = provided_part
+        prefix = url_config['section_urls'][page_type]['prefix']
+        suffix = url_config['section_urls'][page_type].get('suffix')
+    else:
+        logger.error('No URL was provided for type "%s", subsection "%s", with config: %s', page_type, subsection, url_config)
+        raise Exception
+
+    url_parts = {
+        'base_url': url_config['base_url'],
+        'core_part': part,
+        'prefix': prefix,
+        'suffix': suffix
+    }
+
+    complete_url = build_url(url_parts)
     return complete_url
+
+
+
+def get_section_components(section: str) -> list:
+    return section.split('.')

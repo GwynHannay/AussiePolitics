@@ -2,31 +2,14 @@ import logging
 import helpers.db
 import helpers.webparser
 import utils.common
+import utils.config
 import utils.metadata
 
 
 logger = logging.getLogger(__name__)
 
 
-def get_urls(page_type: str, section: str, crawl_config: dict) -> list:
-    """Directs the creation of scraping URLs based on page type and section.
-
-    Args:
-        page_type (str): Web page types, e.g. index, series, details.
-        section (str): Part of the legislation website we're scraping, e.g. Acts In Force,
-            Constitution.
-        crawl_config (dict): Config items relevant to our scraping.
-
-    Returns:
-        list: The list of URLs returned from the functions we sent off to.
-    """
-    if page_type == 'index':
-        return get_index_urls(section, crawl_config)
-    else:
-        return get_metadata_urls(page_type, section, crawl_config)
-
-
-def get_index_urls(section: str, crawl_config: dict) -> list:
+def get_index_urls() -> list:
     """Scrapes the landing page for this section of the legislation website, and if there
     is an alphabetised index, will build complete URLs from each letter so we can scrape
     the list of documents.
@@ -39,6 +22,7 @@ def get_index_urls(section: str, crawl_config: dict) -> list:
     Returns:
         list: Complete URLs to be scraped.
     """
+    section = utils.config.current_section
     sections = section.split('.')
     if len(sections) > 1:
         logger.debug(
@@ -62,7 +46,7 @@ def get_index_urls(section: str, crawl_config: dict) -> list:
     return index_urls
 
 
-def get_metadata_urls(page_type: str, section: str, crawl_config: dict) -> list:
+def get_metadata_urls() -> list:
     """Builds URLs for web scraping from the TinyDB records stored in previous scrapes.
 
     Args:
@@ -74,10 +58,8 @@ def get_metadata_urls(page_type: str, section: str, crawl_config: dict) -> list:
     Returns:
         list: List of URLs built from TinyDB records.
     """
-    logger.debug(
-        'Fetching DB records at the stage of "%s" for section "%s"', page_type, section)
-    records = helpers.db.fetch_records_by_stage(
-        stage=page_type, section=section)
+    logger.debug('Fetching DB records')
+    records = helpers.db.get_records_by_current_stage()
 
     urls = []
     logger.debug('Iterating through DB records')
@@ -132,7 +114,7 @@ def process_index(item: dict):
 
 def process_series(item: dict):
     series_id = str(item['link']).rpartition('/')[-1]
-    series_record = helpers.db.fetch_series_record_by_id(series_id)[0]
+    series_record = helpers.db.get_record_by_series_id(series_id)[0]
 
     if series_record.get('stage') == 'index':
         record = {
