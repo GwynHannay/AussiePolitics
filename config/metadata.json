@@ -1,0 +1,140 @@
+{
+    "series_pane": [
+        {
+            "name": "title",
+            "element": "h2",
+            "class": "wraptext"
+        },
+        {
+            "name": "notation",
+            "element": "span",
+            "id": "MainContent_SeriesPane_lblSeriesNotations"
+        },
+        {
+            "name": "admin_departments",
+            "element": "span",
+            "id": "MainContent_SeriesPane_lblAdminDepts"
+        },
+        {
+            "name": "details",
+            "element": "span",
+            "id": "MainContent_SeriesPane_lblDetails"
+        },
+        {
+            "name": "commence_label",
+            "element": "span",
+            "id": "MainContent_SeriesPane_lblCommences"
+        },
+        {
+            "name": "commence_date_formatted",
+            "element": "span",
+            "id": "MainContent_SeriesPane_lblCommencesDate"
+        },
+        {
+            "name": "repealed_label",
+            "element": "span",
+            "id": "MainContent_SeriesPane_lblRepealedFieldLabel"
+        },
+        {
+            "name": "repealed_date_formatted",
+            "element": "span",
+            "id": "MainContent_SeriesPane_lblRepealed"
+        },
+        {
+            "name": "repeal_reason",
+            "element": "span",
+            "id": "MainContent_SeriesPane_lblRepealingReason"
+        },
+        {
+            "name": "ceased_label",
+            "element": "span",
+            "id": "MainContent_SeriesPane_lblCeasedFieldLabel"
+        },
+        {
+            "name": "ceased_datetime_formatted",
+            "element": "span",
+            "id": "MainContent_SeriesPane_lblCeased"
+        },
+        {
+            "name": "ceasing_reason",
+            "element": "span",
+            "id": "MainContent_SeriesPane_lblCeasingReason"
+        }
+    ],
+    "series_table": [
+        {
+            "name": "document_status",
+            "element": "span",
+            "id_like": "lblTitleStatus"
+        },
+        {
+            "name": "incorporated_amendments",
+            "element": "span",
+            "id_like": "lblIncorpTo"
+        },
+        {
+            "name": "incorporated_amendments_linked",
+            "element": "a",
+            "id_like": "hlIncorpTo"
+        }
+    ],
+    "series_column_names": [
+        "registered_date",
+        "register_id",
+        "comp_no",
+        "start_date",
+        "end_date"
+    ],
+    "series_column_order": [
+        "register_id",
+        "document_status",
+        "registered_date",
+        "comp_no",
+        "start_date",
+        "end_date",
+        "incorporated_amendments",
+        "amendment_id"
+    ],
+    "details_pane": [
+        {
+            "name": "description",
+            "element": "span",
+            "id": "MainContent_ucLegItemPane_lblBD"
+        },
+        {
+            "name": "details",
+            "element": "span",
+            "id": "MainContent_ucLegItemPane_lblDetail"
+        },
+        {
+            "name": "number_year",
+            "element": "span",
+            "id": "MainContent_ucLegItemPane_lblNumberYear"
+        },
+        {
+            "name": "admin_departments",
+            "element": "span",
+            "id": "MainContent_ucLegItemPane_lblAdminDepts"
+        },
+        {
+            "name": "comments",
+            "element": "span",
+            "id": "MainContent_ucLegItemPane_lblComments"
+        },
+        {
+            "name": "published",
+            "element": "span",
+            "id": "MainContent_ucLegItemPane_lblPublished"
+        },
+        {
+            "name": "detail_start_date",
+            "element": "span",
+            "id": "MainContent_ucLegItemPane_lblStartDate"
+        },
+        {
+            "name": "detail_end_date",
+            "element": "span",
+            "id": "MainContent_ucLegItemPane_lblEndDate"
+        }
+    ]
+}
