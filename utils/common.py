@@ -17,6 +17,11 @@ def get_current_datetime() -> str:
     return current_datetime
 
 
+def get_current_date() -> str:
+    current_date = datetime.strftime(datetime.now(pytz.timezone("Australia/Perth")), '%Y-%m-%d')
+    return current_date
+
+
 def remove_whitespace(text: str) -> str:
     """Cleans a string of any additional whitespace such as double spacing or tab characters.
 
@@ -92,10 +97,9 @@ def build_url(url_parts: dict) -> str:
     return complete_url
 
 
-
 def build_url_from_config(provided_part=None) -> str:
     url_config = utils.config.legislation_url_components
-    page_type = utils.config.current_page_type
+    page_type = utils.config.current_stage
     current_section = utils.config.current_section
     
     section_parts = get_section_components(current_section)
@@ -132,6 +136,31 @@ def build_url_from_config(provided_part=None) -> str:
     complete_url = build_url(url_parts)
     return complete_url
 
+
+def check_existing_documents(documents_list: list, new_document: dict) -> list:
+    i = 0
+    x = len(documents_list)
+    current_datetime = ''.join([get_current_datetime(), ' AWST'])
+    new_document['first_seen'] = current_datetime
+    new_document['last_seen'] = current_datetime
+
+    if x == 0:
+        documents_list.append(new_document)
+        return documents_list
+    else:
+        for old_document in documents_list:
+            if old_document['register_id'] == new_document['register_id']:
+                new_document['first_seen'] = old_document['first_seen']
+                documents_list.remove(old_document)
+                documents_list.insert(i, new_document)
+                break
+            elif x == (i + 1):
+                documents_list.insert(0, new_document)
+                break
+            else:
+                i = i + 1
+
+        return documents_list
 
 
 def get_section_components(section: str) -> list:

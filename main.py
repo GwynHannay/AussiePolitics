@@ -1,6 +1,6 @@
 import logging
 import utils.config
-import src.legislation_crawler
+import src.orchestrator
 
 
 logger = logging.getLogger('main')
@@ -10,7 +10,7 @@ def main():
     utils.config.init()
 
     logger.debug('Begin crawl')
-    src.legislation_crawler.main()
+    src.orchestrator.main()
 
     # for document in constitution_metadata:
     #     document_order[document['Comp No.']] = completed_metadata

@@ -33,7 +33,7 @@ def add_to_record(records: list, series_id: str):
 
 def get_records_by_current_stage() -> list:
     return db.search(
-        (where('stage') == utils.config.current_page_type) &
+        (where('stage') == utils.config.current_stage) &
         (where('section') == utils.config.current_section)  # type: ignore
     )
 
