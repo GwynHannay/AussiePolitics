@@ -98,43 +98,49 @@ def build_url(url_parts: dict) -> str:
 
 
 def build_url_from_config(provided_part=None) -> str:
-    url_config = utils.config.legislation_url_components
-    page_type = utils.config.current_stage
-    current_section = utils.config.current_section
-    
-    section_parts = get_section_components(current_section)
-    if len(section_parts) > 1:
-        section = section_parts[0]
-        subsection = section_parts[1]
-    else:
-        section = None
-        subsection = None
+    try:
+        url_config = utils.config.legislation_url_components
+        page_type = utils.config.current_stage
+        current_section = utils.config.current_section
+        
+        section_parts = get_section_components(current_section)
+        if len(section_parts) > 1:
+            section = section_parts[0]
+            subsection = section_parts[1]
+        else:
+            section = None
+            subsection = None
 
-    if page_type == 'index' and section and subsection:
-        part = section['prefix']
-        prefix = url_config['index_url']['prefix']
-        suffix = section[subsection]
-    elif page_type == 'index':
-        part = current_section
-        prefix = url_config['index_url']['prefix']
-        suffix = None
-    elif isinstance(provided_part, str):
-        part = provided_part
-        prefix = url_config['section_urls'][page_type]['prefix']
-        suffix = url_config['section_urls'][page_type].get('suffix')
-    else:
-        logger.error('No URL was provided for type "%s", subsection "%s", with config: %s', page_type, subsection, url_config)
-        raise Exception
+        if page_type == 'index' and section and subsection:
+            part = url_config['index_urls'][section]['prefix']
+            prefix = url_config['index_urls']['prefix']
+            suffix = url_config['index_urls'][section][subsection]
+        elif page_type == 'index':
+            part = url_config['index_urls'][current_section]
+            prefix = url_config['index_urls']['prefix']
+            suffix = None
+        elif isinstance(provided_part, str):
+            part = provided_part
+            prefix = url_config['section_urls'][page_type]['prefix']
+            suffix = url_config['section_urls'][page_type].get('suffix')
+        else:
+            logger.error('No URL was provided for type "%s", subsection "%s", with config: %s', page_type, subsection, url_config)
+            raise Exception
 
-    url_parts = {
-        'base_url': url_config['base_url'],
-        'core_part': part,
-        'prefix': prefix,
-        'suffix': suffix
-    }
+        url_parts = {
+            'base_url': url_config['base_url'],
+            'core_part': part,
+            'prefix': prefix,
+            'suffix': suffix
+        }
 
-    complete_url = build_url(url_parts)
-    return complete_url
+        complete_url = build_url(url_parts)
+        logger.debug('Completed URL: %s', complete_url)
+        return complete_url
+    except Exception as e:
+        logger.exception('Problem building URL from configuration, with error: %s', e)
+        logger.debug('Current state: section "%s", stage "%s"', utils.config.current_section, utils.config.current_stage)
+        raise Exception(e)
 
 
 def check_existing_documents(documents_list: list, new_document: dict) -> list:

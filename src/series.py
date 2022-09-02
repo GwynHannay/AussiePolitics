@@ -57,16 +57,9 @@ def get_url_parts(series_record: dict) -> list:
 
 
 def process_index(item: dict):
-    rows = item['rows']
-
-    series = []
-    if isinstance(rows, list):
-        for row in rows:
-            soup = helpers.webparser.get_soup_from_text(row.get())
-            series.append(helpers.webparser.get_series_id(soup))
-    else:
-        soup = helpers.webparser.get_soup_from_text(rows.get())
-        series.append(helpers.webparser.get_series_id(soup))
+    page_content = item['content']
+    soup = helpers.webparser.get_soup_from_text(page_content.get())
+    series = helpers.webparser.get_series_id(soup)
 
     record = {
         'section': item['section'],
@@ -79,6 +72,8 @@ def process_index(item: dict):
 
 
 def process_series(item: dict):
+    # Series rows: response.css('.rgMasterTable').xpath('./tbody/tr')
+    # Series metadata: response.xpath("//div[@id='MainContent_leftDetailMeta']")
     series_id = str(item['link']).rpartition('/')[-1]
     series_record = helpers.db.get_record_by_series_id(series_id)[0]
 
@@ -115,6 +110,8 @@ def process_series(item: dict):
 
 
 def process_details(item: dict):
+    # Details rows: response.xpath("//div[contains(@id, 'MainContent_AttachmentsRepeater')]//div[contains(@id, 'displayFile')]")
+    # Details metadata: response.xpath("//div[@id='MainContent_ucLegItemPane_divLeftDetails']")
     register_id = str(item['link']).split('/')[-2]
     series_record = helpers.db.get_record_by_document_id(register_id)[
         0]

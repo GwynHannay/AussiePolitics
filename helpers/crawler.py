@@ -11,7 +11,7 @@ from itemadapter import ItemAdapter
 current_date = utils.common.get_current_date()
 logging.basicConfig(
     filename=''.join(['log_', current_date, '.txt']),
-    format='[%(asctime)s] - %(levelname)s in %(name)s, %(funcName)s(): %(message)s',
+    format='[%(asctime)s] - %(levelname)s in %(name)s, %(funcName)s(): %(message)s, %(stack_info)s',
     level=logging.DEBUG
 )
 

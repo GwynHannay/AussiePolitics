@@ -32,7 +32,6 @@ class PagesSpider(scrapy.Spider):
         href = response.css('.rgPagerCell').xpath('.//a')
         kwargs = cb_kwargs
         event_target = None
-        logger.info('This URL is: %s', response.url)
 
         for link in href:
             js_function = link.xpath('./@href').get()
@@ -58,27 +57,13 @@ class PagesSpider(scrapy.Spider):
         view_state_encrypted = response.css(
             '#__VIEWSTATEENCRYPTED::attr(value)').extract()
 
-        page_type = utils.config.current_page_type
-        if page_type == 'index':
-            rows = response.css('.rgMasterTable').xpath('./tbody/tr')
-            metadata = None
-        elif page_type == 'series':
-            rows = response.css('.rgMasterTable').xpath('./tbody/tr')
-            metadata = response.xpath("//div[@id='MainContent_leftDetailMeta']")
-        elif page_type == 'details':
-            rows = response.xpath("//div[contains(@id, 'MainContent_AttachmentsRepeater')]//div[contains(@id, 'displayFile')]")
-            metadata = response.xpath("//div[@id='MainContent_ucLegItemPane_divLeftDetails']")
-        else:
-            rows = None
-            metadata = None
-
         section = utils.config.current_section
+        page_type = utils.config.current_stage
         yield {
             'link': response.url,
             'section': section,
-            'rows': rows,
-            'metadata': metadata,
-            'page_type': page_type
+            'page_type': page_type,
+            'content': response.xpath('.//body')
         }
 
         if event_target:

@@ -109,23 +109,15 @@ def get_text_using_regex_id(soup: BeautifulSoup, element: str, id: str) -> str |
         return None
 
 
-def get_series_id(soup: BeautifulSoup) -> str:
-    """Receives a BeautifulSoup object and gets the series ID from the 'View Series'
-    button in the HTML.
-
-    Args:
-        soup (BeautifulSoup): Parsed HTML that should contain a Series ID button.
-
-    Returns:
-        str: Series ID.
-    """
+def get_series_id(soup: BeautifulSoup) -> list:
     series_details = soup.find_all('input', value='View Series')
-    series_id = ''
+    series_ids = []
 
     for button in series_details:
         series_id = re.findall(r'/Series/([A-Za-z0-9]*)"', str(button))[0]
+        series_ids.append(series_id)
 
-    return series_id
+    return series_ids
 
 
 def iterate_over_series_columns(soup: BeautifulSoup, column_names: list):
