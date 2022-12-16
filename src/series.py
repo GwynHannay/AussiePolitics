@@ -1,3 +1,4 @@
+from ctypes import util
 import logging
 import helpers.db
 import helpers.webparser
@@ -36,6 +37,7 @@ def get_metadata_urls() -> list:
         url_parts = get_url_parts(series)
 
         for part in url_parts:
+            print(part)
             urls.append(utils.common.build_url_from_config(part))
 
     return urls
@@ -57,9 +59,8 @@ def get_url_parts(series_record: dict) -> list:
 
 
 def process_index(item: dict):
-    page_content = item['content']
-    soup = helpers.webparser.get_soup_from_text(page_content.get())
-    series = helpers.webparser.get_series_id(soup)
+    page_content = item['content'].get()
+    series = utils.metadata.get_series_ids(page_content)
 
     record = {
         'section': item['section'],
@@ -74,8 +75,9 @@ def process_index(item: dict):
 def process_series(item: dict):
     # Series rows: response.css('.rgMasterTable').xpath('./tbody/tr')
     # Series metadata: response.xpath("//div[@id='MainContent_leftDetailMeta']")
+    page_content = item['content'].get()
     series_id = str(item['link']).rpartition('/')[-1]
-    series_record = helpers.db.get_record_by_series_id(series_id)[0]
+    series_record = helpers.db.get_record_by_series_id(series_id)
 
     if series_record.get('stage') == 'series':
         record = {
@@ -84,27 +86,27 @@ def process_series(item: dict):
             'series_id': series_id
         }
 
-        series_metadata = utils.metadata.fill_out_template(
-            item['metadata'].get(), 'series_pane')
+        series_metadata = utils.metadata.get_series_pane(page_content)
 
         for field in series_metadata:
             record[field] = series_metadata[field]
 
         helpers.db.update_record(record)
 
-    rows = item['rows']
     if series_record.get('documents'):
         documents = series_record['documents']
     else:
         documents = []
+    
+    new_documents = utils.metadata.get_series_compilations(page_content)
 
-    if isinstance(rows, list):
-        for row in rows:
-            new_document = utils.metadata.fill_out_template(row.get(), 'series_table')
-            documents = utils.common.check_existing_documents(documents, new_document)
-    else:
-        new_document = utils.metadata.fill_out_template(rows.get(), 'series_table')
-        documents = utils.common.check_existing_documents(documents, new_document)
+    # if isinstance(rows, list):
+    #     for row in rows:
+    #         new_document = utils.metadata.get_series_compilations(row.get())
+    #         documents = utils.common.check_existing_documents(documents, new_document)
+    # else:
+    #     new_document = utils.metadata.get_series_compilations(rows.get())
+    #     documents = utils.common.check_existing_documents(documents, new_document)
 
     helpers.db.update_list(documents, series_id)
 
@@ -112,6 +114,7 @@ def process_series(item: dict):
 def process_details(item: dict):
     # Details rows: response.xpath("//div[contains(@id, 'MainContent_AttachmentsRepeater')]//div[contains(@id, 'displayFile')]")
     # Details metadata: response.xpath("//div[@id='MainContent_ucLegItemPane_divLeftDetails']")
+    page_content = item['content'].get()
     register_id = str(item['link']).split('/')[-2]
     series_record = helpers.db.get_record_by_document_id(register_id)[
         0]
@@ -122,8 +125,7 @@ def process_details(item: dict):
             document = doc
             break
 
-    document_metadata = utils.metadata.fill_out_template(
-        item['metadata'].get(), 'details_pane')
+    document_metadata = utils.metadata.get_details_pane(page_content)
     document_details = document | document_metadata
 
     download_link = utils.metadata.get_document_download_link(

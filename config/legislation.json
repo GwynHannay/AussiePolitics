@@ -52,12 +52,14 @@
             "as_made": "Asmade"
         }
     },
-    "series_url": {
-        "prefix": "Series"
-    },
-    "download_url": {
-        "prefix": "Details",
-        "suffix": "Download"
+    "section_urls": {
+        "series": {
+            "prefix": "Series"
+        },
+        "download": {
+            "prefix": "Details",
+            "suffix": "Download"
+        }
     },
     "other_content": {
         "historic_gazettes": "Content/HistoricGazettes"

@@ -38,8 +38,8 @@ def get_records_by_current_stage() -> list:
     )
 
 
-def get_record_by_series_id(series_id: str) -> list:
-    return db.search(where('series_id') == series_id)  # type: ignore
+def get_record_by_series_id(series_id: str) -> dict:
+    return db.search(where('series_id') == series_id)[0]  # type: ignore
 
 
 def get_record_by_document_id(document_id: str):

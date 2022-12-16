@@ -3,10 +3,11 @@ import os
 import logging
 
 
-logger = logging.getLogger(__name__)
 CONFIG_DIR = 'config'
 CRAWLER_CONFIG_FILE = 'legislation.json'
 METADATA_CONFIG_FILE = 'metadata.json'
+
+logger = logging.getLogger(__name__)
 
 
 def init():
@@ -48,7 +49,7 @@ def set_sections_to_crawl() -> list:
 
 
 def set_stages() -> list:
-    return ['index']
+    return ['series']
     #return ['index', 'series', 'principal', 'details', 'download', 'diff']
 
 
