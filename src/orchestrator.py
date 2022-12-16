@@ -14,6 +14,7 @@ def main():
 
     for section in website_sections:
         utils.config.set_current_section(section)
+        logger.info('---- START SECTION: {} ----'.format(section))
         process_website_section()
         
 
@@ -22,12 +23,16 @@ def process_website_section():
 
     for stage in stages:
         utils.config.set_current_stage(stage)
+        logger.info('---- BEGIN STAGE: {} ----'.format(stage))
 
         if stage in utils.config.page_types:
+            logger.info('---- BEGIN CRAWL ----')
             crawl_webpage()
         elif stage == 'principal':
+            logger.info('---- ADD PRINCIPAL ----')
             src.series.add_principal_to_series()
         elif stage == 'download':
+            logger.info('---- DOWNLOAD ITEMS ----')
             src.downloader.download_files()
 
 

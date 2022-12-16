@@ -44,13 +44,13 @@ def set_configs(config_type: str) -> dict:
 
 
 def set_sections_to_crawl() -> list:
-    return ['acts.in_force']
+    return ['constitution']
     #return ['constitution', 'acts.in_force']
 
 
 def set_stages() -> list:
-    return ['series']
-    #return ['index', 'series', 'principal', 'details', 'download', 'diff']
+    # return ['principal']
+    return ['index', 'series', 'principal', 'details', 'download', 'diff']
 
 
 def set_page_types() -> list:
