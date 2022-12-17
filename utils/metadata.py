@@ -2,13 +2,14 @@ import logging
 import helpers.webparser
 import utils.common
 import utils.config
+from bs4 import BeautifulSoup
 
 
 logger = logging.getLogger(__name__)
 
 
 def build_principal_document(document: dict) -> dict:
-    columns = get_template('series_table')['column_order']
+    columns = get_template('series')['series_table']['column_order']
     principal = {}
 
     first_document = get_first_document_in_series(document['documents'])
@@ -38,45 +39,58 @@ def build_principal_document(document: dict) -> dict:
     return principal
 
 
-def get_series_pane(page_content: str):
-    template = get_template('series_pane')
-    completed_template = fill_out_template(page_content, template)
+def get_series(page_content: str):
+    series_metadata = get_template('series')
+    page_soup = helpers.webparser.get_soup_from_text(page_content)
+    series_template = {}
+    records = None
 
-    return completed_template
+    utils.config.set_current_metadata(series_metadata['series_pane'])
+    utils.config.set_current_page_soup(page_soup)
+    series_template = fill_out_template()
 
+    utils.config.set_current_metadata(series_metadata['series_table'])
+    records = fill_out_table_template()
 
-def get_series_compilations(page_content: str):
-    template = get_template('series_table')
-    record = fill_out_template(page_content, template)
-    completed_template = fill_out_table_template(page_content, record)
-
-    return completed_template
-
-
-def get_details_pane(page_content: str):
-    template = get_template('details_pane')
-    completed_template = fill_out_template(page_content, template)
-
-    return completed_template
+    series_template['documents'] = records
+    return series_template
 
 
-def fill_out_template(page_content: str, template: dict) -> dict:
-    soup = helpers.webparser.get_soup_from_text(page_content)
+def get_details(page_content: str):
+    details_metadata = get_template('details_pane')
+    page_soup = helpers.webparser.get_soup_from_text(page_content)
+
+    utils.config.set_current_metadata(details_metadata)
+    utils.config.set_current_page_soup = page_soup
+    details_template = fill_out_template()
+
+    return details_template
+
+
+def fill_out_template(section_soup: BeautifulSoup | None = None) -> dict:
     record = {}
+    metadata_template = utils.config.current_metadata
 
-    for field in template['columns']:
+    if not section_soup:
+        page_soup = utils.config.current_page_soup
+
+        section_soup = check_soup_sections(metadata_template, page_soup)
+        if not section_soup:
+            section_soup = page_soup
+
+    for field in metadata_template['columns']:
         if field.get('id'):
             field_text = helpers.webparser.get_text_using_exact_id(
-                soup, field['element'], field['id'])
+                section_soup, field['element'], field['id'])
         elif field.get('id_like'):
             field_text = helpers.webparser.get_text_using_regex_id(
-                soup, field['element'], field['id_like'])
+                section_soup, field['element'], field['id_like'])
         elif field.get('class'):
             field_text = helpers.webparser.get_text_by_class(
-                soup, field['element'], field['class'])
+                section_soup, field['element'], field['class'])
         else:
             field_text = helpers.webparser.get_element_text(
-                soup, field['element'])
+                section_soup, field['element'])
 
         if field_text:
             record[field['name']] = utils.common.remove_whitespace(field_text)
@@ -84,24 +98,53 @@ def fill_out_template(page_content: str, template: dict) -> dict:
     return record
 
 
-def fill_out_table_template(item_text: str, completed_template: dict):
-    soup = helpers.webparser.get_soup_from_text(item_text)
-    columns = helpers.webparser.iterate_over_series_columns(
-        soup, get_template('series_table'))
+def fill_out_table_template():
+    metadata_template = utils.config.current_metadata
+    page_soup = utils.config.current_page_soup
+    records = []
 
-    if completed_template.get('incorporated_amendments_linked'):
-        completed_template['incorporated_amendments'] = completed_template['incorporated_amendments_linked']
-        amendment_url = helpers.webparser.get_link_using_regex_id(
-            soup, 'hlIncorpTo')
-        if amendment_url:
-            completed_template['amendment_id'] = amendment_url.split('/')[-1]
+    section_soup = check_soup_sections(metadata_template, page_soup)
+    if not section_soup:
+        section_soup = page_soup
+    
+    if section_soup.tbody:
+        for row in section_soup.tbody.findChildren('tr', recursive=False):
+            base_record = fill_out_template(row)
+            unnamed_columns = helpers.webparser.iterate_over_series_columns(
+                row, metadata_template['untitled_column_names'])
 
-    for column in columns:
-        completed_template[column] = columns[column]
+            if base_record.get('incorporated_amendments_linked'):
+                base_record['incorporated_amendments'] = base_record['incorporated_amendments_linked']
+                amendment_url = helpers.webparser.get_link_using_regex_id(
+                    page_soup, 'hlIncorpTo')
+                if amendment_url:
+                    base_record['amendment_id'] = amendment_url.split('/')[-1]
 
-    ordered_template = order_columns(
-        completed_template, get_template('series_table')['column_order'])
-    return ordered_template
+            for column in unnamed_columns:
+                base_record[column] = unnamed_columns[column]
+
+            ordered_template = order_columns(
+                base_record, metadata_template['column_order'])
+            records.append(ordered_template)
+    
+    return records
+
+
+def check_soup_sections(metadata_template: dict, page_soup: BeautifulSoup) -> BeautifulSoup | None:
+    new_soup = None
+    if metadata_template.get('div_class'):
+        new_soup = helpers.webparser.get_element_from_class(page_soup, 'div', metadata_template['div_class'])
+        if not new_soup:
+            logger.exception('Section div %s not found in soup: %s', metadata_template['div_class'], page_soup)
+            raise Exception
+    
+    if metadata_template.get('table_class') and new_soup:
+        new_soup = helpers.webparser.get_element_from_class(new_soup, 'table', metadata_template['table_class'])
+        if not new_soup:
+            logger.exception('Table %s not found in soup: %s', metadata_template['table_class'], page_soup)
+            raise Exception
+    
+    return new_soup
 
 
 def get_series_ids(page_content: str) -> list:

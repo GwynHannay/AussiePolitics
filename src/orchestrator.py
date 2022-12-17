@@ -14,7 +14,7 @@ def main():
 
     for section in website_sections:
         utils.config.set_current_section(section)
-        logger.info('---- START SECTION: {} ----'.format(section))
+        logger.info('---- START SECTION: %s ----', section)
         process_website_section()
         
 
@@ -23,7 +23,7 @@ def process_website_section():
 
     for stage in stages:
         utils.config.set_current_stage(stage)
-        logger.info('---- BEGIN STAGE: {} ----'.format(stage))
+        logger.info('---- BEGIN STAGE: %s ----', stage)
 
         if stage in utils.config.page_types:
             logger.info('---- BEGIN CRAWL ----')

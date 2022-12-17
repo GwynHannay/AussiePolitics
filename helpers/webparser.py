@@ -109,6 +109,11 @@ def get_text_using_regex_id(soup: BeautifulSoup, element: str, id: str) -> str |
         return None
 
 
+def get_element_from_class(soup: BeautifulSoup, element: str, element_class: str) -> BeautifulSoup | None:
+    item = soup.find(element, class_=element_class)
+    return item
+
+
 def get_series_ids_from_buttons(soup: BeautifulSoup) -> list:
     series_details = soup.find_all('input', value='View Series')
     series_ids = []
@@ -120,22 +125,18 @@ def get_series_ids_from_buttons(soup: BeautifulSoup) -> list:
     return series_ids
 
 
-def iterate_over_series_columns(soup: BeautifulSoup, metadata: dict):
-    column_names = metadata['untitled_column_names']
-    series_table = soup.find('div', _class=metadata['div_class'])
-    # Extract the div class content
+def iterate_over_series_columns(row: BeautifulSoup, column_names: dict):
     document = {}
     i = 0
-    if series_table:
-        for column in series_table.tr.findChildren('td', recursive=False):
-            if column.find('table'):
-                continue
+    for column in row.findChildren('td', recursive=False):
+        if column.find('table'):
+            continue
 
-            document[column_names[i]] = column.text.strip()
-            
-            if column_names[i] == column_names[-1]:
-                break
-            
-            i = i + 1
+        document[column_names[i]] = column.text.strip()
+        
+        if column_names[i] == column_names[-1]:
+            break
+        
+        i = i + 1
     
     return document

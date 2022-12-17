@@ -73,8 +73,6 @@ def process_index(item: dict):
 
 
 def process_series(item: dict):
-    # Series rows: response.css('.rgMasterTable').xpath('./tbody/tr')
-    # Series metadata: response.xpath("//div[@id='MainContent_leftDetailMeta']")
     page_content = item['content'].get()
     series_id = str(item['link']).rpartition('/')[-1]
     series_record = helpers.db.get_record_by_series_id(series_id)
@@ -86,29 +84,24 @@ def process_series(item: dict):
             'series_id': series_id
         }
 
-        series_metadata = utils.metadata.get_series_pane(page_content)
+        series_metadata = utils.metadata.get_series(page_content)
 
         for field in series_metadata:
+            if field == 'documents':
+                continue
             record[field] = series_metadata[field]
 
+        if series_record.get('documents'):
+            documents = series_record['documents']
+        else:
+            documents = []
+
+        if isinstance(series_metadata['documents'], list):
+            for new_document in series_metadata['documents']:
+                documents = utils.common.check_existing_documents(documents, new_document)
+        
         helpers.db.update_record(record)
-
-    if series_record.get('documents'):
-        documents = series_record['documents']
-    else:
-        documents = []
-    
-    new_documents = utils.metadata.get_series_compilations(page_content)
-
-    # if isinstance(rows, list):
-    #     for row in rows:
-    #         new_document = utils.metadata.get_series_compilations(row.get())
-    #         documents = utils.common.check_existing_documents(documents, new_document)
-    # else:
-    #     new_document = utils.metadata.get_series_compilations(rows.get())
-    #     documents = utils.common.check_existing_documents(documents, new_document)
-
-    helpers.db.update_list(documents, series_id)
+        helpers.db.update_list(documents, series_id)
 
 
 def process_details(item: dict):
@@ -125,7 +118,7 @@ def process_details(item: dict):
             document = doc
             break
 
-    document_metadata = utils.metadata.get_details_pane(page_content)
+    document_metadata = utils.metadata.get_details(page_content)
     document_details = document | document_metadata
 
     download_link = utils.metadata.get_document_download_link(

@@ -1,107 +1,110 @@
 {
-    "series_pane": {
-        "div_class": "left",
-        "columns": [
-            {
-                "name": "title",
-                "element": "h2",
-                "class": "wraptext"
-            },
-            {
-                "name": "notation",
-                "element": "span",
-                "id": "MainContent_SeriesPane_lblSeriesNotations"
-            },
-            {
-                "name": "admin_departments",
-                "element": "span",
-                "id": "MainContent_SeriesPane_lblAdminDepts"
-            },
-            {
-                "name": "details",
-                "element": "span",
-                "id": "MainContent_SeriesPane_lblDetails"
-            },
-            {
-                "name": "commence_label",
-                "element": "span",
-                "id": "MainContent_SeriesPane_lblCommences"
-            },
-            {
-                "name": "commence_date_formatted",
-                "element": "span",
-                "id": "MainContent_SeriesPane_lblCommencesDate"
-            },
-            {
-                "name": "repealed_label",
-                "element": "span",
-                "id": "MainContent_SeriesPane_lblRepealedFieldLabel"
-            },
-            {
-                "name": "repealed_date_formatted",
-                "element": "span",
-                "id": "MainContent_SeriesPane_lblRepealed"
-            },
-            {
-                "name": "repeal_reason",
-                "element": "span",
-                "id": "MainContent_SeriesPane_lblRepealingReason"
-            },
-            {
-                "name": "ceased_label",
-                "element": "span",
-                "id": "MainContent_SeriesPane_lblCeasedFieldLabel"
-            },
-            {
-                "name": "ceased_datetime_formatted",
-                "element": "span",
-                "id": "MainContent_SeriesPane_lblCeased"
-            },
-            {
-                "name": "ceasing_reason",
-                "element": "span",
-                "id": "MainContent_SeriesPane_lblCeasingReason"
-            }
-        ]
+    "series": {
+        "series_pane": {
+            "div_class": "left",
+            "columns": [
+                {
+                    "name": "title",
+                    "element": "h2",
+                    "class": "wraptext"
+                },
+                {
+                    "name": "notation",
+                    "element": "span",
+                    "id": "MainContent_SeriesPane_lblSeriesNotations"
+                },
+                {
+                    "name": "admin_departments",
+                    "element": "span",
+                    "id": "MainContent_SeriesPane_lblAdminDepts"
+                },
+                {
+                    "name": "details",
+                    "element": "span",
+                    "id": "MainContent_SeriesPane_lblDetails"
+                },
+                {
+                    "name": "commence_label",
+                    "element": "span",
+                    "id": "MainContent_SeriesPane_lblCommences"
+                },
+                {
+                    "name": "commence_date_formatted",
+                    "element": "span",
+                    "id": "MainContent_SeriesPane_lblCommencesDate"
+                },
+                {
+                    "name": "repealed_label",
+                    "element": "span",
+                    "id": "MainContent_SeriesPane_lblRepealedFieldLabel"
+                },
+                {
+                    "name": "repealed_date_formatted",
+                    "element": "span",
+                    "id": "MainContent_SeriesPane_lblRepealed"
+                },
+                {
+                    "name": "repeal_reason",
+                    "element": "span",
+                    "id": "MainContent_SeriesPane_lblRepealingReason"
+                },
+                {
+                    "name": "ceased_label",
+                    "element": "span",
+                    "id": "MainContent_SeriesPane_lblCeasedFieldLabel"
+                },
+                {
+                    "name": "ceased_datetime_formatted",
+                    "element": "span",
+                    "id": "MainContent_SeriesPane_lblCeased"
+                },
+                {
+                    "name": "ceasing_reason",
+                    "element": "span",
+                    "id": "MainContent_SeriesPane_lblCeasingReason"
+                }
+            ]
+        },
+        "series_table": {
+            "div_class": "right",
+            "table_class": "rgMasterTable",
+            "columns": [
+                {
+                    "name": "document_status",
+                    "element": "span",
+                    "id_like": "lblTitleStatus"
+                },
+                {
+                    "name": "incorporated_amendments",
+                    "element": "span",
+                    "id_like": "lblIncorpTo"
+                },
+                {
+                    "name": "incorporated_amendments_linked",
+                    "element": "a",
+                    "id_like": "hlIncorpTo"
+                }
+            ],
+            "untitled_column_names": [
+                "registered_date",
+                "register_id",
+                "comp_no",
+                "start_date",
+                "end_date"
+            ],
+            "column_order": [
+                "register_id",
+                "document_status",
+                "registered_date",
+                "comp_no",
+                "start_date",
+                "end_date",
+                "incorporated_amendments",
+                "amendment_id"
+            ]
+        }
     },
-    "series_table": {
-        "div_class": "right",
-        "columns": [
-            {
-                "name": "document_status",
-                "element": "span",
-                "id_like": "lblTitleStatus"
-            },
-            {
-                "name": "incorporated_amendments",
-                "element": "span",
-                "id_like": "lblIncorpTo"
-            },
-            {
-                "name": "incorporated_amendments_linked",
-                "element": "a",
-                "id_like": "hlIncorpTo"
-            }
-        ],
-        "untitled_column_names": [
-            "registered_date",
-            "register_id",
-            "comp_no",
-            "start_date",
-            "end_date"
-        ],
-        "column_order": [
-            "register_id",
-            "document_status",
-            "registered_date",
-            "comp_no",
-            "start_date",
-            "end_date",
-            "incorporated_amendments",
-            "amendment_id"
-        ]
-    },
-    "details_pane": [
+    "details": [
         {
             "name": "description",
             "element": "span",

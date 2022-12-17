@@ -1,6 +1,7 @@
 import json
 import os
 import logging
+from bs4 import BeautifulSoup
 
 
 CONFIG_DIR = 'config'
@@ -49,8 +50,8 @@ def set_sections_to_crawl() -> list:
 
 
 def set_stages() -> list:
-    # return ['principal']
-    return ['index', 'series', 'principal', 'details', 'download', 'diff']
+    return ['principal']
+    # return ['index', 'series', 'principal', 'details', 'download', 'diff']
 
 
 def set_page_types() -> list:
@@ -65,3 +66,13 @@ def set_current_section(new_section: str):
 def set_current_stage(new_stage: str):
     global current_stage
     current_stage = new_stage
+
+
+def set_current_metadata(new_metadata: dict):
+    global current_metadata 
+    current_metadata = new_metadata
+
+
+def set_current_page_soup(new_page_soup: BeautifulSoup):
+    global current_page_soup 
+    current_page_soup = new_page_soup
