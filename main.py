@@ -1,5 +1,5 @@
 import logging
-import utils.config
+import src.config
 import src.orchestrator
 
 
@@ -7,10 +7,11 @@ logger = logging.getLogger('main')
 
 
 def main():
-    utils.config.init()
+    
+    # utils.config.init()
 
-    logger.debug('Begin crawl')
-    src.orchestrator.main()
+    # logger.debug('Begin crawl')
+    # src.orchestrator.main()
 
     # for document in constitution_metadata:
     #     document_order[document['Comp No.']] = completed_metadata

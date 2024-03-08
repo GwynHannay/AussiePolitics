@@ -1,6 +1,6 @@
 import scrapy
 import logging
-import utils.config
+import src.config
 from scrapy.http import Request
 
 
@@ -57,8 +57,8 @@ class PagesSpider(scrapy.Spider):
         view_state_encrypted = response.css(
             '#__VIEWSTATEENCRYPTED::attr(value)').extract()
 
-        section = utils.config.current_section
-        page_type = utils.config.current_stage
+        section = src.config.current_section
+        page_type = src.config.current_stage
         yield {
             'link': response.url,
             'section': section,

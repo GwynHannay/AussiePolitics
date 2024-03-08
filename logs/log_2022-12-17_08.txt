@@ -1,0 +1,278 @@
+[2022-12-17 05:17:50,696] - DEBUG in main, main(): Begin crawl, None
+[2022-12-17 05:17:50,696] - INFO in src.orchestrator, main(): ---- START SECTION: constitution ----, None
+[2022-12-17 05:17:50,696] - INFO in src.orchestrator, process_website_section(): ---- BEGIN STAGE: index ----, None
+[2022-12-17 05:17:50,696] - INFO in src.orchestrator, process_website_section(): ---- BEGIN CRAWL ----, None
+[2022-12-17 05:17:50,696] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce, None
+[2022-12-17 05:17:53,429] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation), None
+[2022-12-17 05:17:53,446] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.13, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.8 (main, Oct 13 2022, 09:48:40) [Clang 14.0.0 (clang-1400.0.29.102)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-13.0.1-arm64-arm-64bit, None
+[2022-12-17 05:17:53,450] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}, None
+[2022-12-17 05:17:53,453] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor, None
+[2022-12-17 05:17:53,460] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: b0b6e10944cb957f, None
+[2022-12-17 05:17:53,467] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats'], None
+[2022-12-17 05:17:53,506] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats'], None
+[2022-12-17 05:17:53,507] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware'], None
+[2022-12-17 05:17:53,507] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['helpers.crawler.LegislationPipeline'], None
+[2022-12-17 05:17:53,508] - INFO in scrapy.core.engine, open_spider(): Spider opened, None
+[2022-12-17 05:17:53,551] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min), None
+[2022-12-17 05:17:53,552] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023, None
+[2022-12-17 05:17:53,776] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/robots.txt> (referer: None), None
+[2022-12-17 05:17:59,690] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce> (referer: None), None
+[2022-12-17 05:17:59,830] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce>
+None, None
+[2022-12-17 05:17:59,831] - INFO in scrapy.core.engine, close_spider(): Closing spider (finished), None
+[2022-12-17 05:17:59,831] - INFO in scrapy.statscollectors, close_spider(): Dumping Scrapy stats:
+{'downloader/request_bytes': 489,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 61195,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 6.279689,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 12, 16, 21, 17, 59, 831560),
+ 'httpcompression/response_bytes': 101091,
+ 'httpcompression/response_count': 2,
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 4,
+ 'log_count/INFO': 10,
+ 'memusage/max': 61882368,
+ 'memusage/startup': 61882368,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2022, 12, 16, 21, 17, 53, 551871)}, None
+[2022-12-17 05:17:59,832] - INFO in scrapy.core.engine, <lambda>(): Spider closed (finished), None
+[2022-12-17 05:17:59,917] - INFO in src.orchestrator, process_website_section(): ---- BEGIN STAGE: series ----, None
+[2022-12-17 05:17:59,917] - INFO in src.orchestrator, process_website_section(): ---- BEGIN CRAWL ----, None
+[2022-12-17 05:17:59,917] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Series/C2004Q00685, None
+[2022-12-17 05:17:59,922] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation), None
+[2022-12-17 05:17:59,922] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.13, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.8 (main, Oct 13 2022, 09:48:40) [Clang 14.0.0 (clang-1400.0.29.102)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-13.0.1-arm64-arm-64bit, None
+[2022-12-17 05:17:59,925] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}, None
+[2022-12-17 05:17:59,925] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor, None
+[2022-12-17 05:17:59,925] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: 4c34844cf18efd10, None
+[2022-12-17 05:17:59,925] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats'], None
+[2022-12-17 05:17:59,927] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats'], None
+[2022-12-17 05:17:59,927] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware'], None
+[2022-12-17 05:17:59,928] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['helpers.crawler.LegislationPipeline'], None
+[2022-12-17 05:17:59,928] - INFO in scrapy.core.engine, open_spider(): Spider opened, None
+[2022-12-17 05:17:59,928] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min), None
+[2022-12-17 05:17:59,928] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023, None
+[2022-12-17 05:18:00,143] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/robots.txt> (referer: None), None
+[2022-12-17 05:18:03,930] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Series/C2004Q00685> (referer: None), None
+[2022-12-17 05:18:04,088] - INFO in utils.metadata, get_series_compilations(): FILL OUT TABLE, None
+[2022-12-17 05:18:04,097] - INFO in utils.metadata, fill_out_table_template(): START ITERATING, None
+[2022-12-17 05:18:04,097] - INFO in helpers.webparser, iterate_over_series_columns(): COLUMNS: ['registered_date', 'register_id', 'comp_no', 'start_date', 'end_date'], None
+[2022-12-17 05:18:04,098] - INFO in helpers.webparser, iterate_over_series_columns(): ROW: <tr class="rgRow" id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00__0">
+<td>
+<table>
+<tr>
+<td style="width: 25px">
+</td>
+<td>
+<a class="default" href="../Details/C2013Q00005" id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl04_hl">Commonwealth of Australia Constitution Act</a>
+<div style="display:block">
+<span id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl04_lblTitleStatus"><i>Latest</i></span>
+</div>
+</td>
+</tr>
+</table>
+</td><td>06/Sep/2013</td><td>C2013Q00005</td><td>6</td><td>29/Jul/1977</td><td> </td><td>
+<span id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl04_lblIncorpTo">Act No. 84, 1977</span>
+</td>
+</tr>, None
+[2022-12-17 05:18:04,098] - INFO in helpers.webparser, iterate_over_series_columns(): ROW: <tr class="rgAltRow" id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00__1">
+<td>
+<table>
+<tr>
+<td style="width: 25px">
+</td>
+<td>
+<a class="default" href="../Details/C2004C00469" id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl06_hl">Commonwealth of Australia Constitution Act</a>
+<div style="display:block">
+<span id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl06_lblTitleStatus"><i>Superseded</i></span>
+</div>
+</td>
+</tr>
+</table>
+</td><td> </td><td>C2004C00469</td><td>5</td><td>07/Sep/1967</td><td>28/Jul/1977</td><td>
+<span id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl06_lblIncorpTo">Act No. 55, 1967</span>
+</td>
+</tr>, None
+[2022-12-17 05:18:04,098] - INFO in helpers.webparser, iterate_over_series_columns(): ROW: <tr class="rgRow" id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00__2">
+<td>
+<table>
+<tr>
+<td style="width: 25px">
+</td>
+<td>
+<a class="default" href="../Details/C2021Q00027" id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl08_hl">Commonwealth of Australia Constitution Act</a>
+<div style="display:block">
+<span id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl08_lblTitleStatus"><i>Superseded</i></span>
+</div>
+</td>
+</tr>
+</table>
+</td><td>18/Nov/2021</td><td>C2021Q00027</td><td>4</td><td>16/Jan/1947</td><td>06/Sep/1967</td><td>
+<span id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl08_lblIncorpTo">Act No. 81, 1946</span>
+</td>
+</tr>, None
+[2022-12-17 05:18:04,099] - INFO in helpers.webparser, iterate_over_series_columns(): ROW: <tr class="rgAltRow" id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00__3">
+<td>
+<table>
+<tr>
+<td style="width: 25px">
+</td>
+<td>
+<a class="default" href="../Details/C2021Q00026" id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl10_hl">Commonwealth of Australia Constitution Act</a>
+<div style="display:block">
+<span id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl10_lblTitleStatus"><i>Superseded</i></span>
+</div>
+</td>
+</tr>
+</table>
+</td><td>18/Nov/2021</td><td>C2021Q00026</td><td>3</td><td>13/Feb/1929</td><td>15/Jan/1947</td><td>
+<span id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl10_lblIncorpTo">Act No. 1, 1929</span>
+</td>
+</tr>, None
+[2022-12-17 05:18:04,099] - INFO in helpers.webparser, iterate_over_series_columns(): ROW: <tr class="rgRow" id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00__4">
+<td>
+<table>
+<tr>
+<td style="width: 25px">
+</td>
+<td>
+<a class="default" href="../Details/C2021Q00025" id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl12_hl">Commonwealth of Australia Constitution Act</a>
+<div style="display:block">
+<span id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl12_lblTitleStatus"><i>Superseded</i></span>
+</div>
+</td>
+</tr>
+</table>
+</td><td>18/Nov/2021</td><td>C2021Q00025</td><td>2</td><td>06/Aug/1910</td><td>12/Feb/1929</td><td>
+<span id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl12_lblIncorpTo">Act No. 3, 1910</span>
+</td>
+</tr>, None
+[2022-12-17 05:18:04,099] - INFO in helpers.webparser, iterate_over_series_columns(): ROW: <tr class="rgAltRow" id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00__5">
+<td>
+<table>
+<tr>
+<td style="width: 25px">
+</td>
+<td>
+<a class="default" href="../Details/C2021Q00024" id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl14_hl">Commonwealth of Australia Constitution Act</a>
+<div style="display:block">
+<span id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl14_lblTitleStatus"><i>Superseded</i></span>
+</div>
+</td>
+</tr>
+</table>
+</td><td>17/Nov/2021</td><td>C2021Q00024</td><td>1</td><td>03/Apr/1907</td><td>05/Aug/1910</td><td>
+<span id="ctl00_MainContent_SeriesCompilations_RadGrid1_ctl00_ctl14_lblIncorpTo">Act No. 1, 1907</span>
+</td>
+</tr>, None
+[2022-12-17 05:18:04,099] - ERROR in scrapy.core.scraper, _itemproc_finished(): Error processing {'link': 'https://www.legislation.gov.au/Series/C2004Q00685', 'section': 'constitution', 'page_type': 'series', 'content': [<Selector xpath='.//body' data='<body>\n    <h1 class="sr-only">Federa...'>]}, None
+Traceback (most recent call last):
+  File "/Users/gwyn/GitHub/aussie_politics/.venv/lib/python3.10/site-packages/twisted/internet/defer.py", line 857, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/Users/gwyn/GitHub/aussie_politics/.venv/lib/python3.10/site-packages/scrapy/utils/defer.py", line 162, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "/Users/gwyn/GitHub/aussie_politics/helpers/crawler.py", line 27, in process_item
+    src.series.process_series(adaptor)
+  File "/Users/gwyn/GitHub/aussie_politics/src/series.py", line 101, in process_series
+    new_documents = utils.metadata.get_series_compilations(page_content)
+  File "/Users/gwyn/GitHub/aussie_politics/utils/metadata.py", line 52, in get_series_compilations
+    completed_template = fill_out_table_template(page_content, record)
+  File "/Users/gwyn/GitHub/aussie_politics/utils/metadata.py", line 102, in fill_out_table_template
+    completed_template[column] = columns[column]
+TypeError: list indices must be integers or slices, not dict
+[2022-12-17 05:18:04,102] - INFO in scrapy.core.engine, close_spider(): Closing spider (finished), None
+[2022-12-17 05:18:04,102] - INFO in scrapy.statscollectors, close_spider(): Dumping Scrapy stats:
+{'downloader/request_bytes': 472,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 65167,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 4.17423,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 12, 16, 21, 18, 4, 102610),
+ 'httpcompression/response_bytes': 100016,
+ 'httpcompression/response_count': 2,
+ 'log_count/DEBUG': 3,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 19,
+ 'memusage/max': 66240512,
+ 'memusage/startup': 66240512,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2022, 12, 16, 21, 17, 59, 928380)}, None
+[2022-12-17 05:18:04,102] - INFO in scrapy.core.engine, <lambda>(): Spider closed (finished), None
+[2022-12-17 05:18:04,151] - INFO in src.orchestrator, process_website_section(): ---- BEGIN STAGE: principal ----, None
+[2022-12-17 05:18:04,151] - INFO in src.orchestrator, process_website_section(): ---- ADD PRINCIPAL ----, None
+[2022-12-17 05:18:04,151] - INFO in src.orchestrator, process_website_section(): ---- BEGIN STAGE: details ----, None
+[2022-12-17 05:18:04,151] - INFO in src.orchestrator, process_website_section(): ---- BEGIN CRAWL ----, None

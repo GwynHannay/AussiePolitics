@@ -1,0 +1,97 @@
+[2022-12-17 10:28:13,960] - DEBUG in main, main(): Begin crawl, None
+[2022-12-17 10:28:13,960] - INFO in src.orchestrator, main(): ---- START SECTION: constitution ----, None
+[2022-12-17 10:28:13,960] - INFO in src.orchestrator, process_website_section(): ---- BEGIN STAGE: details ----, None
+[2022-12-17 10:28:13,960] - INFO in src.orchestrator, process_website_section(): ---- BEGIN CRAWL ----, None
+[2022-12-17 10:28:13,960] - ERROR in utils.common, build_url_from_config(): Problem building URL from configuration, with error: 'details', None
+Traceback (most recent call last):
+  File "/Users/gwyn/GitHub/aussie_politics/utils/common.py", line 124, in build_url_from_config
+    prefix = url_config['section_urls'][page_type]['prefix']
+KeyError: 'details'
+[2022-12-17 10:28:13,961] - DEBUG in utils.common, build_url_from_config(): Current state: section "constitution", stage "details", None
+[2022-12-17 10:29:55,218] - DEBUG in main, main(): Begin crawl, None
+[2022-12-17 10:29:55,218] - INFO in src.orchestrator, main(): ---- START SECTION: constitution ----, None
+[2022-12-17 10:29:55,218] - INFO in src.orchestrator, process_website_section(): ---- BEGIN STAGE: details ----, None
+[2022-12-17 10:29:55,218] - INFO in src.orchestrator, process_website_section(): ---- BEGIN CRAWL ----, None
+[2022-12-17 10:29:55,218] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Details/C2021Q00024, None
+[2022-12-17 10:29:55,218] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Details/C2021Q00025, None
+[2022-12-17 10:29:55,218] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Details/C2021Q00026, None
+[2022-12-17 10:29:55,218] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Details/C2021Q00027, None
+[2022-12-17 10:29:55,218] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Details/C2004C00469, None
+[2022-12-17 10:29:55,218] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Details/C2013Q00005, None
+[2022-12-17 10:29:55,221] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation), None
+[2022-12-17 10:29:55,232] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.13, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.8 (main, Oct 13 2022, 09:48:40) [Clang 14.0.0 (clang-1400.0.29.102)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-13.0.1-arm64-arm-64bit, None
+[2022-12-17 10:29:55,234] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}, None
+[2022-12-17 10:29:55,236] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor, None
+[2022-12-17 10:29:55,243] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: 012c0ac705ee4d66, None
+[2022-12-17 10:29:55,250] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats'], None
+[2022-12-17 10:29:55,297] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats'], None
+[2022-12-17 10:29:55,299] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware'], None
+[2022-12-17 10:29:55,299] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['helpers.crawler.LegislationPipeline'], None
+[2022-12-17 10:29:55,299] - INFO in scrapy.core.engine, open_spider(): Spider opened, None
+[2022-12-17 10:29:55,343] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min), None
+[2022-12-17 10:29:55,344] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023, None
+[2022-12-17 10:29:55,630] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/robots.txt> (referer: None), None
+[2022-12-17 10:29:59,427] - DEBUG in filelock, acquire(): Attempting to acquire lock 4447204832 on /Users/gwyn/.cache/python-tldextract/3.10.8.final__.venv__d64bc6__tldextract-3.3.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock, None
+[2022-12-17 10:29:59,427] - DEBUG in filelock, acquire(): Lock 4447204832 acquired on /Users/gwyn/.cache/python-tldextract/3.10.8.final__.venv__d64bc6__tldextract-3.3.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock, None
+[2022-12-17 10:29:59,428] - DEBUG in filelock, acquire(): Attempting to acquire lock 4447440032 on /Users/gwyn/.cache/python-tldextract/3.10.8.final__.venv__d64bc6__tldextract-3.3.0/urls/62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock, None
+[2022-12-17 10:29:59,428] - DEBUG in filelock, acquire(): Lock 4447440032 acquired on /Users/gwyn/.cache/python-tldextract/3.10.8.final__.venv__d64bc6__tldextract-3.3.0/urls/62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock, None
+[2022-12-17 10:29:59,501] - DEBUG in urllib3.connectionpool, _new_conn(): Starting new HTTPS connection (1): publicsuffix.org:443, None
+[2022-12-17 10:29:59,602] - DEBUG in urllib3.connectionpool, _make_request(): https://publicsuffix.org:443 "GET /list/public_suffix_list.dat HTTP/1.1" 200 None, None
+[2022-12-17 10:29:59,613] - DEBUG in filelock, release(): Attempting to release lock 4447440032 on /Users/gwyn/.cache/python-tldextract/3.10.8.final__.venv__d64bc6__tldextract-3.3.0/urls/62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock, None
+[2022-12-17 10:29:59,613] - DEBUG in filelock, release(): Lock 4447440032 released on /Users/gwyn/.cache/python-tldextract/3.10.8.final__.venv__d64bc6__tldextract-3.3.0/urls/62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock, None
+[2022-12-17 10:29:59,624] - DEBUG in filelock, release(): Attempting to release lock 4447204832 on /Users/gwyn/.cache/python-tldextract/3.10.8.final__.venv__d64bc6__tldextract-3.3.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock, None
+[2022-12-17 10:29:59,624] - DEBUG in filelock, release(): Lock 4447204832 released on /Users/gwyn/.cache/python-tldextract/3.10.8.final__.venv__d64bc6__tldextract-3.3.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock, None
+[2022-12-17 10:29:59,628] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Details/C2021Q00024> (referer: None), None
+[2022-12-17 10:29:59,768] - ERROR in scrapy.core.scraper, _itemproc_finished(): Error processing {'link': 'https://www.legislation.gov.au/Details/C2021Q00024', 'section': 'constitution', 'page_type': 'details', 'content': [<Selector xpath='.//body' data='<body>\n    <h1 class="sr-only">Federa...'>]}, None
+Traceback (most recent call last):
+  File "/Users/gwyn/GitHub/aussie_politics/.venv/lib/python3.10/site-packages/twisted/internet/defer.py", line 857, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/Users/gwyn/GitHub/aussie_politics/.venv/lib/python3.10/site-packages/scrapy/utils/defer.py", line 162, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "/Users/gwyn/GitHub/aussie_politics/helpers/crawler.py", line 29, in process_item
+    src.series.process_details(adaptor)
+  File "/Users/gwyn/GitHub/aussie_politics/src/series.py", line 112, in process_details
+    series_record = helpers.db.get_record_by_document_id(register_id)[
+IndexError: list index out of range
+[2022-12-17 10:30:02,349] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Details/C2021Q00025> (referer: None), None
+[2022-12-17 10:30:02,485] - ERROR in scrapy.core.scraper, _itemproc_finished(): Error processing {'link': 'https://www.legislation.gov.au/Details/C2021Q00025', 'section': 'constitution', 'page_type': 'details', 'content': [<Selector xpath='.//body' data='<body>\n    <h1 class="sr-only">Federa...'>]}, None
+Traceback (most recent call last):
+  File "/Users/gwyn/GitHub/aussie_politics/.venv/lib/python3.10/site-packages/twisted/internet/defer.py", line 857, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/Users/gwyn/GitHub/aussie_politics/.venv/lib/python3.10/site-packages/scrapy/utils/defer.py", line 162, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "/Users/gwyn/GitHub/aussie_politics/helpers/crawler.py", line 29, in process_item
+    src.series.process_details(adaptor)
+  File "/Users/gwyn/GitHub/aussie_politics/src/series.py", line 112, in process_details
+    series_record = helpers.db.get_record_by_document_id(register_id)[
+IndexError: list index out of range
+[2022-12-17 10:30:04,315] - INFO in scrapy.crawler, _signal_shutdown(): Received SIGINT, shutting down gracefully. Send again to force , None
+[2022-12-17 10:30:04,316] - INFO in scrapy.core.engine, close_spider(): Closing spider (shutdown), None
+[2022-12-17 10:30:06,249] - INFO in scrapy.crawler, _signal_kill(): Received SIGINT twice, forcing unclean shutdown, None

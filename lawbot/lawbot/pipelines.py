@@ -8,6 +8,6 @@
 from itemadapter import ItemAdapter
 
 
-class LegislationPipeline:
+class LawbotPipeline:
     def process_item(self, item, spider):
         return item

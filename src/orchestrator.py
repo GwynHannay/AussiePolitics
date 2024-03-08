@@ -1,7 +1,7 @@
 import logging
 import helpers.crawler
-import utils.common
-import utils.config
+import src.common
+import src.config
 import src.downloader
 import src.series
 
@@ -10,22 +10,22 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-    website_sections = utils.config.sections_to_crawl
+    website_sections = src.config.sections_to_crawl
 
     for section in website_sections:
-        utils.config.set_current_section(section)
+        src.config.set_current_section(section)
         logger.info('---- START SECTION: %s ----', section)
         process_website_section()
         
 
 def process_website_section():
-    stages = utils.config.stages
+    stages = src.config.stages
 
     for stage in stages:
-        utils.config.set_current_stage(stage)
+        src.config.set_current_stage(stage)
         logger.info('---- BEGIN STAGE: %s ----', stage)
 
-        if stage in utils.config.page_types:
+        if stage in src.config.page_types:
             logger.info('---- BEGIN CRAWL ----')
             crawl_webpage()
         elif stage == 'principal':
@@ -42,7 +42,7 @@ def crawl_webpage():
 
 
 def get_urls() -> list:
-    page_type = utils.config.current_stage
+    page_type = src.config.current_stage
     match page_type:
         case 'index':
             urls = src.series.get_index_urls()

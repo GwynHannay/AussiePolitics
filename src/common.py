@@ -1,6 +1,6 @@
 import logging
 import pytz
-import utils.config
+import src.config
 from urllib.parse import urljoin
 from datetime import date, datetime, timedelta
 from dateutil.parser import parse
@@ -99,9 +99,9 @@ def build_url(url_parts: dict) -> str:
 
 def build_url_from_config(provided_part=None) -> str:
     try:
-        url_config = utils.config.legislation_url_components
-        page_type = utils.config.current_stage
-        current_section = utils.config.current_section
+        url_config = src.config.legislation_url_components
+        page_type = src.config.current_stage
+        current_section = src.config.current_section
         
         section_parts = get_section_components(current_section)
         if len(section_parts) > 1:
@@ -139,7 +139,7 @@ def build_url_from_config(provided_part=None) -> str:
         return complete_url
     except Exception as e:
         logger.exception('Problem building URL from configuration, with error: %s', e)
-        logger.debug('Current state: section "%s", stage "%s"', utils.config.current_section, utils.config.current_stage)
+        logger.debug('Current state: section "%s", stage "%s"', src.config.current_section, src.config.current_stage)
         raise Exception(e)
 
 

@@ -1,0 +1,4 @@
+[2022-12-17 07:26:44,192] - DEBUG in main, main(): Begin crawl, None
+[2022-12-17 07:26:44,192] - INFO in src.orchestrator, main(): ---- START SECTION: constitution ----, None
+[2022-12-17 07:26:44,192] - INFO in src.orchestrator, process_website_section(): ---- BEGIN STAGE: principal ----, None
+[2022-12-17 07:26:44,192] - INFO in src.orchestrator, process_website_section(): ---- ADD PRINCIPAL ----, None

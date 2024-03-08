@@ -1,4 +1,4 @@
-# Scrapy settings for legislation project
+# Scrapy settings for lawbot project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'legislation'
+BOT_NAME = 'lawbot'
 
-SPIDER_MODULES = ['utils.legislation.spiders']
-NEWSPIDER_MODULE = 'utils.legislation.spiders'
+SPIDER_MODULES = ['utils.lawbot.spiders']
+NEWSPIDER_MODULE = 'utils.lawbot.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'legislation (+http://www.yourdomain.com)'
+#USER_AGENT = 'lawbot (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -45,13 +45,13 @@ DOWNLOAD_DELAY = 3
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'legislation.middlewares.LegislationSpiderMiddleware': 543,
+#    'lawbot.middlewares.LawbotSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'legislation.middlewares.LegislationDownloaderMiddleware': 543,
+#    'lawbot.middlewares.LawbotDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -63,8 +63,8 @@ DOWNLOAD_DELAY = 3
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   #'legislation.pipelines.LegislationPipeline': 300,
-   'helpers.crawler.LegislationPipeline': 300,
+   #'lawbot.pipelines.LawbotPipeline': 300,
+   'helpers.crawler.LawbotPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

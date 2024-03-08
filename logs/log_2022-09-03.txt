@@ -1,0 +1,748 @@
+[2022-09-03 07:04:45,485] - DEBUG in main, main(): Begin crawl, None
+[2022-09-03 07:04:45,485] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce, None
+[2022-09-03 07:04:47,890] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation), None
+[2022-09-03 07:04:47,906] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.6 (main, Aug  8 2022, 04:20:17) [Clang 13.1.6 (clang-1316.0.21.2.5)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-12.5.1-arm64-arm-64bit, None
+[2022-09-03 07:04:47,908] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}, None
+[2022-09-03 07:04:47,911] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor, None
+[2022-09-03 07:04:47,918] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: 3c950bcd44cb38a2, None
+[2022-09-03 07:04:47,924] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats'], None
+[2022-09-03 07:04:47,966] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats'], None
+[2022-09-03 07:04:47,968] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware'], None
+[2022-09-03 07:04:47,968] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['helpers.crawler.LegislationPipeline'], None
+[2022-09-03 07:04:47,968] - INFO in scrapy.core.engine, open_spider(): Spider opened, None
+[2022-09-03 07:04:48,002] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min), None
+[2022-09-03 07:04:48,002] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023, None
+[2022-09-03 07:04:48,223] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/robots.txt> (referer: None), None
+[2022-09-03 07:04:54,195] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce> (referer: None), None
+[2022-09-03 07:04:54,318] - INFO in utils.legislation.spiders.pages, parse(): Heres the body: [<Selector xpath='.//body' data='<body>\n    <h1 class="sr-only">Federa...'>], None
+[2022-09-03 07:04:54,327] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce>
+None, None
+[2022-09-03 07:04:54,328] - INFO in scrapy.core.engine, close_spider(): Closing spider (finished), None
+[2022-09-03 07:04:54,329] - INFO in scrapy.statscollectors, close_spider(): Dumping Scrapy stats:
+{'downloader/request_bytes': 489,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 61139,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 6.326855,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 9, 2, 23, 4, 54, 328943),
+ 'httpcompression/response_bytes': 101091,
+ 'httpcompression/response_count': 2,
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 4,
+ 'log_count/INFO': 11,
+ 'memusage/max': 63455232,
+ 'memusage/startup': 63455232,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2022, 9, 2, 23, 4, 48, 2088)}, None
+[2022-09-03 07:04:54,329] - INFO in scrapy.core.engine, <lambda>(): Spider closed (finished), None
+[2022-09-03 07:12:49,212] - DEBUG in main, main(): Begin crawl, None
+[2022-09-03 07:12:49,212] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce, None
+[2022-09-03 07:12:51,867] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation), None
+[2022-09-03 07:12:51,884] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.6 (main, Aug  8 2022, 04:20:17) [Clang 13.1.6 (clang-1316.0.21.2.5)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-12.5.1-arm64-arm-64bit, None
+[2022-09-03 07:12:51,887] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}, None
+[2022-09-03 07:12:51,890] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor, None
+[2022-09-03 07:12:51,898] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: 6406bd381502bbe5, None
+[2022-09-03 07:12:51,905] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats'], None
+[2022-09-03 07:12:51,946] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats'], None
+[2022-09-03 07:12:51,947] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware'], None
+[2022-09-03 07:12:51,948] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['helpers.crawler.LegislationPipeline'], None
+[2022-09-03 07:12:51,948] - INFO in scrapy.core.engine, open_spider(): Spider opened, None
+[2022-09-03 07:12:51,982] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min), None
+[2022-09-03 07:12:51,982] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023, None
+[2022-09-03 07:12:52,207] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/robots.txt> (referer: None), None
+[2022-09-03 07:12:58,148] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce> (referer: None), None
+[2022-09-03 07:12:58,306] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce>
+None, None
+[2022-09-03 07:12:58,307] - INFO in scrapy.core.engine, close_spider(): Closing spider (finished), None
+[2022-09-03 07:12:58,307] - INFO in scrapy.statscollectors, close_spider(): Dumping Scrapy stats:
+{'downloader/request_bytes': 489,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 61052,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 6.325361,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 9, 2, 23, 12, 58, 307541),
+ 'httpcompression/response_bytes': 101091,
+ 'httpcompression/response_count': 2,
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 4,
+ 'log_count/INFO': 10,
+ 'memusage/max': 63897600,
+ 'memusage/startup': 63897600,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2022, 9, 2, 23, 12, 51, 982180)}, None
+[2022-09-03 07:12:58,307] - INFO in scrapy.core.engine, <lambda>(): Spider closed (finished), None
+[2022-09-03 07:15:31,262] - DEBUG in main, main(): Begin crawl, None
+[2022-09-03 07:15:31,263] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce, None
+[2022-09-03 07:15:33,650] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation), None
+[2022-09-03 07:15:33,665] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.6 (main, Aug  8 2022, 04:20:17) [Clang 13.1.6 (clang-1316.0.21.2.5)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-12.5.1-arm64-arm-64bit, None
+[2022-09-03 07:15:33,668] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}, None
+[2022-09-03 07:15:33,671] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor, None
+[2022-09-03 07:15:33,678] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: 33d17f4bca12cdee, None
+[2022-09-03 07:15:33,684] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats'], None
+[2022-09-03 07:15:33,722] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats'], None
+[2022-09-03 07:15:33,723] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware'], None
+[2022-09-03 07:15:33,724] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['helpers.crawler.LegislationPipeline'], None
+[2022-09-03 07:15:33,724] - INFO in scrapy.core.engine, open_spider(): Spider opened, None
+[2022-09-03 07:15:33,757] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min), None
+[2022-09-03 07:15:33,758] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023, None
+[2022-09-03 07:15:33,976] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/robots.txt> (referer: None), None
+[2022-09-03 07:15:39,900] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce> (referer: None), None
+[2022-09-03 07:15:40,042] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce>
+None, None
+[2022-09-03 07:15:40,043] - INFO in scrapy.core.engine, close_spider(): Closing spider (finished), None
+[2022-09-03 07:15:40,044] - INFO in scrapy.statscollectors, close_spider(): Dumping Scrapy stats:
+{'downloader/request_bytes': 489,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 61122,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 6.28618,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 9, 2, 23, 15, 40, 44087),
+ 'httpcompression/response_bytes': 101091,
+ 'httpcompression/response_count': 2,
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 4,
+ 'log_count/INFO': 10,
+ 'memusage/max': 63684608,
+ 'memusage/startup': 63684608,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2022, 9, 2, 23, 15, 33, 757907)}, None
+[2022-09-03 07:15:40,044] - INFO in scrapy.core.engine, <lambda>(): Spider closed (finished), None
+[2022-09-03 07:16:59,421] - DEBUG in main, main(): Begin crawl, None
+[2022-09-03 07:16:59,421] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce, None
+[2022-09-03 07:17:02,032] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation), None
+[2022-09-03 07:17:02,050] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.6 (main, Aug  8 2022, 04:20:17) [Clang 13.1.6 (clang-1316.0.21.2.5)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-12.5.1-arm64-arm-64bit, None
+[2022-09-03 07:17:02,052] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}, None
+[2022-09-03 07:17:02,055] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor, None
+[2022-09-03 07:17:02,062] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: 1ee77a1e6e5b8d34, None
+[2022-09-03 07:17:02,069] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats'], None
+[2022-09-03 07:17:02,110] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats'], None
+[2022-09-03 07:17:02,111] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware'], None
+[2022-09-03 07:17:02,111] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['helpers.crawler.LegislationPipeline'], None
+[2022-09-03 07:17:02,112] - INFO in scrapy.core.engine, open_spider(): Spider opened, None
+[2022-09-03 07:17:02,145] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min), None
+[2022-09-03 07:17:02,146] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023, None
+[2022-09-03 07:17:02,361] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/robots.txt> (referer: None), None
+[2022-09-03 07:17:08,539] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce> (referer: None), None
+[2022-09-03 07:17:08,679] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce>
+None, None
+[2022-09-03 07:17:08,681] - INFO in scrapy.core.engine, close_spider(): Closing spider (finished), None
+[2022-09-03 07:17:08,681] - INFO in scrapy.statscollectors, close_spider(): Dumping Scrapy stats:
+{'downloader/request_bytes': 489,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 61071,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 6.535786,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 9, 2, 23, 17, 8, 681422),
+ 'httpcompression/response_bytes': 101091,
+ 'httpcompression/response_count': 2,
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 4,
+ 'log_count/INFO': 10,
+ 'memusage/max': 63422464,
+ 'memusage/startup': 63422464,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2022, 9, 2, 23, 17, 2, 145636)}, None
+[2022-09-03 07:17:08,681] - INFO in scrapy.core.engine, <lambda>(): Spider closed (finished), None
+[2022-09-03 07:17:08,732] - ERROR in utils.common, build_url_from_config(): Problem building URL from configuration, with error: string indices must be integers, None
+Traceback (most recent call last):
+  File "/Users/gwyn/GitHub/aussie_politics/utils/common.py", line 115, in build_url_from_config
+    part = section['prefix']
+TypeError: string indices must be integers
+[2022-09-03 07:17:08,734] - DEBUG in utils.common, build_url_from_config(): Current state: section "acts.in_force", stage "index", None
+[2022-09-03 07:20:16,136] - DEBUG in main, main(): Begin crawl, None
+[2022-09-03 07:20:16,137] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Browse/ByTitle/Acts/InForce/0/0/Principal, None
+[2022-09-03 07:20:17,599] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation), None
+[2022-09-03 07:20:17,613] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.6 (main, Aug  8 2022, 04:20:17) [Clang 13.1.6 (clang-1316.0.21.2.5)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-12.5.1-arm64-arm-64bit, None
+[2022-09-03 07:20:17,615] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}, None
+[2022-09-03 07:20:17,617] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor, None
+[2022-09-03 07:20:17,624] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: 6078400ba5bec5ae, None
+[2022-09-03 07:20:17,630] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats'], None
+[2022-09-03 07:20:17,670] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats'], None
+[2022-09-03 07:20:17,672] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware'], None
+[2022-09-03 07:20:17,673] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['helpers.crawler.LegislationPipeline'], None
+[2022-09-03 07:20:17,673] - INFO in scrapy.core.engine, open_spider(): Spider opened, None
+[2022-09-03 07:20:17,711] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min), None
+[2022-09-03 07:20:17,711] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023, None
+[2022-09-03 07:20:17,934] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/robots.txt> (referer: None), None
+[2022-09-03 07:20:22,096] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/%20/0/0/principal> (referer: None), None
+[2022-09-03 07:20:22,221] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/%20/0/0/principal>
+None, None
+[2022-09-03 07:20:28,257] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal> (referer: None), None
+[2022-09-03 07:20:28,421] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal>
+None, None
+[2022-09-03 07:20:32,046] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/B/0/0/principal> (referer: None), None
+[2022-09-03 07:20:32,203] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/B/0/0/principal>
+None, None
+[2022-09-03 07:20:36,123] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal> (referer: None), None
+[2022-09-03 07:20:36,284] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal>
+None, None
+[2022-09-03 07:20:39,430] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/D/0/0/principal> (referer: None), None
+[2022-09-03 07:20:39,619] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/D/0/0/principal>
+None, None
+[2022-09-03 07:20:43,565] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/E/0/0/principal> (referer: None), None
+[2022-09-03 07:20:43,732] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/E/0/0/principal>
+None, None
+[2022-09-03 07:20:47,567] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal> (referer: None), None
+[2022-09-03 07:20:47,737] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal>
+None, None
+[2022-09-03 07:20:51,908] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/G/0/0/principal> (referer: None), None
+[2022-09-03 07:20:52,061] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/G/0/0/principal>
+None, None
+[2022-09-03 07:20:55,038] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/H/0/0/principal> (referer: None), None
+[2022-09-03 07:20:55,200] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/H/0/0/principal>
+None, None
+[2022-09-03 07:20:59,535] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal> (referer: None), None
+[2022-09-03 07:20:59,722] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal>
+None, None
+[2022-09-03 07:21:02,838] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/J/0/0/principal> (referer: None), None
+[2022-09-03 07:21:02,987] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/J/0/0/principal>
+None, None
+[2022-09-03 07:21:06,912] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/L/0/0/principal> (referer: None), None
+[2022-09-03 07:21:07,095] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/L/0/0/principal>
+None, None
+[2022-09-03 07:21:10,554] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/M/0/0/principal> (referer: None), None
+[2022-09-03 07:21:10,760] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/M/0/0/principal>
+None, None
+[2022-09-03 07:21:14,200] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal> (referer: None), None
+[2022-09-03 07:21:14,373] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal>
+None, None
+[2022-09-03 07:21:14,811] - INFO in scrapy.crawler, _signal_shutdown(): Received SIGINT, shutting down gracefully. Send again to force , None
+[2022-09-03 07:21:14,813] - INFO in scrapy.core.engine, close_spider(): Closing spider (shutdown), None
+[2022-09-03 07:21:15,103] - INFO in scrapy.crawler, _signal_kill(): Received SIGINT twice, forcing unclean shutdown, None
+[2022-09-03 07:22:21,801] - DEBUG in main, main(): Begin crawl, None
+[2022-09-03 07:22:21,801] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Browse/ByTitle/Acts/InForce/0/0/Principal, None
+[2022-09-03 07:22:23,273] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation), None
+[2022-09-03 07:22:23,285] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.6 (main, Aug  8 2022, 04:20:17) [Clang 13.1.6 (clang-1316.0.21.2.5)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-12.5.1-arm64-arm-64bit, None
+[2022-09-03 07:22:23,287] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}, None
+[2022-09-03 07:22:23,289] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor, None
+[2022-09-03 07:22:23,296] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: 7d7406a78d3f6626, None
+[2022-09-03 07:22:23,302] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats'], None
+[2022-09-03 07:22:23,343] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats'], None
+[2022-09-03 07:22:23,345] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware'], None
+[2022-09-03 07:22:23,345] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['helpers.crawler.LegislationPipeline'], None
+[2022-09-03 07:22:23,345] - INFO in scrapy.core.engine, open_spider(): Spider opened, None
+[2022-09-03 07:22:23,379] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min), None
+[2022-09-03 07:22:23,379] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023, None
+[2022-09-03 07:22:23,594] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/robots.txt> (referer: None), None
+[2022-09-03 07:22:26,230] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/%20/0/0/principal> (referer: None), None
+[2022-09-03 07:22:26,354] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/%20/0/0/principal>
+None, None
+[2022-09-03 07:22:32,659] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal> (referer: None), None
+[2022-09-03 07:22:32,824] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal>
+None, None
+[2022-09-03 07:22:35,901] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/B/0/0/principal> (referer: None), None
+[2022-09-03 07:22:36,058] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/B/0/0/principal>
+None, None
+[2022-09-03 07:22:40,450] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal> (referer: None), None
+[2022-09-03 07:22:40,615] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal>
+None, None
+[2022-09-03 07:22:43,530] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/D/0/0/principal> (referer: None), None
+[2022-09-03 07:22:43,732] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/D/0/0/principal>
+None, None
+[2022-09-03 07:22:45,984] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/E/0/0/principal> (referer: None), None
+[2022-09-03 07:22:46,172] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/E/0/0/principal>
+None, None
+[2022-09-03 07:22:48,725] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal> (referer: None), None
+[2022-09-03 07:22:48,913] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal>
+None, None
+[2022-09-03 07:22:52,409] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/G/0/0/principal> (referer: None), None
+[2022-09-03 07:22:52,576] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/G/0/0/principal>
+None, None
+[2022-09-03 07:22:54,540] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/H/0/0/principal> (referer: None), None
+[2022-09-03 07:22:54,716] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/H/0/0/principal>
+None, None
+[2022-09-03 07:22:58,638] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal> (referer: None), None
+[2022-09-03 07:22:58,825] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal>
+None, None
+[2022-09-03 07:23:00,613] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/J/0/0/principal> (referer: None), None
+[2022-09-03 07:23:00,755] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/J/0/0/principal>
+None, None
+[2022-09-03 07:23:01,267] - INFO in scrapy.crawler, _signal_shutdown(): Received SIGINT, shutting down gracefully. Send again to force , None
+[2022-09-03 07:23:01,267] - INFO in scrapy.core.engine, close_spider(): Closing spider (shutdown), None
+[2022-09-03 07:23:02,300] - INFO in scrapy.crawler, _signal_kill(): Received SIGINT twice, forcing unclean shutdown, None
+[2022-09-03 07:23:33,659] - DEBUG in main, main(): Begin crawl, None
+[2022-09-03 07:23:33,659] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Browse/ByTitle/Acts/InForce/0/0/Principal, None
+[2022-09-03 07:23:35,227] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation), None
+[2022-09-03 07:23:35,241] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.6 (main, Aug  8 2022, 04:20:17) [Clang 13.1.6 (clang-1316.0.21.2.5)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-12.5.1-arm64-arm-64bit, None
+[2022-09-03 07:23:35,243] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}, None
+[2022-09-03 07:23:35,245] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor, None
+[2022-09-03 07:23:35,251] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: 1b987d9ed990f871, None
+[2022-09-03 07:23:35,257] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats'], None
+[2022-09-03 07:23:35,296] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats'], None
+[2022-09-03 07:23:35,297] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware'], None
+[2022-09-03 07:23:35,297] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['helpers.crawler.LegislationPipeline'], None
+[2022-09-03 07:23:35,297] - INFO in scrapy.core.engine, open_spider(): Spider opened, None
+[2022-09-03 07:23:35,331] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min), None
+[2022-09-03 07:23:35,331] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023, None
+[2022-09-03 07:23:35,547] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/robots.txt> (referer: None), None
+[2022-09-03 07:23:39,878] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/%20/0/0/principal> (referer: None), None
+[2022-09-03 07:23:40,000] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/%20/0/0/principal>
+None, None
+[2022-09-03 07:23:45,763] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal> (referer: None), None
+[2022-09-03 07:23:45,926] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal>
+None, None
+[2022-09-03 07:23:47,873] - INFO in scrapy.crawler, _signal_shutdown(): Received SIGINT, shutting down gracefully. Send again to force , None
+[2022-09-03 07:23:47,874] - INFO in scrapy.core.engine, close_spider(): Closing spider (shutdown), None
+[2022-09-03 07:23:48,032] - INFO in scrapy.crawler, _signal_kill(): Received SIGINT twice, forcing unclean shutdown, None
+[2022-09-03 07:25:55,805] - DEBUG in main, main(): Begin crawl, None
+[2022-09-03 07:25:55,806] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Browse/ByTitle/Acts/InForce/0/0/Principal, None
+[2022-09-03 07:25:57,182] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation), None
+[2022-09-03 07:25:57,191] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.6 (main, Aug  8 2022, 04:20:17) [Clang 13.1.6 (clang-1316.0.21.2.5)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-12.5.1-arm64-arm-64bit, None
+[2022-09-03 07:25:57,193] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}, None
+[2022-09-03 07:25:57,195] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor, None
+[2022-09-03 07:25:57,201] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: 04a53d6c233801f5, None
+[2022-09-03 07:25:57,207] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats'], None
+[2022-09-03 07:25:57,245] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats'], None
+[2022-09-03 07:25:57,246] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware'], None
+[2022-09-03 07:25:57,246] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['helpers.crawler.LegislationPipeline'], None
+[2022-09-03 07:25:57,246] - INFO in scrapy.core.engine, open_spider(): Spider opened, None
+[2022-09-03 07:25:57,281] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min), None
+[2022-09-03 07:25:57,282] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023, None
+[2022-09-03 07:25:57,504] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/robots.txt> (referer: None), None
+[2022-09-03 07:26:01,356] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/%20/0/0/principal> (referer: None), None
+[2022-09-03 07:26:01,477] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/%20/0/0/principal>
+None, None
+[2022-09-03 07:26:07,540] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal> (referer: None), None
+[2022-09-03 07:26:07,713] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal>
+None, None
+[2022-09-03 07:26:08,323] - INFO in scrapy.crawler, _signal_shutdown(): Received SIGINT, shutting down gracefully. Send again to force , None
+[2022-09-03 07:26:08,323] - INFO in scrapy.core.engine, close_spider(): Closing spider (shutdown), None
+[2022-09-03 07:26:08,629] - INFO in scrapy.crawler, _signal_kill(): Received SIGINT twice, forcing unclean shutdown, None
+[2022-09-03 07:28:39,765] - DEBUG in main, main(): Begin crawl, None
+[2022-09-03 07:28:39,765] - DEBUG in utils.common, build_url_from_config(): Completed URL: https://www.legislation.gov.au/Browse/ByTitle/Acts/InForce/0/0/Principal, None
+[2022-09-03 07:28:41,080] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation), None
+[2022-09-03 07:28:41,094] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.6 (main, Aug  8 2022, 04:20:17) [Clang 13.1.6 (clang-1316.0.21.2.5)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-12.5.1-arm64-arm-64bit, None
+[2022-09-03 07:28:41,096] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}, None
+[2022-09-03 07:28:41,098] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor, None
+[2022-09-03 07:28:41,106] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: b98dfbfb971a05f5, None
+[2022-09-03 07:28:41,112] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats'], None
+[2022-09-03 07:28:41,156] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats'], None
+[2022-09-03 07:28:41,157] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware'], None
+[2022-09-03 07:28:41,157] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['helpers.crawler.LegislationPipeline'], None
+[2022-09-03 07:28:41,158] - INFO in scrapy.core.engine, open_spider(): Spider opened, None
+[2022-09-03 07:28:41,192] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min), None
+[2022-09-03 07:28:41,193] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023, None
+[2022-09-03 07:28:41,413] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/robots.txt> (referer: None), None
+[2022-09-03 07:28:44,159] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/%20/0/0/principal> (referer: None), None
+[2022-09-03 07:28:44,284] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/%20/0/0/principal>
+None, None
+[2022-09-03 07:28:50,292] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal> (referer: None), None
+[2022-09-03 07:28:50,469] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal>
+None, None
+[2022-09-03 07:28:53,219] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/B/0/0/principal> (referer: None), None
+[2022-09-03 07:28:53,383] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/B/0/0/principal>
+None, None
+[2022-09-03 07:28:56,515] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal> (referer: None), None
+[2022-09-03 07:28:56,685] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal>
+None, None
+[2022-09-03 07:28:59,555] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/D/0/0/principal> (referer: None), None
+[2022-09-03 07:28:59,743] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/D/0/0/principal>
+None, None
+[2022-09-03 07:29:02,849] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/E/0/0/principal> (referer: None), None
+[2022-09-03 07:29:03,024] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/E/0/0/principal>
+None, None
+[2022-09-03 07:29:07,661] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal> (referer: None), None
+[2022-09-03 07:29:07,845] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal>
+None, None
+[2022-09-03 07:29:11,035] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/G/0/0/principal> (referer: None), None
+[2022-09-03 07:29:11,195] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/G/0/0/principal>
+None, None
+[2022-09-03 07:29:17,533] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/H/0/0/principal> (referer: None), None
+[2022-09-03 07:29:17,715] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/H/0/0/principal>
+None, None
+[2022-09-03 07:29:23,435] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/J/0/0/principal> (referer: None), None
+[2022-09-03 07:29:23,612] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/J/0/0/principal>
+None, None
+[2022-09-03 07:29:24,108] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal> (referer: None), None
+[2022-09-03 07:29:24,327] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal>
+None, None
+[2022-09-03 07:29:24,813] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/L/0/0/principal> (referer: None), None
+[2022-09-03 07:29:25,016] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/L/0/0/principal>
+None, None
+[2022-09-03 07:29:28,397] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/M/0/0/principal> (referer: None), None
+[2022-09-03 07:29:28,633] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/M/0/0/principal>
+None, None
+[2022-09-03 07:29:32,082] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal> (referer: None), None
+[2022-09-03 07:29:32,285] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal>
+None, None
+[2022-09-03 07:29:35,590] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/O/0/0/principal> (referer: None), None
+[2022-09-03 07:29:35,756] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/O/0/0/principal>
+None, None
+[2022-09-03 07:29:38,585] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal> (referer: None), None
+[2022-09-03 07:29:38,789] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal>
+None, None
+[2022-09-03 07:29:41,041] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/Q/0/0/principal> (referer: None), None
+[2022-09-03 07:29:41,197] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/Q/0/0/principal>
+None, None
+[2022-09-03 07:29:41,197] - INFO in scrapy.extensions.logstats, log(): Crawled 18 pages (at 18 pages/min), scraped 17 items (at 17 items/min), None
+[2022-09-03 07:29:44,163] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/R/0/0/principal> (referer: None), None
+[2022-09-03 07:29:44,368] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/R/0/0/principal>
+None, None
+[2022-09-03 07:29:48,336] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal), None
+[2022-09-03 07:29:48,550] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal>
+None, None
+[2022-09-03 07:29:52,452] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal> (referer: None), None
+[2022-09-03 07:29:52,672] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal>
+None, None
+[2022-09-03 07:29:56,519] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal), None
+[2022-09-03 07:29:56,747] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal>
+None, None
+[2022-09-03 07:30:00,649] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/T/0/0/principal> (referer: None), None
+[2022-09-03 07:30:00,872] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/T/0/0/principal>
+None, None
+[2022-09-03 07:30:04,187] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/U/0/0/principal> (referer: None), None
+[2022-09-03 07:30:04,353] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/U/0/0/principal>
+None, None
+[2022-09-03 07:30:08,825] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal), None
+[2022-09-03 07:30:09,017] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal>
+None, None
+[2022-09-03 07:30:11,990] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/V/0/0/principal> (referer: None), None
+[2022-09-03 07:30:12,136] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/V/0/0/principal>
+None, None
+[2022-09-03 07:30:16,620] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/W/0/0/principal> (referer: None), None
+[2022-09-03 07:30:16,791] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/W/0/0/principal>
+None, None
+[2022-09-03 07:30:20,486] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal), None
+[2022-09-03 07:30:20,684] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal>
+None, None
+[2022-09-03 07:30:24,697] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal), None
+[2022-09-03 07:30:24,884] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal>
+None, None
+[2022-09-03 07:30:28,809] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal), None
+[2022-09-03 07:30:29,035] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal>
+None, None
+[2022-09-03 07:30:32,969] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal), None
+[2022-09-03 07:30:33,211] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal>
+None, None
+[2022-09-03 07:30:37,170] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal), None
+[2022-09-03 07:30:37,397] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal>
+None, None
+[2022-09-03 07:30:41,119] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal), None
+[2022-09-03 07:30:41,197] - INFO in scrapy.extensions.logstats, log(): Crawled 33 pages (at 15 pages/min), scraped 31 items (at 14 items/min), None
+[2022-09-03 07:30:41,299] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal>
+None, None
+[2022-09-03 07:30:44,326] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/T/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/T/0/0/principal), None
+[2022-09-03 07:30:44,467] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/T/0/0/principal>
+None, None
+[2022-09-03 07:30:48,169] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal), None
+[2022-09-03 07:30:48,359] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal>
+None, None
+[2022-09-03 07:30:52,773] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal), None
+[2022-09-03 07:30:53,008] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal>
+None, None
+[2022-09-03 07:30:56,551] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal), None
+[2022-09-03 07:30:56,712] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal>
+None, None
+[2022-09-03 07:30:56,712] - INFO in scrapy.core.engine, close_spider(): Closing spider (finished), None
+[2022-09-03 07:30:56,713] - INFO in scrapy.statscollectors, close_spider(): Dumping Scrapy stats:
+{'downloader/request_bytes': 1507456,
+ 'downloader/request_count': 37,
+ 'downloader/request_method_count/GET': 24,
+ 'downloader/request_method_count/POST': 13,
+ 'downloader/response_bytes': 4401096,
+ 'downloader/response_count': 37,
+ 'downloader/response_status_count/200': 37,
+ 'elapsed_time_seconds': 135.52041,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 9, 2, 23, 30, 56, 713078),
+ 'httpcompression/response_bytes': 9593650,
+ 'httpcompression/response_count': 36,
+ 'item_scraped_count': 36,
+ 'log_count/DEBUG': 74,
+ 'log_count/INFO': 12,
+ 'memusage/max': 119848960,
+ 'memusage/startup': 63356928,
+ 'request_depth_max': 3,
+ 'response_received_count': 37,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 36,
+ 'scheduler/dequeued/memory': 36,
+ 'scheduler/enqueued': 36,
+ 'scheduler/enqueued/memory': 36,
+ 'start_time': datetime.datetime(2022, 9, 2, 23, 28, 41, 192668)}, None
+[2022-09-03 07:30:56,713] - INFO in scrapy.core.engine, <lambda>(): Spider closed (finished), None

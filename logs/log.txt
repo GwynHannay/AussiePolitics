@@ -1,0 +1,641 @@
+[2022-08-11 11:51:57,611] - WARNING in root: I am a debug message
+[2022-08-11 11:52:00,934] - INFO in scrapy.utils.log: Scrapy 2.6.1 started (bot: legislation)
+[2022-08-11 11:52:00,959] - INFO in scrapy.utils.log: Versions: lxml 4.9.1.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.5 (main, Jun 23 2022, 17:14:57) [Clang 13.1.6 (clang-1316.0.21.2.5)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-12.5-arm64-arm-64bit
+[2022-08-11 11:52:00,963] - INFO in scrapy.crawler: Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}
+[2022-08-11 11:52:00,966] - DEBUG in scrapy.utils.log: Using reactor: twisted.internet.selectreactor.SelectReactor
+[2022-08-11 11:52:00,976] - INFO in scrapy.extensions.telnet: Telnet Password: d7334437cd29f36c
+[2022-08-11 11:52:00,983] - INFO in scrapy.middleware: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+[2022-08-11 11:52:01,025] - INFO in scrapy.middleware: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+[2022-08-11 11:52:01,027] - INFO in scrapy.middleware: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+[2022-08-11 11:52:01,027] - INFO in scrapy.middleware: Enabled item pipelines:
+['utils.scrapy_helper.LegislationPipeline']
+[2022-08-11 11:52:01,027] - INFO in scrapy.core.engine: Spider opened
+[2022-08-11 11:52:01,061] - INFO in scrapy.extensions.logstats: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+[2022-08-11 11:52:01,062] - INFO in scrapy.extensions.telnet: Telnet console listening on 127.0.0.1:6023
+[2022-08-11 11:52:01,290] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/robots.txt> (referer: None)
+[2022-08-11 11:52:07,622] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce> (referer: None)
+[2022-08-11 11:52:07,757] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce
+[2022-08-11 11:52:07,910] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce>
+None
+[2022-08-11 11:52:07,910] - INFO in scrapy.core.engine: Closing spider (finished)
+[2022-08-11 11:52:07,911] - INFO in scrapy.statscollectors: Dumping Scrapy stats:
+{'downloader/request_bytes': 489,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 61022,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 6.84921,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 8, 11, 3, 52, 7, 911094),
+ 'httpcompression/response_bytes': 101091,
+ 'httpcompression/response_count': 2,
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 4,
+ 'log_count/INFO': 11,
+ 'memusage/max': 63668224,
+ 'memusage/startup': 63668224,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2022, 8, 11, 3, 52, 1, 61884)}
+[2022-08-11 11:52:07,911] - INFO in scrapy.core.engine: Spider closed (finished)
+[2022-08-11 11:52:21,515] - INFO in scrapy.utils.log: Scrapy 2.6.1 started (bot: legislation)
+[2022-08-11 11:52:21,516] - INFO in scrapy.utils.log: Versions: lxml 4.9.1.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.5 (main, Jun 23 2022, 17:14:57) [Clang 13.1.6 (clang-1316.0.21.2.5)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-12.5-arm64-arm-64bit
+[2022-08-11 11:52:21,519] - INFO in scrapy.crawler: Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}
+[2022-08-11 11:52:21,519] - DEBUG in scrapy.utils.log: Using reactor: twisted.internet.selectreactor.SelectReactor
+[2022-08-11 11:52:21,519] - INFO in scrapy.extensions.telnet: Telnet Password: e4d2657b686c6751
+[2022-08-11 11:52:21,520] - INFO in scrapy.middleware: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+[2022-08-11 11:52:21,521] - INFO in scrapy.middleware: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+[2022-08-11 11:52:21,521] - INFO in scrapy.middleware: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+[2022-08-11 11:52:21,521] - INFO in scrapy.middleware: Enabled item pipelines:
+['utils.scrapy_helper.LegislationPipeline']
+[2022-08-11 11:52:21,521] - INFO in scrapy.core.engine: Spider opened
+[2022-08-11 11:52:21,522] - INFO in scrapy.extensions.logstats: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+[2022-08-11 11:52:21,522] - INFO in scrapy.extensions.telnet: Telnet console listening on 127.0.0.1:6023
+[2022-08-11 11:52:21,741] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/robots.txt> (referer: None)
+[2022-08-11 11:52:24,557] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/%20/0/0/principal> (referer: None)
+[2022-08-11 11:52:24,675] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/%20/0/0/principal
+[2022-08-11 11:52:24,678] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/%20/0/0/principal>
+None
+[2022-08-11 11:52:29,524] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal> (referer: None)
+[2022-08-11 11:52:29,652] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal
+[2022-08-11 11:52:33,301] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal>
+None
+[2022-08-11 11:52:37,950] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/B/0/0/principal> (referer: None)
+[2022-08-11 11:52:38,096] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/B/0/0/principal
+[2022-08-11 11:52:40,154] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/B/0/0/principal>
+None
+[2022-08-11 11:52:42,779] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal> (referer: None)
+[2022-08-11 11:52:42,916] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal
+[2022-08-11 11:52:46,643] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal>
+None
+[2022-08-11 11:52:46,649] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/D/0/0/principal> (referer: None)
+[2022-08-11 11:52:46,765] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/D/0/0/principal
+[2022-08-11 11:52:49,925] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/D/0/0/principal>
+None
+[2022-08-11 11:52:49,929] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/E/0/0/principal> (referer: None)
+[2022-08-11 11:52:50,042] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/E/0/0/principal
+[2022-08-11 11:52:52,871] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/E/0/0/principal>
+None
+[2022-08-11 11:52:52,873] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal> (referer: None)
+[2022-08-11 11:52:52,988] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal
+[2022-08-11 11:52:56,619] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal>
+None
+[2022-08-11 11:52:59,564] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/G/0/0/principal> (referer: None)
+[2022-08-11 11:52:59,698] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/G/0/0/principal
+[2022-08-11 11:53:01,284] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/G/0/0/principal>
+None
+[2022-08-11 11:53:03,821] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/H/0/0/principal> (referer: None)
+[2022-08-11 11:53:03,958] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/H/0/0/principal
+[2022-08-11 11:53:06,854] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/H/0/0/principal>
+None
+[2022-08-11 11:53:08,599] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal> (referer: None)
+[2022-08-11 11:53:08,732] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal
+[2022-08-11 11:53:12,486] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal>
+None
+[2022-08-11 11:53:13,658] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/J/0/0/principal> (referer: None)
+[2022-08-11 11:53:13,790] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/J/0/0/principal
+[2022-08-11 11:53:14,553] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/J/0/0/principal>
+None
+[2022-08-11 11:53:17,791] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/L/0/0/principal> (referer: None)
+[2022-08-11 11:53:17,925] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/L/0/0/principal
+[2022-08-11 11:53:20,639] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/L/0/0/principal>
+None
+[2022-08-11 11:53:21,527] - INFO in scrapy.extensions.logstats: Crawled 13 pages (at 13 pages/min), scraped 12 items (at 12 items/min)
+[2022-08-11 11:53:23,045] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/M/0/0/principal> (referer: None)
+[2022-08-11 11:53:23,174] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/M/0/0/principal
+[2022-08-11 11:53:26,824] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/M/0/0/principal>
+None
+[2022-08-11 11:53:28,488] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal> (referer: None)
+[2022-08-11 11:53:28,620] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal
+[2022-08-11 11:53:32,296] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal>
+None
+[2022-08-11 11:53:34,808] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/O/0/0/principal> (referer: None)
+[2022-08-11 11:53:34,945] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/O/0/0/principal
+[2022-08-11 11:53:37,017] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/O/0/0/principal>
+None
+[2022-08-11 11:53:38,579] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal> (referer: None)
+[2022-08-11 11:53:38,709] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal
+[2022-08-11 11:53:42,374] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal>
+None
+[2022-08-11 11:53:44,705] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/Q/0/0/principal> (referer: None)
+[2022-08-11 11:53:44,841] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/Q/0/0/principal
+[2022-08-11 11:53:45,455] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/Q/0/0/principal>
+None
+[2022-08-11 11:53:47,123] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/R/0/0/principal> (referer: None)
+[2022-08-11 11:53:47,256] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/R/0/0/principal
+[2022-08-11 11:53:50,630] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/R/0/0/principal>
+None
+[2022-08-11 11:53:53,725] - DEBUG in scrapy.core.engine: Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal)
+[2022-08-11 11:53:53,868] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal
+[2022-08-11 11:53:57,548] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal>
+None
+[2022-08-11 11:54:01,125] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal> (referer: None)
+[2022-08-11 11:54:01,257] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal
+[2022-08-11 11:54:04,933] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal>
+None
+[2022-08-11 11:54:04,938] - DEBUG in scrapy.downloadermiddlewares.retry: Retrying <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal> (failed 1 times): [<twisted.python.failure.Failure twisted.internet.error.ConnectionDone: Connection was closed cleanly.>]
+[2022-08-11 11:54:13,720] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/U/0/0/principal> (referer: None)
+[2022-08-11 11:54:13,833] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/T/0/0/principal> (referer: None)
+[2022-08-11 11:54:13,847] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/U/0/0/principal
+[2022-08-11 11:54:14,531] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/U/0/0/principal>
+None
+[2022-08-11 11:54:14,538] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/T/0/0/principal
+[2022-08-11 11:54:18,225] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/T/0/0/principal>
+None
+[2022-08-11 11:54:20,428] - DEBUG in scrapy.core.engine: Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal)
+[2022-08-11 11:54:20,571] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal
+[2022-08-11 11:54:22,847] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal>
+None
+[2022-08-11 11:54:22,847] - INFO in scrapy.extensions.logstats: Crawled 24 pages (at 11 pages/min), scraped 23 items (at 11 items/min)
+[2022-08-11 11:54:24,661] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/V/0/0/principal> (referer: None)
+[2022-08-11 11:54:24,785] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/V/0/0/principal
+[2022-08-11 11:54:25,484] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/V/0/0/principal>
+None
+[2022-08-11 11:54:28,550] - DEBUG in scrapy.core.engine: Crawled (200) <GET https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/W/0/0/principal> (referer: None)
+[2022-08-11 11:54:28,692] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/W/0/0/principal
+[2022-08-11 11:54:30,001] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/W/0/0/principal>
+None
+[2022-08-11 11:54:34,381] - DEBUG in scrapy.core.engine: Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal)
+[2022-08-11 11:54:34,508] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal
+[2022-08-11 11:54:36,733] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal>
+None
+[2022-08-11 11:54:39,435] - DEBUG in scrapy.core.engine: Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal)
+[2022-08-11 11:54:39,568] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal
+[2022-08-11 11:54:41,359] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal>
+None
+[2022-08-11 11:54:41,363] - DEBUG in scrapy.core.engine: Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal)
+[2022-08-11 11:54:41,478] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal
+[2022-08-11 11:54:45,273] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal>
+None
+[2022-08-11 11:54:45,280] - DEBUG in scrapy.core.engine: Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal)
+[2022-08-11 11:54:45,397] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal
+[2022-08-11 11:54:49,147] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal>
+None
+[2022-08-11 11:54:49,155] - DEBUG in scrapy.core.engine: Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal)
+[2022-08-11 11:54:49,266] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal
+[2022-08-11 11:54:53,231] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal>
+None
+[2022-08-11 11:54:53,238] - DEBUG in scrapy.core.engine: Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal)
+[2022-08-11 11:54:53,354] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal
+[2022-08-11 11:54:57,169] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal>
+None
+[2022-08-11 11:54:57,174] - DEBUG in scrapy.core.engine: Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/T/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/T/0/0/principal)
+[2022-08-11 11:54:57,282] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/T/0/0/principal
+[2022-08-11 11:54:57,589] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/T/0/0/principal>
+None
+[2022-08-11 11:54:58,645] - DEBUG in scrapy.core.engine: Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal)
+[2022-08-11 11:54:58,762] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal
+[2022-08-11 11:54:59,546] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal>
+None
+[2022-08-11 11:55:05,292] - DEBUG in scrapy.core.engine: Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal)
+[2022-08-11 11:55:05,434] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal
+[2022-08-11 11:55:09,145] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal>
+None
+[2022-08-11 11:55:09,148] - DEBUG in scrapy.core.engine: Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal)
+[2022-08-11 11:55:09,254] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal
+[2022-08-11 11:55:10,156] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal>
+None
+[2022-08-11 11:55:10,597] - DEBUG in scrapy.core.engine: Crawled (200) <POST https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal> (referer: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal)
+[2022-08-11 11:55:10,730] - INFO in utils.legislation.spiders.pages: This URL is: https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal
+[2022-08-11 11:55:12,701] - DEBUG in scrapy.core.scraper: Scraped from <200 https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal>
+None
+[2022-08-11 11:55:12,702] - INFO in scrapy.core.engine: Closing spider (finished)
+[2022-08-11 11:55:12,702] - INFO in scrapy.statscollectors: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/twisted.web._newclient.ResponseNeverReceived': 1,
+ 'downloader/request_bytes': 1621207,
+ 'downloader/request_count': 38,
+ 'downloader/request_method_count/GET': 24,
+ 'downloader/request_method_count/POST': 14,
+ 'downloader/response_bytes': 4400775,
+ 'downloader/response_count': 37,
+ 'downloader/response_status_count/200': 37,
+ 'elapsed_time_seconds': 171.180017,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 8, 11, 3, 55, 12, 702224),
+ 'httpcompression/response_bytes': 9593722,
+ 'httpcompression/response_count': 36,
+ 'item_scraped_count': 36,
+ 'log_count/DEBUG': 75,
+ 'log_count/INFO': 48,
+ 'memusage/max': 266452992,
+ 'memusage/startup': 157237248,
+ 'request_depth_max': 3,
+ 'response_received_count': 37,
+ 'retry/count': 1,
+ 'retry/reason_count/twisted.web._newclient.ResponseNeverReceived': 1,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 37,
+ 'scheduler/dequeued/memory': 37,
+ 'scheduler/enqueued': 37,
+ 'scheduler/enqueued/memory': 37,
+ 'start_time': datetime.datetime(2022, 8, 11, 3, 52, 21, 522207)}
+[2022-08-11 11:55:12,702] - INFO in scrapy.core.engine: Spider closed (finished)
+[2022-08-11 11:58:32,266] - INFO in scrapy.crawler: Received SIGINT, shutting down gracefully. Send again to force 
+[2022-08-11 11:58:35,315] - INFO in scrapy.crawler: Received SIGINT twice, forcing unclean shutdown
+[2022-08-11 12:09:20,123] - INFO in main: Sending sections: ['constitution', 'acts.in_force']
+[2022-08-11 12:09:20,123] - INFO in utils.legislation_crawler: Received sections: ['constitution', 'acts.in_force']
+[2022-08-11 12:11:17,648] - INFO in main: Sending sections: ['constitution', 'acts.in_force']
+[2022-08-11 12:11:17,648] - INFO in utils.legislation_crawler: Received sections: ['constitution', 'acts.in_force']
+[2022-08-11 12:29:34,854] - DEBUG in main: Sending sections: ['constitution', 'acts.in_force']
+[2022-08-11 12:29:34,855] - DEBUG in utils.legislation_crawler: Retrieved full config: {'base_url': 'https://www.legislation.gov.au', 'index_urls': {'prefix': 'Browse', 'constitution': 'ByTitle/Constitution/InForce', 'acts': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'legislative_instruments': {'prefix': 'ByTitle/LegislativeInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending', 'open_to_disallowance': 'OpentoDisallowance', 'disallowed': 'Disallowed'}, 'notifiable_instruments': {'prefix': 'ByTitle/NotifiableInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'gazettes': 'ByTitle/Gazettes/InForce', 'bills': 'ByTitle/Bills/Asmade', 'administrative_arrangements_orders': {'prefix': 'ByRegDate/AdministrativeArrangementsOrders', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}, 'norfolk_island_legislation': {'prefix': 'ByTitle/NorfolkIslandLegislation', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce'}, 'prerogative_instruments': {'prefix': 'ByTitle/PrerogativeInstruments', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}, 'other_content': {'historic_gazettes': 'Content/HistoricGazettes'}}
+[2022-08-11 12:29:34,855] - DEBUG in utils.legislation_crawler: Extracted common config: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}}
+[2022-08-11 12:29:34,855] - DEBUG in utils.legislation_crawler: Crawl config for piece constitution: ByTitle/Constitution/InForce
+[2022-08-11 12:29:34,855] - DEBUG in utils.legislation_crawler: Crawl config for piece acts: {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}
+[2022-08-11 12:31:39,981] - DEBUG in main, main: Sending sections: ['constitution', 'acts.in_force']
+[2022-08-11 12:31:39,982] - DEBUG in utils.legislation_crawler, main: Retrieved full config: {'base_url': 'https://www.legislation.gov.au', 'index_urls': {'prefix': 'Browse', 'constitution': 'ByTitle/Constitution/InForce', 'acts': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'legislative_instruments': {'prefix': 'ByTitle/LegislativeInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending', 'open_to_disallowance': 'OpentoDisallowance', 'disallowed': 'Disallowed'}, 'notifiable_instruments': {'prefix': 'ByTitle/NotifiableInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'gazettes': 'ByTitle/Gazettes/InForce', 'bills': 'ByTitle/Bills/Asmade', 'administrative_arrangements_orders': {'prefix': 'ByRegDate/AdministrativeArrangementsOrders', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}, 'norfolk_island_legislation': {'prefix': 'ByTitle/NorfolkIslandLegislation', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce'}, 'prerogative_instruments': {'prefix': 'ByTitle/PrerogativeInstruments', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}, 'other_content': {'historic_gazettes': 'Content/HistoricGazettes'}}
+[2022-08-11 12:31:39,982] - DEBUG in utils.legislation_crawler, main: Extracted common config: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}}
+[2022-08-11 12:31:39,982] - DEBUG in utils.legislation_crawler, main: Crawl config for piece constitution: ByTitle/Constitution/InForce
+[2022-08-11 12:31:39,982] - DEBUG in utils.legislation_crawler, main: Crawl config for piece acts: {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}
+[2022-08-11 12:32:22,023] - DEBUG in main, main(): Sending sections: ['constitution', 'acts.in_force']
+[2022-08-11 12:32:22,024] - DEBUG in utils.legislation_crawler, main(): Retrieved full config: {'base_url': 'https://www.legislation.gov.au', 'index_urls': {'prefix': 'Browse', 'constitution': 'ByTitle/Constitution/InForce', 'acts': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'legislative_instruments': {'prefix': 'ByTitle/LegislativeInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending', 'open_to_disallowance': 'OpentoDisallowance', 'disallowed': 'Disallowed'}, 'notifiable_instruments': {'prefix': 'ByTitle/NotifiableInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'gazettes': 'ByTitle/Gazettes/InForce', 'bills': 'ByTitle/Bills/Asmade', 'administrative_arrangements_orders': {'prefix': 'ByRegDate/AdministrativeArrangementsOrders', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}, 'norfolk_island_legislation': {'prefix': 'ByTitle/NorfolkIslandLegislation', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce'}, 'prerogative_instruments': {'prefix': 'ByTitle/PrerogativeInstruments', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}, 'other_content': {'historic_gazettes': 'Content/HistoricGazettes'}}
+[2022-08-11 12:32:22,024] - DEBUG in utils.legislation_crawler, main(): Extracted common config: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}}
+[2022-08-11 12:32:22,024] - DEBUG in utils.legislation_crawler, main(): Crawl config for piece constitution: ByTitle/Constitution/InForce
+[2022-08-11 12:32:22,024] - DEBUG in utils.legislation_crawler, main(): Crawl config for piece acts: {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}
+[2022-08-11 12:33:21,240] - DEBUG in main, main(): Sending sections: ['constitution', 'acts.in_force']
+[2022-08-11 12:33:21,240] - DEBUG in utils.legislation_crawler, main(): Retrieved full config: {'base_url': 'https://www.legislation.gov.au', 'index_urls': {'prefix': 'Browse', 'constitution': 'ByTitle/Constitution/InForce', 'acts': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'legislative_instruments': {'prefix': 'ByTitle/LegislativeInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending', 'open_to_disallowance': 'OpentoDisallowance', 'disallowed': 'Disallowed'}, 'notifiable_instruments': {'prefix': 'ByTitle/NotifiableInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'gazettes': 'ByTitle/Gazettes/InForce', 'bills': 'ByTitle/Bills/Asmade', 'administrative_arrangements_orders': {'prefix': 'ByRegDate/AdministrativeArrangementsOrders', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}, 'norfolk_island_legislation': {'prefix': 'ByTitle/NorfolkIslandLegislation', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce'}, 'prerogative_instruments': {'prefix': 'ByTitle/PrerogativeInstruments', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}, 'other_content': {'historic_gazettes': 'Content/HistoricGazettes'}}
+[2022-08-11 12:33:21,241] - DEBUG in utils.legislation_crawler, main(): Extracted common config: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}}
+[2022-08-11 12:33:21,241] - DEBUG in utils.legislation_crawler, main(): Built crawl config for piece constitution: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-11 12:33:21,241] - DEBUG in utils.legislation_crawler, main(): Built crawl config for piece acts: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}, 'section': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}}
+[2022-08-11 12:38:14,236] - DEBUG in main, main(): Sending sections: ['constitution', 'acts.in_force']
+[2022-08-11 12:38:14,237] - ERROR in utils.legislation_crawler, load_config(): Failed getting file "legislation.json" with error: [Errno 2] No such file or directory: 'legislation.json'
+Traceback (most recent call last):
+  File "/Users/gwyn/GitHub/aussie_politics/utils/legislation_crawler.py", line 31, in load_config
+    with open(config_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'legislation.json'
+[2022-08-12 09:33:11,632] - DEBUG in main, main(): Sending sections: ['constitution', 'acts.in_force']
+[2022-08-12 09:33:11,633] - DEBUG in utils.legislation_crawler, main(): Retrieved full config: {'base_url': 'https://www.legislation.gov.au', 'index_urls': {'prefix': 'Browse', 'constitution': 'ByTitle/Constitution/InForce', 'acts': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'legislative_instruments': {'prefix': 'ByTitle/LegislativeInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending', 'open_to_disallowance': 'OpentoDisallowance', 'disallowed': 'Disallowed'}, 'notifiable_instruments': {'prefix': 'ByTitle/NotifiableInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'gazettes': 'ByTitle/Gazettes/InForce', 'bills': 'ByTitle/Bills/Asmade', 'administrative_arrangements_orders': {'prefix': 'ByRegDate/AdministrativeArrangementsOrders', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}, 'norfolk_island_legislation': {'prefix': 'ByTitle/NorfolkIslandLegislation', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce'}, 'prerogative_instruments': {'prefix': 'ByTitle/PrerogativeInstruments', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}, 'other_content': {'historic_gazettes': 'Content/HistoricGazettes'}}
+[2022-08-12 09:33:11,633] - DEBUG in utils.legislation_crawler, main(): Extracted common config: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}}
+[2022-08-12 09:33:11,633] - DEBUG in utils.legislation_crawler, main(): Built crawl config for piece constitution: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:33:11,633] - DEBUG in utils.legislation_crawler, main(): Crawling these page types: ['index', 'series', 'principal', 'details']
+[2022-08-12 09:33:11,633] - DEBUG in utils.legislation_crawler, crawl_section(): Fetching index URLs for section "constitution" with configs: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:33:11,633] - DEBUG in utils.series, get_index_urls(): Building URL for index pages of section "constitution"
+[2022-08-12 09:33:11,633] - ERROR in utils.common, build_url_from_config(): No URL was provided for type "index", subsection "None", with config: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:34:37,505] - DEBUG in main, main(): Sending sections: ['constitution', 'acts.in_force']
+[2022-08-12 09:34:37,506] - DEBUG in utils.legislation_crawler, main(): Retrieved full config: {'base_url': 'https://www.legislation.gov.au', 'index_urls': {'prefix': 'Browse', 'constitution': 'ByTitle/Constitution/InForce', 'acts': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'legislative_instruments': {'prefix': 'ByTitle/LegislativeInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending', 'open_to_disallowance': 'OpentoDisallowance', 'disallowed': 'Disallowed'}, 'notifiable_instruments': {'prefix': 'ByTitle/NotifiableInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'gazettes': 'ByTitle/Gazettes/InForce', 'bills': 'ByTitle/Bills/Asmade', 'administrative_arrangements_orders': {'prefix': 'ByRegDate/AdministrativeArrangementsOrders', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}, 'norfolk_island_legislation': {'prefix': 'ByTitle/NorfolkIslandLegislation', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce'}, 'prerogative_instruments': {'prefix': 'ByTitle/PrerogativeInstruments', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}, 'other_content': {'historic_gazettes': 'Content/HistoricGazettes'}}
+[2022-08-12 09:34:37,506] - DEBUG in utils.legislation_crawler, main(): Extracted common config: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}}
+[2022-08-12 09:34:37,506] - DEBUG in utils.legislation_crawler, main(): Built crawl config for piece constitution: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:34:37,506] - DEBUG in utils.legislation_crawler, main(): Crawling these page types: ['index', 'series', 'principal', 'details']
+[2022-08-12 09:34:37,506] - DEBUG in utils.legislation_crawler, crawl_section(): Fetching index URLs for section "constitution" with configs: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:34:37,507] - DEBUG in utils.series, get_index_urls(): Building URL for index pages of section "constitution"
+[2022-08-12 09:34:49,821] - DEBUG in utils.legislation_crawler, crawl_section(): Page type index, built single URL: https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce
+[2022-08-12 09:34:49,821] - DEBUG in utils.legislation_crawler, crawl_section(): Fetching series URLs for section "constitution" with configs: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:34:49,885] - ERROR in utils.common, build_url_from_config(): No URL was provided for type "series", subsection "None", with config: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:38:39,469] - DEBUG in main, main(): Sending sections: ['constitution', 'acts.in_force']
+[2022-08-12 09:38:39,469] - DEBUG in utils.legislation_crawler, main(): Retrieved full config: {'base_url': 'https://www.legislation.gov.au', 'index_urls': {'prefix': 'Browse', 'constitution': 'ByTitle/Constitution/InForce', 'acts': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'legislative_instruments': {'prefix': 'ByTitle/LegislativeInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending', 'open_to_disallowance': 'OpentoDisallowance', 'disallowed': 'Disallowed'}, 'notifiable_instruments': {'prefix': 'ByTitle/NotifiableInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'gazettes': 'ByTitle/Gazettes/InForce', 'bills': 'ByTitle/Bills/Asmade', 'administrative_arrangements_orders': {'prefix': 'ByRegDate/AdministrativeArrangementsOrders', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}, 'norfolk_island_legislation': {'prefix': 'ByTitle/NorfolkIslandLegislation', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce'}, 'prerogative_instruments': {'prefix': 'ByTitle/PrerogativeInstruments', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}, 'other_content': {'historic_gazettes': 'Content/HistoricGazettes'}}
+[2022-08-12 09:38:39,469] - DEBUG in utils.legislation_crawler, main(): Extracted common config: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}}
+[2022-08-12 09:38:39,469] - DEBUG in utils.legislation_crawler, main(): Built crawl config for piece constitution: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:38:39,469] - DEBUG in utils.legislation_crawler, main(): Crawling these page types: ['index', 'series', 'principal', 'details']
+[2022-08-12 09:38:39,469] - DEBUG in utils.legislation_crawler, crawl_section(): Fetching index URLs for section "constitution" with configs: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:38:39,469] - DEBUG in utils.series, get_index_urls(): Building URL for index pages of section "constitution"
+[2022-08-12 09:38:42,481] - DEBUG in utils.legislation_crawler, crawl_section(): Page type index, built single URL: https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce
+[2022-08-12 09:38:42,481] - DEBUG in utils.legislation_crawler, crawl_section(): Fetching series URLs for section "constitution" with configs: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:38:42,484] - ERROR in utils.common, build_url_from_config(): No URL was provided for type "series", subsection "None", with config: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:42:49,575] - DEBUG in main, main(): Sending sections: ['constitution', 'acts.in_force']
+[2022-08-12 09:42:49,575] - DEBUG in utils.legislation_crawler, main(): Retrieved full config: {'base_url': 'https://www.legislation.gov.au', 'index_urls': {'prefix': 'Browse', 'constitution': 'ByTitle/Constitution/InForce', 'acts': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'legislative_instruments': {'prefix': 'ByTitle/LegislativeInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending', 'open_to_disallowance': 'OpentoDisallowance', 'disallowed': 'Disallowed'}, 'notifiable_instruments': {'prefix': 'ByTitle/NotifiableInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'gazettes': 'ByTitle/Gazettes/InForce', 'bills': 'ByTitle/Bills/Asmade', 'administrative_arrangements_orders': {'prefix': 'ByRegDate/AdministrativeArrangementsOrders', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}, 'norfolk_island_legislation': {'prefix': 'ByTitle/NorfolkIslandLegislation', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce'}, 'prerogative_instruments': {'prefix': 'ByTitle/PrerogativeInstruments', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}, 'other_content': {'historic_gazettes': 'Content/HistoricGazettes'}}
+[2022-08-12 09:42:49,575] - DEBUG in utils.legislation_crawler, main(): Extracted common config: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}}
+[2022-08-12 09:42:49,575] - DEBUG in utils.legislation_crawler, main(): Built crawl config for piece constitution: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:42:49,575] - DEBUG in utils.legislation_crawler, main(): Crawling these page types: ['index', 'series', 'principal', 'details']
+[2022-08-12 09:42:49,575] - DEBUG in utils.legislation_crawler, crawl_section(): Fetching index URLs for section "constitution" with configs: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:42:49,575] - DEBUG in utils.series, get_index_urls(): Building URL for index pages of section "constitution"
+[2022-08-12 09:42:52,865] - DEBUG in utils.legislation_crawler, crawl_section(): Page type index, built single URL: https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce
+[2022-08-12 09:42:52,865] - DEBUG in utils.legislation_crawler, crawl_section(): Fetching series URLs for section "constitution" with configs: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:42:52,867] - DEBUG in utils.legislation_crawler, crawl_section(): Page type series URLs passed along: ['https://www.legislation.gov.au/Series/C2004Q00685']
+[2022-08-12 09:42:52,867] - DEBUG in utils.legislation_crawler, crawl_section(): Adding Principal documents to each series in section "constitution"
+[2022-08-12 09:42:52,867] - DEBUG in utils.legislation_crawler, crawl_section(): Fetching details URLs for section "constitution" with configs: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:42:52,868] - ERROR in utils.common, build_url_from_config(): No URL was provided for type "details", subsection "None", with config: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:44:55,531] - DEBUG in main, main(): Sending sections: ['constitution', 'acts.in_force']
+[2022-08-12 09:44:55,555] - DEBUG in utils.legislation_crawler, main(): Retrieved full config: {'base_url': 'https://www.legislation.gov.au', 'index_urls': {'prefix': 'Browse', 'constitution': 'ByTitle/Constitution/InForce', 'acts': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'legislative_instruments': {'prefix': 'ByTitle/LegislativeInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending', 'open_to_disallowance': 'OpentoDisallowance', 'disallowed': 'Disallowed'}, 'notifiable_instruments': {'prefix': 'ByTitle/NotifiableInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'gazettes': 'ByTitle/Gazettes/InForce', 'bills': 'ByTitle/Bills/Asmade', 'administrative_arrangements_orders': {'prefix': 'ByRegDate/AdministrativeArrangementsOrders', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}, 'norfolk_island_legislation': {'prefix': 'ByTitle/NorfolkIslandLegislation', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce'}, 'prerogative_instruments': {'prefix': 'ByTitle/PrerogativeInstruments', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}, 'other_content': {'historic_gazettes': 'Content/HistoricGazettes'}}
+[2022-08-12 09:44:55,555] - DEBUG in utils.legislation_crawler, main(): Extracted common config: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}}
+[2022-08-12 09:44:55,555] - DEBUG in utils.legislation_crawler, main(): Built crawl config for piece constitution: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:44:55,555] - DEBUG in utils.legislation_crawler, main(): Crawling these page types: ['index', 'series', 'principal']
+[2022-08-12 09:44:55,555] - DEBUG in utils.legislation_crawler, crawl_section(): Fetching index URLs for section "constitution" with configs: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:44:55,555] - DEBUG in utils.series, get_index_urls(): Building URL for index pages of section "constitution"
+[2022-08-12 09:44:58,431] - DEBUG in utils.legislation_crawler, crawl_section(): Page type index, built single URL: https://www.legislation.gov.au/Browse/ByTitle/Constitution/InForce
+[2022-08-12 09:44:58,431] - DEBUG in utils.legislation_crawler, crawl_section(): Fetching series URLs for section "constitution" with configs: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:44:58,433] - DEBUG in utils.legislation_crawler, crawl_section(): Page type series URLs passed along: ['https://www.legislation.gov.au/Series/C2004Q00685']
+[2022-08-12 09:44:58,433] - DEBUG in utils.legislation_crawler, crawl_section(): Adding Principal documents to each series in section "constitution"
+[2022-08-12 09:44:58,433] - DEBUG in utils.legislation_crawler, main(): Built crawl config for piece acts: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}}
+[2022-08-12 09:44:58,433] - DEBUG in utils.legislation_crawler, main(): Crawling these page types: ['index', 'series', 'principal']
+[2022-08-12 09:44:58,433] - DEBUG in utils.legislation_crawler, crawl_section(): Fetching index URLs for section "acts.in_force" with configs: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}}
+[2022-08-12 09:44:58,433] - DEBUG in utils.series, get_index_urls(): Building URL for the index pages of subsection in sections "['acts', 'in_force']"
+[2022-08-12 09:45:02,537] - DEBUG in utils.legislation_crawler, crawl_section(): Page type index URLs passed along: ['https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/%20/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/A/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/B/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/C/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/D/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/E/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/F/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/G/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/H/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/I/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/J/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/L/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/M/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/N/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/O/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/P/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/Q/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/R/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/S/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/T/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/U/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/V/0/0/principal', 'https://www.legislation.gov.au/Browse/Results/ByTitle/Acts/InForce/W/0/0/principal']
+[2022-08-12 09:45:02,537] - DEBUG in utils.legislation_crawler, crawl_section(): Fetching series URLs for section "acts.in_force" with configs: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}}
+[2022-08-12 09:45:02,539] - DEBUG in utils.legislation_crawler, crawl_section(): Page type series URLs passed along: ['https://www.legislation.gov.au/Series/C2017A00043', 'https://www.legislation.gov.au/Series/C2004A00467', 'https://www.legislation.gov.au/Series/C2004A00490', 'https://www.legislation.gov.au/Series/C2004A00491', 'https://www.legislation.gov.au/Series/C2004A00637', 'https://www.legislation.gov.au/Series/C2004A00446', 'https://www.legislation.gov.au/Series/C2005A00001', 'https://www.legislation.gov.au/Series/C2005A00002', 'https://www.legislation.gov.au/Series/C2005A00003', 'https://www.legislation.gov.au/Series/C2004A00460', 'https://www.legislation.gov.au/Series/C2004A00461', 'https://www.legislation.gov.au/Series/C2004A00462', 'https://www.legislation.gov.au/Series/C2004A00448', 'https://www.legislation.gov.au/Series/C2004A00463', 'https://www.legislation.gov.au/Series/C2004A00464', 'https://www.legislation.gov.au/Series/C2004A00465', 'https://www.legislation.gov.au/Series/C2004A00466', 'https://www.legislation.gov.au/Series/C2004A04984', 'https://www.legislation.gov.au/Series/C2004A05267', 'https://www.legislation.gov.au/Series/C2004A04723', 'https://www.legislation.gov.au/Series/C2004A00779']
+[2022-08-12 09:45:02,539] - DEBUG in utils.legislation_crawler, crawl_section(): Adding Principal documents to each series in section "acts.in_force"
+[2022-08-12 09:47:06,554] - DEBUG in main, main(): Sending sections: ['constitution', 'acts.in_force']
+[2022-08-12 09:47:06,554] - DEBUG in utils.legislation_crawler, main(): Retrieved full config: {'base_url': 'https://www.legislation.gov.au', 'index_urls': {'prefix': 'Browse', 'constitution': 'ByTitle/Constitution/InForce', 'acts': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'legislative_instruments': {'prefix': 'ByTitle/LegislativeInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending', 'open_to_disallowance': 'OpentoDisallowance', 'disallowed': 'Disallowed'}, 'notifiable_instruments': {'prefix': 'ByTitle/NotifiableInstruments', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}, 'gazettes': 'ByTitle/Gazettes/InForce', 'bills': 'ByTitle/Bills/Asmade', 'administrative_arrangements_orders': {'prefix': 'ByRegDate/AdministrativeArrangementsOrders', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}, 'norfolk_island_legislation': {'prefix': 'ByTitle/NorfolkIslandLegislation', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce'}, 'prerogative_instruments': {'prefix': 'ByTitle/PrerogativeInstruments', 'in_force': 'InForce', 'no_longer_in_force': 'NoLongerInForce', 'as_made': 'Asmade'}}, 'series_url': {'prefix': 'Series'}, 'download_url': {'prefix': 'Details', 'suffix': 'Download'}, 'other_content': {'historic_gazettes': 'Content/HistoricGazettes'}}
+[2022-08-12 09:47:06,554] - DEBUG in utils.legislation_crawler, main(): Extracted common config: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}}
+[2022-08-12 09:47:06,554] - DEBUG in utils.legislation_crawler, main(): Built crawl config for piece constitution: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:47:06,554] - DEBUG in utils.legislation_crawler, main(): Crawling these page types: ['details']
+[2022-08-12 09:47:06,554] - DEBUG in utils.legislation_crawler, crawl_section(): Fetching details URLs for section "constitution" with configs: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': 'ByTitle/Constitution/InForce'}
+[2022-08-12 09:47:06,556] - DEBUG in utils.legislation_crawler, crawl_section(): Page type details URLs passed along: ['https://www.legislation.gov.au/Details/C2004Q00685/Download', 'https://www.legislation.gov.au/Details/C2021Q00024/Download', 'https://www.legislation.gov.au/Details/C2021Q00025/Download', 'https://www.legislation.gov.au/Details/C2021Q00026/Download', 'https://www.legislation.gov.au/Details/C2021Q00027/Download', 'https://www.legislation.gov.au/Details/C2004C00469/Download', 'https://www.legislation.gov.au/Details/C2013Q00005/Download']
+[2022-08-12 09:47:06,556] - DEBUG in utils.legislation_crawler, main(): Built crawl config for piece acts: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}}
+[2022-08-12 09:47:06,556] - DEBUG in utils.legislation_crawler, main(): Crawling these page types: ['details']
+[2022-08-12 09:47:06,556] - DEBUG in utils.legislation_crawler, crawl_section(): Fetching details URLs for section "acts.in_force" with configs: {'base_url': 'https://www.legislation.gov.au', 'index_url': {'prefix': 'Browse'}, 'section_urls': {'series': {'prefix': 'Series'}, 'details': {'prefix': 'Details', 'suffix': 'Download'}}, 'section': {'prefix': 'ByTitle/Acts', 'in_force': 'InForce/0/0/Principal', 'in_force_amending': 'InForce/0/0/Amending', 'no_longer_in_force': 'NoLongerInForce/0/0/Principal', 'no_longer_in_force_amending': 'NoLongerInForce/0/0/Amending', 'as_made': 'Asmade/0/0/Principal', 'as_made_amending': 'Asmade/0/0/Amending'}}
+[2022-08-12 09:47:06,559] - DEBUG in utils.legislation_crawler, crawl_section(): Page type details URLs passed along: ['https://www.legislation.gov.au/Details/C2017A00043/Download', 'https://www.legislation.gov.au/Details/C2018C00117/Download', 'https://www.legislation.gov.au/Details/C2021C00336/Download', 'https://www.legislation.gov.au/Details/C2004A00467/Download', 'https://www.legislation.gov.au/Details/C2004C01410/Download', 'https://www.legislation.gov.au/Details/C2004C01411/Download', 'https://www.legislation.gov.au/Details/C2004C01412/Download', 'https://www.legislation.gov.au/Details/C2004C01413/Download', 'https://www.legislation.gov.au/Details/C2004C01047/Download', 'https://www.legislation.gov.au/Details/C2005C00395/Download', 'https://www.legislation.gov.au/Details/C2006C00427/Download', 'https://www.legislation.gov.au/Details/C2006C00506/Download', 'https://www.legislation.gov.au/Details/C2007C00602/Download', 'https://www.legislation.gov.au/Details/C2008C00497/Download', 'https://www.legislation.gov.au/Details/C2009C00285/Download', 'https://www.legislation.gov.au/Details/C2009C00456/Download', 'https://www.legislation.gov.au/Details/C2010C00251/Download', 'https://www.legislation.gov.au/Details/C2010C00853/Download', 'https://www.legislation.gov.au/Details/C2011C00332/Download', 'https://www.legislation.gov.au/Details/C2012C00061/Download', 'https://www.legislation.gov.au/Details/C2012C00395/Download', 'https://www.legislation.gov.au/Details/C2013C00016/Download', 'https://www.legislation.gov.au/Details/C2013C00222/Download', 'https://www.legislation.gov.au/Details/C2014C00356/Download', 'https://www.legislation.gov.au/Details/C2015C00037/Download', 'https://www.legislation.gov.au/Details/C2016C00714/Download', 'https://www.legislation.gov.au/Details/C2016C00996/Download', 'https://www.legislation.gov.au/Details/C2016C01136/Download', 'https://www.legislation.gov.au/Details/C2019C00051/Download', 'https://www.legislation.gov.au/Details/C2022C00188/Download', 'https://www.legislation.gov.au/Details/C2004A00490/Download', 'https://www.legislation.gov.au/Details/C2004C01440/Download', 'https://www.legislation.gov.au/Details/C2004C01442/Download', 'https://www.legislation.gov.au/Details/C2004C01443/Download', 'https://www.legislation.gov.au/Details/C2004C01444/Download', 'https://www.legislation.gov.au/Details/C2004C01445/Download', 'https://www.legislation.gov.au/Details/C2004C01446/Download', 'https://www.legislation.gov.au/Details/C2004C01448/Download', 'https://www.legislation.gov.au/Details/C2004C01450/Download', 'https://www.legislation.gov.au/Details/C2004C01451/Download', 'https://www.legislation.gov.au/Details/C2004C01453/Download', 'https://www.legislation.gov.au/Details/C2005C00246/Download', 'https://www.legislation.gov.au/Details/C2005C00422/Download', 'https://www.legislation.gov.au/Details/C2005C00480/Download', 'https://www.legislation.gov.au/Details/C2005C00735/Download', 'https://www.legislation.gov.au/Details/C2006C00240/Download', 'https://www.legislation.gov.au/Details/C2006C00402/Download', 'https://www.legislation.gov.au/Details/C2006C00607/Download', 'https://www.legislation.gov.au/Details/C2007C00184/Download', 'https://www.legislation.gov.au/Details/C2007C00435/Download', 'https://www.legislation.gov.au/Details/C2007C00508/Download', 'https://www.legislation.gov.au/Details/C2008C00011/Download', 'https://www.legislation.gov.au/Details/C2008C00300/Download', 'https://www.legislation.gov.au/Details/C2008C00646/Download', 'https://www.legislation.gov.au/Details/C2009C00006/Download', 'https://www.legislation.gov.au/Details/C2009C00097/Download', 'https://www.legislation.gov.au/Details/C2009C00161/Download', 'https://www.legislation.gov.au/Details/C2009C00262/Download', 'https://www.legislation.gov.au/Details/C2009C00385/Download', 'https://www.legislation.gov.au/Details/C2010C00004/Download', 'https://www.legislation.gov.au/Details/C2010C00340/Download', 'https://www.legislation.gov.au/Details/C2010C00531/Download', 'https://www.legislation.gov.au/Details/C2010C00698/Download', 'https://www.legislation.gov.au/Details/C2011C00011/Download', 'https://www.legislation.gov.au/Details/C2011C00338/Download', 'https://www.legislation.gov.au/Details/C2011C00401/Download', 'https://www.legislation.gov.au/Details/C2011C00559/Download', 'https://www.legislation.gov.au/Details/C2011C00616/Download', 'https://www.legislation.gov.au/Details/C2011C00643/Download', 'https://www.legislation.gov.au/Details/C2011C00655/Download', 'https://www.legislation.gov.au/Details/C2011C00759/Download', 'https://www.legislation.gov.au/Details/C2012C00187/Download', 'https://www.legislation.gov.au/Details/C2012C00456/Download', 'https://www.legislation.gov.au/Details/C2012C00493/Download', 'https://www.legislation.gov.au/Details/C2012C00502/Download', 'https://www.legislation.gov.au/Details/C2012C00574/Download', 'https://www.legislation.gov.au/Details/C2012C00660/Download', 'https://www.legislation.gov.au/Details/C2012C00668/Download', 'https://www.legislation.gov.au/Details/C2012C00912/Download', 'https://www.legislation.gov.au/Details/C2013C00028/Download', 'https://www.legislation.gov.au/Details/C2013C00631/Download', 'https://www.legislation.gov.au/Details/C2013C00649/Download', 'https://www.legislation.gov.au/Details/C2014C00061/Download', 'https://www.legislation.gov.au/Details/C2014C00157/Download', 'https://www.legislation.gov.au/Details/C2014C00170/Download', 'https://www.legislation.gov.au/Details/C2014C00220/Download', 'https://www.legislation.gov.au/Details/C2014C00365/Download', 'https://www.legislation.gov.au/Details/C2014C00465/Download', 'https://www.legislation.gov.au/Details/C2014C00645/Download', 'https://www.legislation.gov.au/Details/C2014C00800/Download', 'https://www.legislation.gov.au/Details/C2014C00805/Download', 'https://www.legislation.gov.au/Details/C2015C00360/Download', 'https://www.legislation.gov.au/Details/C2015C00519/Download', 'https://www.legislation.gov.au/Details/C2016C00065/Download', 'https://www.legislation.gov.au/Details/C2016C00229/Download', 'https://www.legislation.gov.au/Details/C2016C00444/Download', 'https://www.legislation.gov.au/Details/C2016C00681/Download', 'https://www.legislation.gov.au/Details/C2016C00909/Download', 'https://www.legislation.gov.au/Details/C2017C00006/Download', 'https://www.legislation.gov.au/Details/C2017C00014/Download', 'https://www.legislation.gov.au/Details/C2017C00092/Download', 'https://www.legislation.gov.au/Details/C2017C00137/Download', 'https://www.legislation.gov.au/Details/C2017C00139/Download', 'https://www.legislation.gov.au/Details/C2017C00232/Download', 'https://www.legislation.gov.au/Details/C2017C00264/Download', 'https://www.legislation.gov.au/Details/C2018C00148/Download', 'https://www.legislation.gov.au/Details/C2018C00170/Download', 'https://www.legislation.gov.au/Details/C2018C00208/Download', 'https://www.legislation.gov.au/Details/C2018C00271/Download', 'https://www.legislation.gov.au/Details/C2018C00283/Download', 'https://www.legislation.gov.au/Details/C2019C00037/Download', 'https://www.legislation.gov.au/Details/C2019C00227/Download', 'https://www.legislation.gov.au/Details/C2020C00031/Download', 'https://www.legislation.gov.au/Details/C2020C00061/Download', 'https://www.legislation.gov.au/Details/C2020C00109/Download', 'https://www.legislation.gov.au/Details/C2020C00129/Download', 'https://www.legislation.gov.au/Details/C2020C00214/Download', 'https://www.legislation.gov.au/Details/C2020C00259/Download', 'https://www.legislation.gov.au/Details/C2020C00349/Download', 'https://www.legislation.gov.au/Details/C2020C00369/Download', 'https://www.legislation.gov.au/Details/C2021C00082/Download', 'https://www.legislation.gov.au/Details/C2021C00164/Download', 'https://www.legislation.gov.au/Details/C2021C00283/Download', 'https://www.legislation.gov.au/Details/C2021C00580/Download', 'https://www.legislation.gov.au/Details/C2022C00053/Download', 'https://www.legislation.gov.au/Details/C2022C00125/Download', 'https://www.legislation.gov.au/Details/C2004A00491/Download', 'https://www.legislation.gov.au/Details/C2004C01421/Download', 'https://www.legislation.gov.au/Details/C2004C01422/Download', 'https://www.legislation.gov.au/Details/C2004C01423/Download', 'https://www.legislation.gov.au/Details/C2004C01425/Download', 'https://www.legislation.gov.au/Details/C2004C01427/Download', 'https://www.legislation.gov.au/Details/C2004C01428/Download', 'https://www.legislation.gov.au/Details/C2004C01430/Download', 'https://www.legislation.gov.au/Details/C2004C01431/Download', 'https://www.legislation.gov.au/Details/C2004C01433/Download', 'https://www.legislation.gov.au/Details/C2004C01057/Download', 'https://www.legislation.gov.au/Details/C2005C00038/Download', 'https://www.legislation.gov.au/Details/C2005C00253/Download', 'https://www.legislation.gov.au/Details/C2005C00419/Download', 'https://www.legislation.gov.au/Details/C2005C00565/Download', 'https://www.legislation.gov.au/Details/C2005C00590/Download', 'https://www.legislation.gov.au/Details/C2006C00004/Download', 'https://www.legislation.gov.au/Details/C2006C00024/Download', 'https://www.legislation.gov.au/Details/C2006C00244/Download', 'https://www.legislation.gov.au/Details/C2006C00365/Download', 'https://www.legislation.gov.au/Details/C2006C00467/Download', 'https://www.legislation.gov.au/Details/C2006C00606/Download', 'https://www.legislation.gov.au/Details/C2007C00476/Download', 'https://www.legislation.gov.au/Details/C2007C00509/Download', 'https://www.legislation.gov.au/Details/C2008C00275/Download', 'https://www.legislation.gov.au/Details/C2008C00645/Download', 'https://www.legislation.gov.au/Details/C2009C00023/Download', 'https://www.legislation.gov.au/Details/C2009C00096/Download', 'https://www.legislation.gov.au/Details/C2009C00399/Download', 'https://www.legislation.gov.au/Details/C2009C00585/Download', 'https://www.legislation.gov.au/Details/C2010C00024/Download', 'https://www.legislation.gov.au/Details/C2010C00117/Download', 'https://www.legislation.gov.au/Details/C2010C00338/Download', 'https://www.legislation.gov.au/Details/C2010C00350/Download', 'https://www.legislation.gov.au/Details/C2010C00432/Download', 'https://www.legislation.gov.au/Details/C2010C00529/Download', 'https://www.legislation.gov.au/Details/C2010C00699/Download', 'https://www.legislation.gov.au/Details/C2011C00010/Download', 'https://www.legislation.gov.au/Details/C2011C00357/Download', 'https://www.legislation.gov.au/Details/C2011C00405/Download', 'https://www.legislation.gov.au/Details/C2011C00560/Download', 'https://www.legislation.gov.au/Details/C2011C00620/Download', 'https://www.legislation.gov.au/Details/C2011C00676/Download', 'https://www.legislation.gov.au/Details/C2011C00680/Download', 'https://www.legislation.gov.au/Details/C2011C00864/Download', 'https://www.legislation.gov.au/Details/C2012C00145/Download', 'https://www.legislation.gov.au/Details/C2012C00438/Download', 'https://www.legislation.gov.au/Details/C2012C00491/Download', 'https://www.legislation.gov.au/Details/C2012C00498/Download', 'https://www.legislation.gov.au/Details/C2012C00569/Download', 'https://www.legislation.gov.au/Details/C2012C00661/Download', 'https://www.legislation.gov.au/Details/C2012C00895/Download', 'https://www.legislation.gov.au/Details/C2012C00900/Download', 'https://www.legislation.gov.au/Details/C2012C00925/Download', 'https://www.legislation.gov.au/Details/C2013C00030/Download', 'https://www.legislation.gov.au/Details/C2013C00193/Download', 'https://www.legislation.gov.au/Details/C2013C00526/Download', 'https://www.legislation.gov.au/Details/C2013C00533/Download', 'https://www.legislation.gov.au/Details/C2013C00537/Download', 'https://www.legislation.gov.au/Details/C2014C00059/Download', 'https://www.legislation.gov.au/Details/C2014C00078/Download', 'https://www.legislation.gov.au/Details/C2014C00158/Download', 'https://www.legislation.gov.au/Details/C2014C00171/Download', 'https://www.legislation.gov.au/Details/C2014C00271/Download', 'https://www.legislation.gov.au/Details/C2014C00401/Download', 'https://www.legislation.gov.au/Details/C2014C00642/Download', 'https://www.legislation.gov.au/Details/C2014C00655/Download', 'https://www.legislation.gov.au/Details/C2014C00804/Download', 'https://www.legislation.gov.au/Details/C2014C00696/Download', 'https://www.legislation.gov.au/Details/C2015C00098/Download', 'https://www.legislation.gov.au/Details/C2015C00367/Download', 'https://www.legislation.gov.au/Details/C2015C00547/Download', 'https://www.legislation.gov.au/Details/C2015C00567/Download', 'https://www.legislation.gov.au/Details/C2016C00191/Download', 'https://www.legislation.gov.au/Details/C2016C00238/Download', 'https://www.legislation.gov.au/Details/C2016C00449/Download', 'https://www.legislation.gov.au/Details/C2016C00715/Download', 'https://www.legislation.gov.au/Details/C2016C00984/Download', 'https://www.legislation.gov.au/Details/C2016C01146/Download', 'https://www.legislation.gov.au/Details/C2017C00002/Download', 'https://www.legislation.gov.au/Details/C2017C00029/Download', 'https://www.legislation.gov.au/Details/C2017C00132/Download', 'https://www.legislation.gov.au/Details/C2017C00225/Download', 'https://www.legislation.gov.au/Details/C2018C00135/Download', 'https://www.legislation.gov.au/Details/C2018C00267/Download', 'https://www.legislation.gov.au/Details/C2018C00288/Download', 'https://www.legislation.gov.au/Details/C2019C00221/Download', 'https://www.legislation.gov.au/Details/C2020C00004/Download', 'https://www.legislation.gov.au/Details/C2020C00035/Download', 'https://www.legislation.gov.au/Details/C2020C00038/Download', 'https://www.legislation.gov.au/Details/C2020C00071/Download', 'https://www.legislation.gov.au/Details/C2020C00134/Download', 'https://www.legislation.gov.au/Details/C2020C00150/Download', 'https://www.legislation.gov.au/Details/C2020C00154/Download', 'https://www.legislation.gov.au/Details/C2020C00232/Download', 'https://www.legislation.gov.au/Details/C2020C00306/Download', 'https://www.legislation.gov.au/Details/C2020C00357/Download', 'https://www.legislation.gov.au/Details/C2020C00380/Download', 'https://www.legislation.gov.au/Details/C2020C00390/Download', 'https://www.legislation.gov.au/Details/C2020C00403/Download', 'https://www.legislation.gov.au/Details/C2021C00170/Download', 'https://www.legislation.gov.au/Details/C2021C00186/Download', 'https://www.legislation.gov.au/Details/C2021C00301/Download', 'https://www.legislation.gov.au/Details/C2021C00427/Download', 'https://www.legislation.gov.au/Details/C2021C00590/Download', 'https://www.legislation.gov.au/Details/C2022C00120/Download', 'https://www.legislation.gov.au/Details/C2004A00637/Download', 'https://www.legislation.gov.au/Details/C2004C01419/Download', 'https://www.legislation.gov.au/Details/C2004C01310/Download', 'https://www.legislation.gov.au/Details/C2004A00446/Download', 'https://www.legislation.gov.au/Details/C2004C01461/Download', 'https://www.legislation.gov.au/Details/C2004C01462/Download', 'https://www.legislation.gov.au/Details/C2004C01463/Download', 'https://www.legislation.gov.au/Details/C2004C01465/Download', 'https://www.legislation.gov.au/Details/C2004C01467/Download', 'https://www.legislation.gov.au/Details/C2004C01470/Download', 'https://www.legislation.gov.au/Details/C2004C01471/Download', 'https://www.legislation.gov.au/Details/C2004C01472/Download', 'https://www.legislation.gov.au/Details/C2004C01029/Download', 'https://www.legislation.gov.au/Details/C2005C00022/Download', 'https://www.legislation.gov.au/Details/C2005C00088/Download', 'https://www.legislation.gov.au/Details/C2005C00242/Download', 'https://www.legislation.gov.au/Details/C2005C00273/Download', 'https://www.legislation.gov.au/Details/C2005C00433/Download', 'https://www.legislation.gov.au/Details/C2005C00474/Download', 'https://www.legislation.gov.au/Details/C2006C00183/Download', 'https://www.legislation.gov.au/Details/C2006C00378/Download', 'https://www.legislation.gov.au/Details/C2006C00449/Download', 'https://www.legislation.gov.au/Details/C2006C00509/Download', 'https://www.legislation.gov.au/Details/C2006C00634/Download', 'https://www.legislation.gov.au/Details/C2007C00077/Download', 'https://www.legislation.gov.au/Details/C2007C00203/Download', 'https://www.legislation.gov.au/Details/C2007C00278/Download', 'https://www.legislation.gov.au/Details/C2007C00431/Download', 'https://www.legislation.gov.au/Details/C2007C00599/Download', 'https://www.legislation.gov.au/Details/C2008C00543/Download', 'https://www.legislation.gov.au/Details/C2008C00664/Download', 'https://www.legislation.gov.au/Details/C2009C00160/Download', 'https://www.legislation.gov.au/Details/C2009C00219/Download', 'https://www.legislation.gov.au/Details/C2009C00593/Download', 'https://www.legislation.gov.au/Details/C2010C00131/Download', 'https://www.legislation.gov.au/Details/C2010C00290/Download', 'https://www.legislation.gov.au/Details/C2010C00377/Download', 'https://www.legislation.gov.au/Details/C2010C00526/Download', 'https://www.legislation.gov.au/Details/C2010C00803/Download', 'https://www.legislation.gov.au/Details/C2011C00275/Download', 'https://www.legislation.gov.au/Details/C2011C00497/Download', 'https://www.legislation.gov.au/Details/C2012C00379/Download', 'https://www.legislation.gov.au/Details/C2012C00412/Download', 'https://www.legislation.gov.au/Details/C2012C00468/Download', 'https://www.legislation.gov.au/Details/C2012C00481/Download', 'https://www.legislation.gov.au/Details/C2012C00603/Download', 'https://www.legislation.gov.au/Details/C2012C00669/Download', 'https://www.legislation.gov.au/Details/C2012C00724/Download', 'https://www.legislation.gov.au/Details/C2013C00097/Download', 'https://www.legislation.gov.au/Details/C2013C00117/Download', 'https://www.legislation.gov.au/Details/C2013C00405/Download', 'https://www.legislation.gov.au/Details/C2013C00441/Download', 'https://www.legislation.gov.au/Details/C2013C00450/Download', 'https://www.legislation.gov.au/Details/C2014C00008/Download', 'https://www.legislation.gov.au/Details/C2014C00187/Download', 'https://www.legislation.gov.au/Details/C2014C00458/Download', 'https://www.legislation.gov.au/Details/C2014C00681/Download', 'https://www.legislation.gov.au/Details/C2014C00699/Download', 'https://www.legislation.gov.au/Details/C2015C00046/Download', 'https://www.legislation.gov.au/Details/C2015C00142/Download', 'https://www.legislation.gov.au/Details/C2015C00204/Download', 'https://www.legislation.gov.au/Details/C2015C00284/Download', 'https://www.legislation.gov.au/Details/C2015C00352/Download', 'https://www.legislation.gov.au/Details/C2016C00202/Download', 'https://www.legislation.gov.au/Details/C2016C00695/Download', 'https://www.legislation.gov.au/Details/C2017C00033/Download', 'https://www.legislation.gov.au/Details/C2017C00122/Download', 'https://www.legislation.gov.au/Details/C2017C00127/Download', 'https://www.legislation.gov.au/Details/C2017C00163/Download', 'https://www.legislation.gov.au/Details/C2017C00204/Download', 'https://www.legislation.gov.au/Details/C2017C00218/Download', 'https://www.legislation.gov.au/Details/C2017C00361/Download', 'https://www.legislation.gov.au/Details/C2018C00102/Download', 'https://www.legislation.gov.au/Details/C2018C00285/Download', 'https://www.legislation.gov.au/Details/C2019C00140/Download', 'https://www.legislation.gov.au/Details/C2019C00276/Download', 'https://www.legislation.gov.au/Details/C2019C00310/Download', 'https://www.legislation.gov.au/Details/C2020C00067/Download', 'https://www.legislation.gov.au/Details/C2020C00143/Download', 'https://www.legislation.gov.au/Details/C2020C00285/Download', 'https://www.legislation.gov.au/Details/C2020C00334/Download', 'https://www.legislation.gov.au/Details/C2021C00073/Download', 'https://www.legislation.gov.au/Details/C2021C00398/Download', 'https://www.legislation.gov.au/Details/C2022C00049/Download', 'https://www.legislation.gov.au/Details/C2022C00064/Download', 'https://www.legislation.gov.au/Details/C2022C00193/Download', 'https://www.legislation.gov.au/Details/C2005A00001/Download', 'https://www.legislation.gov.au/Details/C2005A00002/Download', 'https://www.legislation.gov.au/Details/C2005A00003/Download', 'https://www.legislation.gov.au/Details/C2004A00460/Download', 'https://www.legislation.gov.au/Details/C2005C00085/Download', 'https://www.legislation.gov.au/Details/C2005C00389/Download', 'https://www.legislation.gov.au/Details/C2004A00461/Download', 'https://www.legislation.gov.au/Details/C2005C00086/Download', 'https://www.legislation.gov.au/Details/C2005C00390/Download', 'https://www.legislation.gov.au/Details/C2004A00462/Download', 'https://www.legislation.gov.au/Details/C2005C00087/Download', 'https://www.legislation.gov.au/Details/C2005C00391/Download', 'https://www.legislation.gov.au/Details/C2004A00448/Download', 'https://www.legislation.gov.au/Details/C2004C01454/Download', 'https://www.legislation.gov.au/Details/C2004C01455/Download', 'https://www.legislation.gov.au/Details/C2004C01456/Download', 'https://www.legislation.gov.au/Details/C2004C01457/Download', 'https://www.legislation.gov.au/Details/C2004C01458/Download', 'https://www.legislation.gov.au/Details/C2004C01459/Download', 'https://www.legislation.gov.au/Details/C2004C01031/Download', 'https://www.legislation.gov.au/Details/C2005C00083/Download', 'https://www.legislation.gov.au/Details/C2006C00381/Download', 'https://www.legislation.gov.au/Details/C2006C00409/Download', 'https://www.legislation.gov.au/Details/C2006C00523/Download', 'https://www.legislation.gov.au/Details/C2009C00517/Download', 'https://www.legislation.gov.au/Details/C2017C00021/Download', 'https://www.legislation.gov.au/Details/C2004A00463/Download', 'https://www.legislation.gov.au/Details/C2004C01477/Download', 'https://www.legislation.gov.au/Details/C2004C01478/Download', 'https://www.legislation.gov.au/Details/C2004C01043/Download', 'https://www.legislation.gov.au/Details/C2005C00392/Download', 'https://www.legislation.gov.au/Details/C2006C00367/Download', 'https://www.legislation.gov.au/Details/C2006C00407/Download', 'https://www.legislation.gov.au/Details/C2008C00531/Download', 'https://www.legislation.gov.au/Details/C2009C00032/Download', 'https://www.legislation.gov.au/Details/C2010C00255/Download', 'https://www.legislation.gov.au/Details/C2010C00372/Download', 'https://www.legislation.gov.au/Details/C2011C00474/Download', 'https://www.legislation.gov.au/Details/C2012C00595/Download', 'https://www.legislation.gov.au/Details/C2013C00099/Download', 'https://www.legislation.gov.au/Details/C2014C00428/Download', 'https://www.legislation.gov.au/Details/C2015C00035/Download', 'https://www.legislation.gov.au/Details/C2016C00239/Download', 'https://www.legislation.gov.au/Details/C2016C00985/Download', 'https://www.legislation.gov.au/Details/C2017C00069/Download', 'https://www.legislation.gov.au/Details/C2019C00305/Download', 'https://www.legislation.gov.au/Details/C2020C00048/Download', 'https://www.legislation.gov.au/Details/C2021C00288/Download', 'https://www.legislation.gov.au/Details/C2022C00033/Download', 'https://www.legislation.gov.au/Details/C2004A00464/Download', 'https://www.legislation.gov.au/Details/C2008C00521/Download', 'https://www.legislation.gov.au/Details/C2004A00465/Download', 'https://www.legislation.gov.au/Details/C2008C00522/Download', 'https://www.legislation.gov.au/Details/C2004A00466/Download', 'https://www.legislation.gov.au/Details/C2008C00524/Download', 'https://www.legislation.gov.au/Details/C2004A04984/Download', 'https://www.legislation.gov.au/Details/C2004C07360/Download', 'https://www.legislation.gov.au/Details/C2004C07361/Download', 'https://www.legislation.gov.au/Details/C2005C00015/Download', 'https://www.legislation.gov.au/Details/C2006C00603/Download', 'https://www.legislation.gov.au/Details/C2015C00154/Download', 'https://www.legislation.gov.au/Details/C2021C00045/Download', 'https://www.legislation.gov.au/Details/C2004A05267/Download', 'https://www.legislation.gov.au/Details/C2004C07362/Download', 'https://www.legislation.gov.au/Details/C2004C07363/Download', 'https://www.legislation.gov.au/Details/C2004C07364/Download', 'https://www.legislation.gov.au/Details/C2004C00996/Download', 'https://www.legislation.gov.au/Details/C2005C00143/Download', 'https://www.legislation.gov.au/Details/C2006C00602/Download', 'https://www.legislation.gov.au/Details/C2009C00045/Download', 'https://www.legislation.gov.au/Details/C2011C00081/Download', 'https://www.legislation.gov.au/Details/C2012C00809/Download', 'https://www.legislation.gov.au/Details/C2016C00441/Download', 'https://www.legislation.gov.au/Details/C2004A04723/Download', 'https://www.legislation.gov.au/Details/C2004C01729/Download', 'https://www.legislation.gov.au/Details/C2004C01730/Download', 'https://www.legislation.gov.au/Details/C2004C01732/Download', 'https://www.legislation.gov.au/Details/C2004C01733/Download', 'https://www.legislation.gov.au/Details/C2004C01734/Download', 'https://www.legislation.gov.au/Details/C2004C01735/Download', 'https://www.legislation.gov.au/Details/C2004C01737/Download', 'https://www.legislation.gov.au/Details/C2004C01738/Download', 'https://www.legislation.gov.au/Details/C2004C00816/Download', 'https://www.legislation.gov.au/Details/C2005C00045/Download', 'https://www.legislation.gov.au/Details/C2005C00266/Download', 'https://www.legislation.gov.au/Details/C2005C00459/Download', 'https://www.legislation.gov.au/Details/C2007C00437/Download', 'https://www.legislation.gov.au/Details/C2010C00508/Download', 'https://www.legislation.gov.au/Details/C2010C00762/Download', 'https://www.legislation.gov.au/Details/C2011C00054/Download', 'https://www.legislation.gov.au/Details/C2011C00119/Download', 'https://www.legislation.gov.au/Details/C2011C00557/Download', 'https://www.legislation.gov.au/Details/C2012C00004/Download', 'https://www.legislation.gov.au/Details/C2012C00810/Download', 'https://www.legislation.gov.au/Details/C2014C00318/Download', 'https://www.legislation.gov.au/Details/C2014C00493/Download', 'https://www.legislation.gov.au/Details/C2015C00113/Download', 'https://www.legislation.gov.au/Details/C2016C00013/Download', 'https://www.legislation.gov.au/Details/C2016C00255/Download', 'https://www.legislation.gov.au/Details/C2016C00459/Download', 'https://www.legislation.gov.au/Details/C2016C00999/Download', 'https://www.legislation.gov.au/Details/C2022C00027/Download', 'https://www.legislation.gov.au/Details/C2022C00121/Download', 'https://www.legislation.gov.au/Details/C2022C00173/Download', 'https://www.legislation.gov.au/Details/C2004A00779/Download', 'https://www.legislation.gov.au/Details/C2005C00177/Download', 'https://www.legislation.gov.au/Details/C2005C00438/Download', 'https://www.legislation.gov.au/Details/C2007C00560/Download', 'https://www.legislation.gov.au/Details/C2011C00319/Download', 'https://www.legislation.gov.au/Details/C2012C00365/Download', 'https://www.legislation.gov.au/Details/C2013C00445/Download', 'https://www.legislation.gov.au/Details/C2014C00513/Download', 'https://www.legislation.gov.au/Details/C2016C00881/Download', 'https://www.legislation.gov.au/Details/C2021C00262/Download', 'https://www.legislation.gov.au/Details/C2021C00477/Download']
+[2022-08-14 08:58:24,735] - DEBUG in main, main(): Sending sections: ['constitution', 'acts.in_force']
+[2022-08-14 09:08:13,856] - DEBUG in main, main(): Sending sections: ['constitution', 'acts.in_force']
+[2022-08-14 09:08:13,859] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation)
+[2022-08-14 09:08:13,870] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.6 (main, Aug  8 2022, 04:20:17) [Clang 13.1.6 (clang-1316.0.21.2.5)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-12.5-arm64-arm-64bit
+[2022-08-14 09:08:13,872] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}
+[2022-08-14 09:08:13,874] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor
+[2022-08-14 09:08:13,884] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: cfc1dc1e75e7d498
+[2022-08-14 09:08:13,905] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+[2022-08-14 09:08:13,958] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+[2022-08-14 09:08:13,960] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+[2022-08-14 09:08:13,960] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['utils.scrapy_helper.LegislationPipeline']
+[2022-08-14 09:08:13,960] - INFO in scrapy.core.engine, open_spider(): Spider opened
+[2022-08-14 09:08:13,999] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+[2022-08-14 09:08:13,999] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023
+[2022-08-14 09:08:14,788] - DEBUG in scrapy.downloadermiddlewares.redirect, _redirect(): Redirecting (301) to <GET https://reference-desk.net/robots.txt> from <GET http://reference-desk.net/robots.txt>
+[2022-08-14 09:08:14,789] - WARNING in py.warnings, _showwarnmsg(): /Users/gwyn/GitHub/aussie_politics/.venv/lib/python3.10/site-packages/scrapy/core/engine.py:276: ScrapyDeprecationWarning: Passing a 'spider' argument to ExecutionEngine.download is deprecated
+  return self.download(result, spider) if isinstance(result, Request) else result
+
+[2022-08-14 09:08:18,533] - DEBUG in scrapy.core.engine, _on_success(): Crawled (404) <GET https://reference-desk.net/robots.txt> (referer: None)
+[2022-08-14 09:08:22,121] - DEBUG in scrapy.downloadermiddlewares.redirect, _redirect(): Redirecting (301) to <GET https://reference-desk.net/> from <GET http://reference-desk.net>
+[2022-08-14 09:08:26,702] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://reference-desk.net/> (referer: None)
+[2022-08-14 09:08:26,839] - INFO in utils.legislation.spiders.pages, parse(): This URL is: https://reference-desk.net/
+[2022-08-14 09:08:26,842] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://reference-desk.net/>
+None
+[2022-08-14 09:08:26,844] - INFO in scrapy.core.engine, close_spider(): Closing spider (finished)
+[2022-08-14 09:08:26,845] - INFO in scrapy.statscollectors, close_spider(): Dumping Scrapy stats:
+{'downloader/request_bytes': 892,
+ 'downloader/request_count': 4,
+ 'downloader/request_method_count/GET': 4,
+ 'downloader/response_bytes': 2285,
+ 'downloader/response_count': 4,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/301': 2,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 12.845692,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 8, 14, 1, 8, 26, 845183),
+ 'httpcompression/response_bytes': 1811,
+ 'httpcompression/response_count': 1,
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 6,
+ 'log_count/INFO': 11,
+ 'log_count/WARNING': 1,
+ 'memusage/max': 65175552,
+ 'memusage/startup': 65175552,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/404': 1,
+ 'scheduler/dequeued': 2,
+ 'scheduler/dequeued/memory': 2,
+ 'scheduler/enqueued': 2,
+ 'scheduler/enqueued/memory': 2,
+ 'start_time': datetime.datetime(2022, 8, 14, 1, 8, 13, 999491)}
+[2022-08-14 09:08:26,845] - INFO in scrapy.core.engine, <lambda>(): Spider closed (finished)
+[2022-08-14 09:12:04,649] - DEBUG in main, main(): Sending sections: ['constitution', 'acts.in_force']
+[2022-08-14 09:12:04,652] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation)
+[2022-08-14 09:12:04,660] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.6 (main, Aug  8 2022, 04:20:17) [Clang 13.1.6 (clang-1316.0.21.2.5)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-12.5-arm64-arm-64bit
+[2022-08-14 09:12:04,662] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}
+[2022-08-14 09:12:04,663] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor
+[2022-08-14 09:12:04,667] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: 55bf7acf91897b13
+[2022-08-14 09:12:04,671] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+[2022-08-14 09:12:04,701] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+[2022-08-14 09:12:04,702] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+[2022-08-14 09:12:04,702] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['utils.scrapy_helper.LegislationPipeline']
+[2022-08-14 09:12:04,702] - INFO in scrapy.core.engine, open_spider(): Spider opened
+[2022-08-14 09:12:04,734] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+[2022-08-14 09:12:04,734] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023
+[2022-08-14 09:12:05,189] - DEBUG in scrapy.downloadermiddlewares.redirect, _redirect(): Redirecting (301) to <GET https://reference-desk.net/robots.txt> from <GET http://reference-desk.net/robots.txt>
+[2022-08-14 09:12:05,194] - WARNING in py.warnings, _showwarnmsg(): /Users/gwyn/GitHub/aussie_politics/.venv/lib/python3.10/site-packages/scrapy/core/engine.py:276: ScrapyDeprecationWarning: Passing a 'spider' argument to ExecutionEngine.download is deprecated
+  return self.download(result, spider) if isinstance(result, Request) else result
+
+[2022-08-14 09:12:08,947] - DEBUG in scrapy.core.engine, _on_success(): Crawled (404) <GET https://reference-desk.net/robots.txt> (referer: None)
+[2022-08-14 09:12:12,906] - DEBUG in scrapy.downloadermiddlewares.redirect, _redirect(): Redirecting (301) to <GET https://reference-desk.net/> from <GET http://reference-desk.net>
+[2022-08-14 09:12:17,433] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://reference-desk.net/> (referer: None)
+[2022-08-14 09:12:17,556] - INFO in utils.legislation.spiders.pages, parse(): This URL is: https://reference-desk.net/
+[2022-08-14 09:12:17,560] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://reference-desk.net/>
+None
+[2022-08-14 09:12:17,563] - INFO in scrapy.core.engine, close_spider(): Closing spider (finished)
+[2022-08-14 09:12:17,564] - INFO in scrapy.statscollectors, close_spider(): Dumping Scrapy stats:
+{'downloader/request_bytes': 892,
+ 'downloader/request_count': 4,
+ 'downloader/request_method_count/GET': 4,
+ 'downloader/response_bytes': 2285,
+ 'downloader/response_count': 4,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/301': 2,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 12.829708,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 8, 14, 1, 12, 17, 564056),
+ 'httpcompression/response_bytes': 1811,
+ 'httpcompression/response_count': 1,
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 6,
+ 'log_count/INFO': 11,
+ 'log_count/WARNING': 1,
+ 'memusage/max': 60227584,
+ 'memusage/startup': 60227584,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/404': 1,
+ 'scheduler/dequeued': 2,
+ 'scheduler/dequeued/memory': 2,
+ 'scheduler/enqueued': 2,
+ 'scheduler/enqueued/memory': 2,
+ 'start_time': datetime.datetime(2022, 8, 14, 1, 12, 4, 734348)}
+[2022-08-14 09:12:17,565] - INFO in scrapy.core.engine, <lambda>(): Spider closed (finished)
+[2022-08-14 09:15:17,112] - DEBUG in main, main(): Sending sections: ['constitution', 'acts.in_force']
+[2022-08-14 09:15:17,115] - INFO in scrapy.utils.log, log_scrapy_info(): Scrapy 2.6.1 started (bot: legislation)
+[2022-08-14 09:15:17,124] - INFO in scrapy.utils.log, log_scrapy_info(): Versions: lxml 4.9.1.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 22.4.0, Python 3.10.6 (main, Aug  8 2022, 04:20:17) [Clang 13.1.6 (clang-1316.0.21.2.5)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1n  15 Mar 2022), cryptography 36.0.2, Platform macOS-12.5-arm64-arm-64bit
+[2022-08-14 09:15:17,126] - INFO in scrapy.crawler, __init__(): Overridden settings:
+{'BOT_NAME': 'legislation',
+ 'DOWNLOAD_DELAY': 3,
+ 'NEWSPIDER_MODULE': 'utils.legislation.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['utils.legislation.spiders']}
+[2022-08-14 09:15:17,128] - DEBUG in scrapy.utils.log, log_reactor_info(): Using reactor: twisted.internet.selectreactor.SelectReactor
+[2022-08-14 09:15:17,135] - INFO in scrapy.extensions.telnet, __init__(): Telnet Password: 13c19f2fae8e8a99
+[2022-08-14 09:15:17,141] - INFO in scrapy.middleware, from_settings(): Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+[2022-08-14 09:15:17,184] - INFO in scrapy.middleware, from_settings(): Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+[2022-08-14 09:15:17,185] - INFO in scrapy.middleware, from_settings(): Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+[2022-08-14 09:15:17,185] - INFO in scrapy.middleware, from_settings(): Enabled item pipelines:
+['utils.scrapy_helper.LegislationPipeline']
+[2022-08-14 09:15:17,186] - INFO in scrapy.core.engine, open_spider(): Spider opened
+[2022-08-14 09:15:17,222] - INFO in scrapy.extensions.logstats, log(): Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+[2022-08-14 09:15:17,222] - INFO in scrapy.extensions.telnet, start_listening(): Telnet console listening on 127.0.0.1:6023
+[2022-08-14 09:15:17,872] - DEBUG in scrapy.downloadermiddlewares.redirect, _redirect(): Redirecting (301) to <GET https://reference-desk.net/robots.txt> from <GET http://reference-desk.net/robots.txt>
+[2022-08-14 09:15:17,873] - WARNING in py.warnings, _showwarnmsg(): /Users/gwyn/GitHub/aussie_politics/.venv/lib/python3.10/site-packages/scrapy/core/engine.py:276: ScrapyDeprecationWarning: Passing a 'spider' argument to ExecutionEngine.download is deprecated
+  return self.download(result, spider) if isinstance(result, Request) else result
+
+[2022-08-14 09:15:20,444] - DEBUG in scrapy.core.engine, _on_success(): Crawled (404) <GET https://reference-desk.net/robots.txt> (referer: None)
+[2022-08-14 09:15:24,112] - DEBUG in scrapy.downloadermiddlewares.redirect, _redirect(): Redirecting (301) to <GET https://reference-desk.net/> from <GET http://reference-desk.net>
+[2022-08-14 09:15:28,419] - DEBUG in scrapy.core.engine, _on_success(): Crawled (200) <GET https://reference-desk.net/> (referer: None)
+[2022-08-14 09:15:28,542] - INFO in utils.legislation.spiders.pages, parse(): This URL is: https://reference-desk.net/
+[2022-08-14 09:15:28,546] - DEBUG in scrapy.core.scraper, _itemproc_finished(): Scraped from <200 https://reference-desk.net/>
+None
+[2022-08-14 09:15:28,550] - INFO in scrapy.core.engine, close_spider(): Closing spider (finished)
+[2022-08-14 09:15:28,551] - INFO in scrapy.statscollectors, close_spider(): Dumping Scrapy stats:
+{'downloader/request_bytes': 892,
+ 'downloader/request_count': 4,
+ 'downloader/request_method_count/GET': 4,
+ 'downloader/response_bytes': 2285,
+ 'downloader/response_count': 4,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/301': 2,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 11.328762,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 8, 14, 1, 15, 28, 551151),
+ 'httpcompression/response_bytes': 1811,
+ 'httpcompression/response_count': 1,
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 6,
+ 'log_count/INFO': 11,
+ 'log_count/WARNING': 1,
+ 'memusage/max': 60293120,
+ 'memusage/startup': 60293120,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/404': 1,
+ 'scheduler/dequeued': 2,
+ 'scheduler/dequeued/memory': 2,
+ 'scheduler/enqueued': 2,
+ 'scheduler/enqueued/memory': 2,
+ 'start_time': datetime.datetime(2022, 8, 14, 1, 15, 17, 222389)}
+[2022-08-14 09:15:28,552] - INFO in scrapy.core.engine, <lambda>(): Spider closed (finished)

@@ -1,7 +1,7 @@
 import logging
 import helpers.webparser
-import utils.common
-import utils.config
+import src.common
+import src.config
 from bs4 import BeautifulSoup
 
 
@@ -29,7 +29,7 @@ def build_principal_document(document: dict) -> dict:
                     principal[col] = document['commence_date_formatted']
             case 'end_date':
                 if first_document.get('start_date'):
-                    principal[col] = utils.common.get_previous_date_string(
+                    principal[col] = src.common.get_previous_date_string(
                         first_document['start_date'])
                 else:
                     principal[col] = ''
@@ -45,11 +45,11 @@ def get_series(page_content: str):
     series_template = {}
     records = None
 
-    utils.config.set_current_metadata(series_metadata['series_pane'])
-    utils.config.set_current_page_soup(page_soup)
+    src.config.set_current_metadata(series_metadata['series_pane'])
+    src.config.set_current_page_soup(page_soup)
     series_template = fill_out_template()
 
-    utils.config.set_current_metadata(series_metadata['series_table'])
+    src.config.set_current_metadata(series_metadata['series_table'])
     records = fill_out_table_template()
 
     series_template['documents'] = records
@@ -60,8 +60,8 @@ def get_details(page_content: str):
     details_metadata = get_template('details_pane')
     page_soup = helpers.webparser.get_soup_from_text(page_content)
 
-    utils.config.set_current_metadata(details_metadata)
-    utils.config.set_current_page_soup = page_soup
+    src.config.set_current_metadata(details_metadata)
+    src.config.set_current_page_soup = page_soup
     details_template = fill_out_template()
 
     return details_template
@@ -69,10 +69,10 @@ def get_details(page_content: str):
 
 def fill_out_template(section_soup: BeautifulSoup | None = None) -> dict:
     record = {}
-    metadata_template = utils.config.current_metadata
+    metadata_template = src.config.current_metadata
 
     if not section_soup:
-        page_soup = utils.config.current_page_soup
+        page_soup = src.config.current_page_soup
 
         section_soup = check_soup_sections(metadata_template, page_soup)
         if not section_soup:
@@ -93,14 +93,14 @@ def fill_out_template(section_soup: BeautifulSoup | None = None) -> dict:
                 section_soup, field['element'])
 
         if field_text:
-            record[field['name']] = utils.common.remove_whitespace(field_text)
+            record[field['name']] = src.common.remove_whitespace(field_text)
 
     return record
 
 
 def fill_out_table_template():
-    metadata_template = utils.config.current_metadata
-    page_soup = utils.config.current_page_soup
+    metadata_template = src.config.current_metadata
+    page_soup = src.config.current_page_soup
     records = []
 
     section_soup = check_soup_sections(metadata_template, page_soup)
@@ -162,7 +162,7 @@ def order_columns(original_record: dict, column_order: list) -> dict:
         if original_record.get(column):
             if str(column).endswith('_date'):
                 print(column)
-                ordered_record[column] = utils.common.standardise_date(
+                ordered_record[column] = src.common.standardise_date(
                     original_record[column])
             else:
                 ordered_record[column] = original_record[column]
@@ -175,7 +175,7 @@ def order_columns(original_record: dict, column_order: list) -> dict:
 def get_first_document_in_series(documents: list) -> dict:
     if len(documents) > 1:
         sorted_compilations = sorted(documents, key=lambda i: (
-            i['comp_no'], utils.common.transform_string_to_date(i['start_date']), i['register_id']))
+            i['comp_no'], src.common.transform_string_to_date(i['start_date']), i['register_id']))
         first_document = sorted_compilations[0]
     elif len(documents) == 1:
         first_document = documents[0]
@@ -187,7 +187,7 @@ def get_first_document_in_series(documents: list) -> dict:
 
 def get_template(metadata_type: str) -> dict:
     try:
-        metadata_config = utils.config.site_metadata
+        metadata_config = src.config.site_metadata
         template = metadata_config.get(metadata_type)
         if not isinstance(template, dict):
             logger.exception(

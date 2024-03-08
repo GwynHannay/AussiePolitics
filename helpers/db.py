@@ -1,5 +1,5 @@
 import logging
-import utils.config
+import src.config
 from tinydb import TinyDB, Query, where
 from tinydb.operations import add, set
 
@@ -33,8 +33,8 @@ def add_to_record(records: list, series_id: str):
 
 def get_records_by_current_stage() -> list:
     return db.search(
-        (where('stage') == utils.config.current_stage) &
-        (where('section') == utils.config.current_section)  # type: ignore
+        (where('stage') == src.config.current_stage) &
+        (where('section') == src.config.current_section)  # type: ignore
     )
 
 

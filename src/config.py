@@ -50,7 +50,7 @@ def set_sections_to_crawl() -> list:
 
 
 def set_stages() -> list:
-    return ['principal']
+    return ['details']
     # return ['index', 'series', 'principal', 'details', 'download', 'diff']
 
 

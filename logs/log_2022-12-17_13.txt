@@ -1,0 +1,5 @@
+[2022-12-17 10:24:27,949] - DEBUG in main, main(): Begin crawl, None
+[2022-12-17 10:24:27,949] - INFO in src.orchestrator, main(): ---- START SECTION: constitution ----, None
+[2022-12-17 10:24:27,949] - INFO in src.orchestrator, process_website_section(): ---- BEGIN STAGE: principal ----, None
+[2022-12-17 10:24:27,949] - INFO in src.orchestrator, process_website_section(): ---- ADD PRINCIPAL ----, None
+[2022-12-17 10:24:27,950] - INFO in src.series, add_principal_to_series(): Docs retrieved [], None
